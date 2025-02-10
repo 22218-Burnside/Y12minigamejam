@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_eqlbc"]
 [ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="2_e4hql"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ghbls"]
-radius = 63.6946
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdtya"]
+size = Vector2(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52cft"]
 texture = ExtResource("2_e4hql")
@@ -25,11 +25,15 @@ script = ExtResource("1_eqlbc")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="character"]
-shape = SubResource("CircleShape2D_ghbls")
+shape = SubResource("RectangleShape2D_cdtya")
 
 [node name="Sprite2D" type="Sprite2D" parent="character"]
 texture = ExtResource("2_e4hql")
 
+[node name="flip_timer" type="Timer" parent="character"]
+
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAIAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAOAAgAAAAAAAAAAAANAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAALAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAADAAgAAAAAAAAAAAACAAgAAAAAAAAAAAABAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAEAAcAAAAAAAAAAAAHAAQAAAAAAAAAAAALAAIAAAAAAAAAAAAMAAUAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_6s52x")
+
+[connection signal="timeout" from="character/flip_timer" to="character" method="_on_flip_timer_timeout"]
