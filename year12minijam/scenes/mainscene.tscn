@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=4 uid="uid://cl6r7h4nf3f4w"]
+
+[ext_resource type="Script" path="res://scripts/character.gd" id="1_eqlbc"]
+[ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="2_e4hql"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ghbls"]
+radius = 63.6946
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52cft"]
+texture = ExtResource("2_e4hql")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_6s52x"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_52cft")
+
+[node name="mainscene" type="Node2D"]
+
+[node name="character" type="CharacterBody2D" parent="."]
+position = Vector2(328, 286)
+script = ExtResource("1_eqlbc")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="character"]
+shape = SubResource("CircleShape2D_ghbls")
+
+[node name="Sprite2D" type="Sprite2D" parent="character"]
+texture = ExtResource("2_e4hql")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_6s52x")
