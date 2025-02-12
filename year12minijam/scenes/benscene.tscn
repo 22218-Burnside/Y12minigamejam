@@ -1,5 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo616ytqr3gmk"]
+[gd_scene load_steps=7 format=3 uid="uid://bo616ytqr3gmk"]
 
 [ext_resource type="PackedScene" uid="uid://6yay47wns0gu" path="res://scenes/haydenscene.tscn" id="1_c4lao"]
+[ext_resource type="Script" path="res://scripts/music.gd" id="2_w8i4s"]
+[ext_resource type="AudioStream" uid="uid://d3w4sarc1e61w" path="res://SFX/forest-ambience-level-1.mp3" id="3_52kwy"]
+[ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="3_h4i54"]
+[ext_resource type="AudioStream" uid="uid://b0b3ox35uejjl" path="res://SFX/old-mine-ambience-level-2.mp3" id="5_uaspb"]
+[ext_resource type="AudioStream" uid="uid://bwndpgxdry0id" path="res://SFX/wind-ambience-level-3.mp3" id="6_11ex6"]
 
 [node name="benscene" instance=ExtResource("1_c4lao")]
+script = ExtResource("2_w8i4s")
+
+[node name="forest" type="Button" parent="." index="3"]
+offset_left = 905.0
+offset_top = 164.0
+offset_right = 1260.0
+offset_bottom = 300.0
+text = "forest ambience
+"
+icon = ExtResource("3_h4i54")
+
+[node name="forest background" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource("3_52kwy")
+
+[node name="cave" type="Button" parent="." index="5"]
+offset_left = 1298.0
+offset_top = 166.0
+offset_right = 1612.0
+offset_bottom = 302.0
+text = "Cave ambience"
+icon = ExtResource("3_h4i54")
+
+[node name="cave background" type="AudioStreamPlayer2D" parent="." index="6"]
+position = Vector2(1298, 166)
+stream = ExtResource("5_uaspb")
+volume_db = -16.0
+
+[node name="wind" type="Button" parent="." index="7"]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="wind background" type="AudioStreamPlayer2D" parent="." index="8"]
+stream = ExtResource("6_11ex6")
+volume_db = -16.0
+
+[connection signal="pressed" from="forest" to="." method="_on_button_pressed"]
