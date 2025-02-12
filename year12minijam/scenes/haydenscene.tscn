@@ -1,14 +1,14 @@
-[gd_scene load_steps=7 format=4 uid="uid://cl6r7h4nf3f4w"]
+[gd_scene load_steps=7 format=4 uid="uid://6yay47wns0gu"]
 
-[ext_resource type="Texture2D" uid="uid://cp2t3slld6xys" path="res://sprites/Background layers/Layer_0008_3.png" id="1_ce2vx"]
-[ext_resource type="Script" path="res://scripts/character.gd" id="1_eqlbc"]
-[ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="2_e4hql"]
+[ext_resource type="Texture2D" uid="uid://cp2t3slld6xys" path="res://sprites/Background layers/Layer_0008_3.png" id="1_tjjci"]
+[ext_resource type="Script" path="res://scripts/character.gd" id="2_gjho8"]
+[ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="3_cjsn4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdtya"]
 size = Vector2(64, 64)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52cft"]
-texture = ExtResource("2_e4hql")
+texture = ExtResource("3_cjsn4")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -22,19 +22,20 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_52cft")
 
-[node name="mainscene" type="Node2D"]
+[node name="haydenscene" type="Node2D"]
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0.8)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
 texture_filter = 1
 position = Vector2(175, -246)
 scale = Vector2(4, 4)
-texture = ExtResource("1_ce2vx")
+texture = ExtResource("1_tjjci")
 
 [node name="character" type="CharacterBody2D" parent="."]
-position = Vector2(328, 286)
-script = ExtResource("1_eqlbc")
+position = Vector2(1792, 698)
+script = ExtResource("2_gjho8")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="character"]
@@ -42,7 +43,7 @@ shape = SubResource("RectangleShape2D_cdtya")
 
 [node name="Sprite2D" type="Sprite2D" parent="character"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_e4hql")
+texture = ExtResource("3_cjsn4")
 
 [node name="flip_timer" type="Timer" parent="character"]
 
