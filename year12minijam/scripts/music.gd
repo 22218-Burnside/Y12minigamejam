@@ -1,9 +1,8 @@
 extends Node2D
+# This code is testing for audio sounds and sfx when the character/wizard interacts with things.
 
-@onready var audio = $"forest background"
-@onready var audio = $"cave background"
-@onready var audio = $"wind background"
 
-func _on_button_pressed():
-	audio.play()
-	
+
+func _on_cave_pressed():
+	# teleports the character to cave, to have the cave audio autoplay test for sound.
+	get_tree().change_scene_to_file("res://scenes/cave_sound_test.tscn")

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=4 uid="uid://dxum0isg5u3dc"]
+
+[ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="1_3w117"]
+[ext_resource type="Script" path="res://scenes/cave_sound_test.gd" id="1_k7wnr"]
+[ext_resource type="AudioStream" uid="uid://b0b3ox35uejjl" path="res://SFX/old-mine-ambience-level-2.mp3" id="2_vf2km"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d6hd6"]
+texture = ExtResource("1_3w117")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:1/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7th55"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_d6hd6")
+
+[node name="cave sound test" type="Node2D"]
+script = ExtResource("1_k7wnr")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAIAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAAAAAAAAAASAAAAAAAAAAAAAAATAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAdAAAAAAAAAAAAAAAdABAAAAAAAAAAAAAcABAAAAAAAAAAAAAbABAAAAAAAAAAAAAaABAAAAAAAAAAAAAZABAAAAAAAAAAAAAYABAAAAAAAAAAAAAXABAAAAAAAAAAAAAWABAAAAAAAAAAAAAVABAAAAAAAAAAAAAUABAAAAAAAAAAAAATABAAAAAAAAAAAAASABAAAAAAAAAAAAARABAAAAAAAAAAAAAQABAAAAAAAAAAAAAPABAAAAAAAAAAAAAOABAAAAAAAAAAAAANABAAAAAAAAAAAAAMABAAAAAAAAAAAAALABAAAAAAAAAAAAAKABAAAAAAAAAAAAAJABAAAAAAAAAAAAAIABAAAAAAAAAAAAAHABAAAAAAAAAAAAAGABAAAAAAAAAAAAAFABAAAAAAAAAAAAAEABAAAAAAAAAAAAADABAAAAAAAAAAAAACABAAAAAAAAAAAAABABAAAAAAAAAAAAAAABAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_7th55")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vf2km")
+autoplay = true
+
+[node name="forest scene" type="Button" parent="."]
+offset_left = 762.0
+offset_top = 320.0
+offset_right = 898.0
+offset_bottom = 456.0
+text = "back to forest scene
+"
+icon = ExtResource("1_3w117")
+
+[connection signal="pressed" from="forest scene" to="." method="_on_forest_scene_pressed"]
