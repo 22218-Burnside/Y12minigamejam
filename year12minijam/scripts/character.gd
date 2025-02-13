@@ -3,15 +3,37 @@ extends CharacterBody2D
 var canflip = true
 var flip = 1
 const gravity = 700
-const SPEED = 6
+var SPEED = 12
+var sprint_bar = 100
+var can_sprint = true
+var running = false
+var release_sprint = true
 const JUMP_VELOCITY = -500.0
-
 
 func _physics_process(delta: float) -> void:
 	_movement(delta)
 
 
 func _movement(delta:float):
+	$sprint_amount.text = str(sprint_bar)
+	if running:
+		SPEED = 20
+		sprint_bar -= 1
+	if not running:
+		SPEED = 8
+		if sprint_bar <100:
+			sprint_bar += 0.5
+	if Input.is_action_pressed("player_sprint") and sprint_bar >5 and can_sprint and release_sprint:
+		running = true
+		release_sprint = false
+	if not Input.is_action_pressed("player_sprint") or sprint_bar <5:
+		running = false
+	if Input.is_action_just_released("player_sprint"):
+		SPEED = 8
+		can_sprint = false
+		running = false
+		release_sprint =true	
+		$sprint_timer.start(1)
 	if Input.is_action_just_pressed("player_flip") and canflip:
 		canflip = false
 		$flip_timer.start()
@@ -40,3 +62,7 @@ func _movement(delta:float):
 
 func _on_flip_timer_timeout() -> void:
 	canflip = true
+
+
+func _on_sprint_timer_timeout() -> void:
+	can_sprint = true

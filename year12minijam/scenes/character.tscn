@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhd3iid55dc7y"]
+
+[ext_resource type="Script" path="res://scripts/character.gd" id="1_mm2ev"]
+[ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="2_ixjfj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdtya"]
+size = Vector2(64, 64)
+
+[node name="character" type="CharacterBody2D"]
+position = Vector2(538, 908)
+script = ExtResource("1_mm2ev")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cdtya")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ixjfj")
+
+[node name="flip_timer" type="Timer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = -70
+limit_bottom = 1150
+
+[node name="sprint_amount" type="Label" parent="."]
+offset_left = -31.795
+offset_top = -54.13
+offset_right = 8.205
+offset_bottom = -31.13
+
+[node name="sprint_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="flip_timer" to="." method="_on_flip_timer_timeout"]
+[connection signal="timeout" from="sprint_timer" to="." method="_on_sprint_timer_timeout"]
