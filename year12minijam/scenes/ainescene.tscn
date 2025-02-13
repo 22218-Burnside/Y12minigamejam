@@ -1,5 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5uvyrtxoawp0"]
+[gd_scene load_steps=3 format=3 uid="uid://b5uvyrtxoawp0"]
 
 [ext_resource type="PackedScene" uid="uid://6yay47wns0gu" path="res://scenes/haydenscene.tscn" id="1_ji6a0"]
+[ext_resource type="Texture2D" uid="uid://cqvfstvcbbsy8" path="res://sprites/charactersprite-blue_standing.png" id="2_fsswk"]
 
 [node name="ainescene" instance=ExtResource("1_ji6a0")]
+
+[node name="Sprite2D" parent="character" index="1"]
+texture = ExtResource("2_fsswk")
