@@ -5,4 +5,4 @@
 [node name="haydentest" type="Node2D"]
 
 [node name="character" parent="." instance=ExtResource("1_x668w")]
-position = Vector2(667, 388)
+position = Vector2(309, 956)

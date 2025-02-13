@@ -134,6 +134,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("9_js00b")
 
 [node name="character" parent="." instance=ExtResource("10_214d7")]
+position = Vector2(110.295, 232.785)
 
 [node name="parallax_front" type="Node2D" parent="."]
 position = Vector2(0, -320)

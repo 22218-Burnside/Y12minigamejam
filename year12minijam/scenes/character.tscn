@@ -1,13 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhd3iid55dc7y"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_mm2ev"]
-[ext_resource type="Texture2D" uid="uid://btatx6q4vbftt" path="res://sprites/charactersprite-blue_standing.png" id="2_6d5mf"]
+[ext_resource type="Texture2D" uid="uid://bqy8gn6ayyt6q" path="res://sprites/charactersprite-blue_standing.png" id="2_6d5mf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87y2d"]
 size = Vector2(86, 225)
 
 [node name="character" type="CharacterBody2D"]
-position = Vector2(538, 908)
 script = ExtResource("1_mm2ev")
 metadata/_edit_group_ = true
 
