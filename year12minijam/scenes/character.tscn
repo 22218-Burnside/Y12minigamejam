@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhd3iid55dc7y"]
+
+[ext_resource type="Script" path="res://scripts/character.gd" id="1_mm2ev"]
+[ext_resource type="Texture2D" uid="uid://bqy8gn6ayyt6q" path="res://sprites/charactersprite-blue_standing.png" id="2_6d5mf"]
+[ext_resource type="Texture2D" uid="uid://dwdtekohb22t3" path="res://sprites/charactersprite-blue_falling.png" id="2_k6tld"]
+[ext_resource type="Texture2D" uid="uid://cxs6udyj5ulfq" path="res://sprites/charactersprite-blue_running1.png" id="4_2ekdf"]
+[ext_resource type="Texture2D" uid="uid://dfpwbh16dd30x" path="res://sprites/charactersprite-blue_running2.png" id="5_7qobh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87y2d"]
+size = Vector2(86, 225)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_122ca"]
+atlas = ExtResource("2_k6tld")
+region = Rect2(0, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gakq2"]
+atlas = ExtResource("2_6d5mf")
+region = Rect2(0, 0, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xib5q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_122ca")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gakq2")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Magic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("4_2ekdf")
+}, {
+"duration": 1.5,
+"texture": ExtResource("5_7qobh")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[node name="character" type="CharacterBody2D"]
+script = ExtResource("1_mm2ev")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 3.5)
+shape = SubResource("RectangleShape2D_87y2d")
+
+[node name="flip_timer" type="Timer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = -70
+limit_bottom = 1150
+
+[node name="sprint_amount" type="Label" parent="."]
+offset_left = -31.795
+offset_top = -54.13
+offset_right = 8.205
+offset_bottom = -31.13
+
+[node name="sprint_timer" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_xib5q")
+animation = &"Run"
+
+[connection signal="timeout" from="flip_timer" to="." method="_on_flip_timer_timeout"]
+[connection signal="timeout" from="sprint_timer" to="." method="_on_sprint_timer_timeout"]
