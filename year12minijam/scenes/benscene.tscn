@@ -1,12 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bo616ytqr3gmk"]
 
-
+[ext_resource type="PackedScene" uid="uid://6yay47wns0gu" path="res://scenes/forest.tscn" id="1_c4lao"]
 [ext_resource type="Script" path="res://scripts/music.gd" id="2_w8i4s"]
 [ext_resource type="AudioStream" uid="uid://c180d8flfhalx" path="res://Sound/gravity_inverted.mp3" id="3_4wo25"]
 [ext_resource type="AudioStream" uid="uid://d3w4sarc1e61w" path="res://Sound/forest_ambience.mp3" id="3_52kwy"]
 [ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="3_h4i54"]
-[ext_resource type="PackedScene" uid="uid://6yay47wns0gu" path="res://scenes/forest.tscn" id="1_c4lao"]
-
 
 [node name="benscene" instance=ExtResource("1_c4lao")]
 script = ExtResource("2_w8i4s")
