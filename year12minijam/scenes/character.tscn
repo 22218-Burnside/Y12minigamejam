@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhd3iid55dc7y"]
+[gd_scene load_steps=12 format=3 uid="uid://12p41m50rd35"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_mm2ev"]
 [ext_resource type="Texture2D" uid="uid://bqy8gn6ayyt6q" path="res://sprites/charactersprite-blue_standing.png" id="2_6d5mf"]
 [ext_resource type="Texture2D" uid="uid://dwdtekohb22t3" path="res://sprites/charactersprite-blue_falling.png" id="2_k6tld"]
 [ext_resource type="Texture2D" uid="uid://cxs6udyj5ulfq" path="res://sprites/charactersprite-blue_running1.png" id="4_2ekdf"]
 [ext_resource type="Texture2D" uid="uid://dfpwbh16dd30x" path="res://sprites/charactersprite-blue_running2.png" id="5_7qobh"]
+[ext_resource type="AudioStream" uid="uid://c180d8flfhalx" path="res://Sound/gravity_inverted.mp3" id="6_hq5da"]
+[ext_resource type="AudioStream" uid="uid://bmdqlximm3n2l" path="res://Sound/walking_forest_SFX.mp3" id="7_755m0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87y2d"]
 size = Vector2(86, 225)
@@ -84,6 +86,12 @@ offset_bottom = -31.13
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xib5q")
 animation = &"Run"
+
+[node name="gravity_inverted" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_hq5da")
+
+[node name="walking_forest" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_755m0")
 
 [connection signal="timeout" from="flip_timer" to="." method="_on_flip_timer_timeout"]
 [connection signal="timeout" from="sprint_timer" to="." method="_on_sprint_timer_timeout"]
