@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://dxum0isg5u3dc"]
 
 [ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="1_3w117"]
-[ext_resource type="Script" path="res://scenes/cave_sound_test.gd" id="1_k7wnr"]
+[ext_resource type="Script" path="res://scripts/cave_sound_test.gd" id="1_k7wnr"]
 [ext_resource type="AudioStream" uid="uid://b0b3ox35uejjl" path="res://Sound/cave_ambience.mp3" id="2_vf2km"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d6hd6"]
