@@ -1,8 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2vlt5lm7sqnd"]
+[gd_scene load_steps=5 format=3 uid="uid://c2vlt5lm7sqnd"]
 
+[ext_resource type="PackedScene" uid="uid://6yay47wns0gu" path="res://scenes/forest.tscn" id="1_1d8gp"]
 [ext_resource type="PackedScene" uid="uid://dhd3iid55dc7y" path="res://scenes/character.tscn" id="1_x668w"]
+[ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="3_ocnee"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utjh0"]
+size = Vector2(128, 128)
 
 [node name="haydentest" type="Node2D"]
 
+[node name="forest" parent="." instance=ExtResource("1_1d8gp")]
+
+[node name="character" parent="forest" index="1"]
+position = Vector2(-5000, 50000)
+
 [node name="character" parent="." instance=ExtResource("1_x668w")]
 position = Vector2(309, 956)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("3_ocnee")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_utjh0")
+
+[editable path="forest"]

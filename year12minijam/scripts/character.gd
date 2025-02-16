@@ -38,9 +38,9 @@ func _movement(delta:float):
 		canflip = false
 		$flip_timer.start()
 		if flip == 1:
-			$Sprite2D.flip_v = true
+			$AnimatedSprite2D.flip_v = true
 		else:
-			$Sprite2D.flip_v = false
+			$AnimatedSprite2D.flip_v = false
 		flip *= -1
 	# Add the gravity.
 	if not is_on_floor() and flip == 1:
@@ -50,8 +50,10 @@ func _movement(delta:float):
 	
 	if Input.is_action_pressed("player_left"):
 		position.x -= SPEED
+		$AnimatedSprite2D.flip_h = true
 	if Input.is_action_pressed("player_right"):
 		position.x += SPEED
+		$AnimatedSprite2D.flip_h = true
 	# Handle jump.
 	if Input.is_action_pressed("player_jump") and is_on_floor() and flip == 1:
 		velocity.y = JUMP_VELOCITY
