@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhd3iid55dc7y"]
+[gd_scene load_steps=10 format=3 uid="uid://dhd3iid55dc7y"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_mm2ev"]
 [ext_resource type="Texture2D" uid="uid://bqy8gn6ayyt6q" path="res://sprites/charactersprite-blue_standing.png" id="2_6d5mf"]
 [ext_resource type="Texture2D" uid="uid://dwdtekohb22t3" path="res://sprites/charactersprite-blue_falling.png" id="2_k6tld"]
+[ext_resource type="Texture2D" uid="uid://cxs6udyj5ulfq" path="res://sprites/charactersprite-blue_running1.png" id="4_2ekdf"]
+[ext_resource type="Texture2D" uid="uid://dfpwbh16dd30x" path="res://sprites/charactersprite-blue_running2.png" id="5_7qobh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87y2d"]
 size = Vector2(86, 225)
@@ -43,7 +45,13 @@ animations = [{
 "name": &"Magic",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("4_2ekdf")
+}, {
+"duration": 1.5,
+"texture": ExtResource("5_7qobh")
+}],
 "loop": true,
 "name": &"Run",
 "speed": 5.0
@@ -75,7 +83,7 @@ offset_bottom = -31.13
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xib5q")
-animation = &"Fall"
+animation = &"Run"
 
 [connection signal="timeout" from="flip_timer" to="." method="_on_flip_timer_timeout"]
 [connection signal="timeout" from="sprint_timer" to="." method="_on_sprint_timer_timeout"]
