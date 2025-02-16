@@ -1,5 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo616ytqr3gmk"]
+[gd_scene load_steps=6 format=3 uid="uid://bo616ytqr3gmk"]
 
+
+[ext_resource type="Script" path="res://scripts/music.gd" id="2_w8i4s"]
+[ext_resource type="AudioStream" uid="uid://c180d8flfhalx" path="res://Sound/gravity_inverted.mp3" id="3_4wo25"]
+[ext_resource type="AudioStream" uid="uid://d3w4sarc1e61w" path="res://Sound/forest_ambience.mp3" id="3_52kwy"]
+[ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="3_h4i54"]
 [ext_resource type="PackedScene" uid="uid://6yay47wns0gu" path="res://scenes/forest.tscn" id="1_c4lao"]
 
+
 [node name="benscene" instance=ExtResource("1_c4lao")]
+script = ExtResource("2_w8i4s")
+
+[node name="gravity_inverted" type="AudioStreamPlayer" parent="character" index="4"]
+stream = ExtResource("3_4wo25")
+
+[node name="teleport to cave level" type="Button" parent="." index="3"]
+offset_left = 1298.0
+offset_top = 166.0
+offset_right = 1612.0
+offset_bottom = 302.0
+text = "Cave ambience"
+icon = ExtResource("3_h4i54")
+
+[node name="forest ambience" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource("3_52kwy")
+volume_db = -16.0
+autoplay = true
+
+[connection signal="pressed" from="teleport to cave level" to="." method="_on_cave_pressed"]
