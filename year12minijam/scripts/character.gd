@@ -37,6 +37,7 @@ func _movement(delta:float):
 		walking_forest.play() 
 		# Right now, there is no way to switch the SFX between scenes yet.
 		# This means the forest_SFX will play throughout all scenes.
+		#Audio also seems to be delayed because it is quiet at the start. I'll find a audio that is shorter.
 	if Input.is_action_pressed("player_right"):
 		position.x += SPEED
 		walking_forest.play()
