@@ -8,6 +8,7 @@ var sprint_bar = 100
 var can_sprint = true
 var running = false
 var release_sprint = true
+var jump_reset = true
 const JUMP_VELOCITY = -500.0
 
 
@@ -67,6 +68,8 @@ func _movement(delta:float):
 		velocity.y = JUMP_VELOCITY
 	if Input.is_action_pressed("player_jump") and is_on_ceiling() and flip == -1:
 		velocity.y = JUMP_VELOCITY * flip
+	if is_on_floor() or is_on_ceiling() and not Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right"):
+		velocity.x = 0
 	move_and_slide()
 
 
