@@ -48,19 +48,19 @@ func _movement(delta:float):
 			$AnimatedSprite2D.flip_v = true
 		else:
 			$AnimatedSprite2D.flip_v = false
-	 	 gravity_inverted.play()
+			gravity_inverted.play()
 		flip *= -1
 	# Add the gravity.
-		if not is_on_floor() and flip == 1:
-			velocity.y += gravity * delta * flip
-		if not is_on_ceiling() and flip == -1:
-			velocity.y += gravity * delta * flip
+	if not is_on_floor() and flip == 1:
+		velocity.y += gravity * delta * flip
+	if not is_on_ceiling() and flip == -1:
+		velocity.y += gravity * delta * flip
 	if Input.is_action_pressed("player_left"):
 		position.x -= SPEED
 		$AnimatedSprite2D.flip_h = true
 	if Input.is_action_pressed("player_right"):
 		position.x += SPEED
-	walking_forest.play() 
+		walking_forest.play() 
 		$AnimatedSprite2D.flip_h = false
 	# Handle jump.
 	if Input.is_action_pressed("player_jump") and is_on_floor() and flip == 1:
