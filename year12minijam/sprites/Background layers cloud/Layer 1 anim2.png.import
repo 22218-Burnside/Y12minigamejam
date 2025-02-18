@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwdtekohb22t3"
-path="res://.godot/imported/charactersprite-blue_falling.png-322c2db069ba43f67e0ee3e7536c0cc3.ctex"
+uid="uid://c11evs4g5mfug"
+path="res://.godot/imported/Layer 1 anim2.png-0ae186924654353c4d6135de33db5f5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/charactersprite-blue_falling.png"
-dest_files=["res://.godot/imported/charactersprite-blue_falling.png-322c2db069ba43f67e0ee3e7536c0cc3.ctex"]
+source_file="res://sprites/Background layers cloud/Layer 1 anim2.png"
+dest_files=["res://.godot/imported/Layer 1 anim2.png-0ae186924654353c4d6135de33db5f5e.ctex"]
 
 [params]
 

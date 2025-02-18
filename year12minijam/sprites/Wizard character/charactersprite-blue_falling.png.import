@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4b701urrxfh4"
-path="res://.godot/imported/charactersprite-red_running1.png-c71532e971a3eafa5041b52be7cc8537.ctex"
+uid="uid://dwdtekohb22t3"
+path="res://.godot/imported/charactersprite-blue_falling.png-0a1067b7a743684175887fe1668f8e67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/charactersprite-red_running1.png"
-dest_files=["res://.godot/imported/charactersprite-red_running1.png-c71532e971a3eafa5041b52be7cc8537.ctex"]
+source_file="res://sprites/Wizard character/charactersprite-blue_falling.png"
+dest_files=["res://.godot/imported/charactersprite-blue_falling.png-0a1067b7a743684175887fe1668f8e67.ctex"]
 
 [params]
 

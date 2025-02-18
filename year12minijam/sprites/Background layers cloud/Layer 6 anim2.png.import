@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mu5n0i4ipida"
-path="res://.godot/imported/cave tilesheet.png-3cb43f34189de55a941117b0b51d1c76.ctex"
+uid="uid://smlamfrewepb"
+path="res://.godot/imported/Layer 6 anim2.png-94bdfd3d79bccb78478674e71506c1e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Background layers cave/cave tilesheet.png"
-dest_files=["res://.godot/imported/cave tilesheet.png-3cb43f34189de55a941117b0b51d1c76.ctex"]
+source_file="res://sprites/Background layers cloud/Layer 6 anim2.png"
+dest_files=["res://.godot/imported/Layer 6 anim2.png-94bdfd3d79bccb78478674e71506c1e9.ctex"]
 
 [params]
 

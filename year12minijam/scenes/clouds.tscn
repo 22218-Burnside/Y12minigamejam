@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=3 uid="uid://dptq7muregf6v"]
+
+[ext_resource type="Texture2D" uid="uid://cxsqvltk35cco" path="res://sprites/Background layers cloud/Background.png" id="1_162ux"]
+[ext_resource type="Texture2D" uid="uid://c66s0r0va3plh" path="res://sprites/Background layers cloud/Layer 1 anim1.png" id="2_72q4x"]
+[ext_resource type="Texture2D" uid="uid://c11evs4g5mfug" path="res://sprites/Background layers cloud/Layer 1 anim2.png" id="3_4r6g5"]
+[ext_resource type="Texture2D" uid="uid://b7o24ymhnaaov" path="res://sprites/Background layers cloud/Layer 2 anim1.png" id="4_rabt4"]
+[ext_resource type="Texture2D" uid="uid://c61xh52gv7d3l" path="res://sprites/Background layers cloud/Layer 2 anim2.png" id="5_1s02v"]
+[ext_resource type="Texture2D" uid="uid://e0c6h5v8pk8t" path="res://sprites/Background layers cloud/Layer 3 anim1.png" id="6_8hcgu"]
+[ext_resource type="Texture2D" uid="uid://bcnj46ti864dn" path="res://sprites/Background layers cloud/Layer 3 anim2.png" id="7_rl3yv"]
+
+[node name="Clouds" type="Node2D"]
+
+[node name="Parallax back" type="Node2D" parent="."]
+
+[node name="background" type="Parallax2D" parent="Parallax back"]
+repeat_size = Vector2(950, 0)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax back/background"]
+texture_filter = 1
+texture = ExtResource("1_162ux")
+
+[node name="layer 1" type="Parallax2D" parent="Parallax back"]
+repeat_size = Vector2(2000, 0)
+repeat_times = 5
+
+[node name="layer1 anim1" type="Sprite2D" parent="Parallax back/layer 1"]
+texture_filter = 1
+texture = ExtResource("2_72q4x")
+
+[node name="layer1 anim2" type="Sprite2D" parent="Parallax back/layer 1"]
+texture_filter = 1
+texture = ExtResource("3_4r6g5")
+
+[node name="layer 2" type="Parallax2D" parent="Parallax back"]
+scroll_offset = Vector2(200, 0)
+repeat_size = Vector2(2000, 0)
+repeat_times = 5
+
+[node name="layer 2 anim1" type="Sprite2D" parent="Parallax back/layer 2"]
+texture_filter = 1
+texture = ExtResource("4_rabt4")
+offset = Vector2(850, 0)
+
+[node name="layer 2 anim2" type="Sprite2D" parent="Parallax back/layer 2"]
+texture_filter = 1
+texture = ExtResource("5_1s02v")
+offset = Vector2(850, 0)
+
+[node name="layer 3" type="Parallax2D" parent="Parallax back"]
+repeat_size = Vector2(950, 0)
+repeat_times = 10
+
+[node name="layer3 anim1" type="Sprite2D" parent="Parallax back/layer 3"]
+texture_filter = 1
+texture = ExtResource("6_8hcgu")
+offset = Vector2(100, 0)
+
+[node name="layer3 anim2" type="Sprite2D" parent="Parallax back/layer 3"]
+texture_filter = 1
+texture = ExtResource("7_rl3yv")
+offset = Vector2(100, 0)
+
+[node name="layer 4" type="Parallax2D" parent="Parallax back"]
+repeat_size = Vector2(950, 0)
+repeat_times = 10
+
+[node name="layer4 anim1" type="Sprite2D" parent="Parallax back/layer 4"]
+texture_filter = 1
+
+[node name="layer4 anim2" type="Sprite2D" parent="Parallax back/layer 4"]
+texture_filter = 1
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Parallax2D" type="Parallax2D" parent="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Parallax2D"]
+
+[node name="Parallax2D2" type="Parallax2D" parent="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D2"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Parallax2D2"]
+
+[node name="Parallax2D3" type="Parallax2D" parent="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D3"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Parallax2D3"]
+
+[node name="Parallax2D4" type="Parallax2D" parent="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D4"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Parallax2D4"]
