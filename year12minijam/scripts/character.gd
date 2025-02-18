@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+var health = 3
 var canflip = true
 var flip = 1
 const gravity = 700
@@ -19,6 +19,8 @@ const JUMP_VELOCITY = -500.0
 
 
 func _physics_process(delta: float) -> void:
+	if health <1:
+		print("DIE")
 	_movement(delta)
 
 
@@ -84,3 +86,7 @@ func _on_flip_timer_timeout() -> void:
 
 func _on_sprint_timer_timeout() -> void:
 	can_sprint = true
+
+
+func _on_enemy_hit_player() -> void:
+	health -= 1

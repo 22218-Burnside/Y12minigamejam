@@ -16,12 +16,11 @@ size = Vector2(122.997, 122.007)
 size = Vector2(120.012, 127.997)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pe3ti"]
-size = Vector2(128.293, 121.692)
+size = Vector2(128.293, 119.656)
 
 [node name="enemy" type="Node2D"]
-position = Vector2(95, 946)
+position = Vector2(114, 954)
 script = ExtResource("1_wfpy3")
-metadata/_edit_group_ = true
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_frtmy")
@@ -49,7 +48,11 @@ shape = SubResource("RectangleShape2D_utjh0")
 [node name="kill_hitbox" type="Area2D" parent="Path2D/PathFollow2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/kill_hitbox"]
+position = Vector2(0, 1.01801)
 shape = SubResource("RectangleShape2D_pe3ti")
 
+[node name="kill_timer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="Path2D/PathFollow2D/squish_hitbox" to="." method="_on_squish_hitbox_area_entered"]
-[connection signal="area_entered" from="Path2D/PathFollow2D/kill_hitbox" to="." method="_on_kill_hitbox_area_entered"]
+[connection signal="body_entered" from="Path2D/PathFollow2D/kill_hitbox" to="." method="_on_kill_hitbox_body_entered"]
+[connection signal="timeout" from="kill_timer" to="." method="_on_kill_timer_timeout"]

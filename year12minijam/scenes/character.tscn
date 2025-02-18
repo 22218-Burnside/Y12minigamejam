@@ -60,7 +60,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gelmr"]
-size = Vector2(222, 250)
+size = Vector2(216, 247)
 
 [node name="character" type="CharacterBody2D"]
 script = ExtResource("1_mm2ev")
@@ -98,7 +98,7 @@ stream = ExtResource("7_755m0")
 [node name="player_squish" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_squish"]
-position = Vector2(0, 115)
+position = Vector2(-1, 116.5)
 shape = SubResource("RectangleShape2D_gelmr")
 
 [connection signal="timeout" from="flip_timer" to="." method="_on_flip_timer_timeout"]
