@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://6yay47wns0gu"]
+[gd_scene load_steps=17 format=4 uid="uid://b3pblqy7opixp"]
 
 [ext_resource type="Texture2D" uid="uid://cudfvifdo7yb4" path="res://sprites/Background layers/Layer_0009_2.png" id="1_2d0lf"]
 [ext_resource type="Texture2D" uid="uid://cp5n5greosxhw" path="res://sprites/Background layers/Layer_0010_1.png" id="2_wa22q"]
@@ -11,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://da3s43xs8dkgi" path="res://sprites/Background layers/Layer_0003_6.png" id="9_js00b"]
 [ext_resource type="PackedScene" uid="uid://12p41m50rd35" path="res://scenes/character.tscn" id="10_214d7"]
 [ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="11_yjhgv"]
-[ext_resource type="Texture2D" uid="uid://b6mtx63wdsjng" path="res://sprites/Background layers/Layer_0002_7.png" id="12_uljik"]
-[ext_resource type="Texture2D" uid="uid://c6ko4mbjh5j81" path="res://sprites/Background layers/Layer_0001_8.png" id="13_hqkv0"]
-[ext_resource type="Texture2D" uid="uid://cgmqtpa0hi88w" path="res://sprites/Background layers/Layer_0000_9.png" id="14_6jo7x"]
+[ext_resource type="Texture2D" uid="uid://b6mtx63wdsjng" path="res://sprites/Background layers forest/Layer_0002_7.png" id="12_uljik"]
+[ext_resource type="Texture2D" uid="uid://c6ko4mbjh5j81" path="res://sprites/Background layers forest/Layer_0001_8.png" id="13_hqkv0"]
+[ext_resource type="Texture2D" uid="uid://cgmqtpa0hi88w" path="res://sprites/Background layers forest/Layer_0000_9.png" id="14_6jo7x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52cft"]
 texture = ExtResource("11_yjhgv")
@@ -48,13 +48,16 @@ sources/0 = SubResource("TileSetAtlasSource_52cft")
 [node name="parallax_back" type="Node2D" parent="."]
 texture_filter = 1
 position = Vector2(175, -320)
+metadata/_edit_lock_ = true
 
 [node name="Parallax2D10" type="Parallax2D" parent="parallax_back"]
 scroll_scale = Vector2(0.25, 1)
 repeat_size = Vector2(3712, 0)
 repeat_times = 5
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="parallax_back/Parallax2D10"]
+visible = false
 modulate = Color(1, 1, 1, 0.317647)
 scale = Vector2(4, 4)
 texture = ExtResource("1_2d0lf")
@@ -62,6 +65,7 @@ texture = ExtResource("1_2d0lf")
 [node name="Parallax2D11" type="Parallax2D" parent="parallax_back"]
 repeat_size = Vector2(3712, 0)
 repeat_times = 5
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="parallax_back/Parallax2D11"]
 modulate = Color(1, 1, 1, 0.203922)
@@ -71,6 +75,7 @@ texture = ExtResource("2_wa22q")
 [node name="Parallax2D12" type="Parallax2D" parent="parallax_back"]
 repeat_size = Vector2(1224.96, 0)
 repeat_times = 10
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="parallax_back/Parallax2D12"]
 modulate = Color(1, 1, 1, 0.294118)
@@ -83,6 +88,7 @@ texture = ExtResource("3_hwxc3")
 scroll_scale = Vector2(0.4, 1)
 repeat_size = Vector2(3712, 0)
 repeat_times = 5
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="parallax_back/Parallax2D"]
 texture_filter = 1
@@ -93,6 +99,7 @@ texture = ExtResource("4_cxuku")
 scroll_scale = Vector2(0.45, 1)
 repeat_size = Vector2(3712, 0)
 repeat_times = 5
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="parallax_back/Parallax2D2"]
 scale = Vector2(4, 4)
@@ -102,6 +109,7 @@ texture = ExtResource("5_82i2b")
 scroll_scale = Vector2(0.5, 1)
 repeat_size = Vector2(3712, 0)
 repeat_times = 5
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="parallax_back/Parallax2D3"]
 scale = Vector2(4, 4)
@@ -111,6 +119,7 @@ texture = ExtResource("6_66xht")
 scroll_scale = Vector2(0.55, 1)
 repeat_size = Vector2(3712, 0)
 repeat_times = 5
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="parallax_back/Parallax2D4"]
 scale = Vector2(4, 4)
@@ -120,6 +129,7 @@ texture = ExtResource("7_ct2sw")
 scroll_scale = Vector2(0.6, 1)
 repeat_size = Vector2(3712, 0)
 repeat_times = 5
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="parallax_back/Parallax2D5"]
 scale = Vector2(4, 4)
@@ -128,6 +138,7 @@ texture = ExtResource("8_hs6r6")
 [node name="Parallax2D6" type="Parallax2D" parent="parallax_back"]
 repeat_size = Vector2(3714, 0)
 repeat_times = 5
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="parallax_back/Parallax2D6"]
 scale = Vector2(4, 4)
@@ -138,11 +149,13 @@ position = Vector2(110.295, 232.785)
 
 [node name="parallax_front" type="Node2D" parent="."]
 position = Vector2(0, -320)
+metadata/_edit_lock_ = true
 
 [node name="Parallax2D7" type="Parallax2D" parent="parallax_front"]
 scroll_scale = Vector2(1.1, 1)
 repeat_size = Vector2(3712, 0)
 repeat_times = 5
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="parallax_front/Parallax2D7"]
 texture_filter = 1
@@ -154,6 +167,7 @@ flip_v = true
 [node name="Parallax2D8" type="Parallax2D" parent="parallax_front"]
 repeat_size = Vector2(3712, 0)
 repeat_times = 5
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="parallax_front/Parallax2D8"]
 texture_filter = 1
@@ -164,6 +178,7 @@ texture = ExtResource("13_hqkv0")
 scroll_scale = Vector2(1.05, 1)
 repeat_size = Vector2(3712, 0)
 repeat_times = 5
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="parallax_front/Parallax2D9"]
 texture_filter = 1
