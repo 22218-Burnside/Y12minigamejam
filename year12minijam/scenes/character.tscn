@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://12p41m50rd35"]
+[gd_scene load_steps=13 format=3 uid="uid://12p41m50rd35"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_mm2ev"]
 [ext_resource type="Texture2D" uid="uid://bqy8gn6ayyt6q" path="res://sprites/charactersprite-blue_standing.png" id="2_6d5mf"]
@@ -59,6 +59,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gelmr"]
+size = Vector2(222, 250)
+
 [node name="character" type="CharacterBody2D"]
 script = ExtResource("1_mm2ev")
 metadata/_edit_group_ = true
@@ -84,13 +87,19 @@ offset_bottom = -31.13
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xib5q")
-animation = &"Run"
+animation = &"Fall"
 
 [node name="gravity_inverted" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_hq5da")
 
 [node name="walking_forest" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_755m0")
+
+[node name="player_squish" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_squish"]
+position = Vector2(0, 115)
+shape = SubResource("RectangleShape2D_gelmr")
 
 [connection signal="timeout" from="flip_timer" to="." method="_on_flip_timer_timeout"]
 [connection signal="timeout" from="sprint_timer" to="." method="_on_sprint_timer_timeout"]
