@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfpwbh16dd30x"
-path="res://.godot/imported/charactersprite-blue_running2.png-d10212aad6e72449af658f1f3d77b8f6.ctex"
+uid="uid://4a83ss7ykcvt"
+path="res://.godot/imported/Layer 4 anim2.png-0c570d31eab4f1659cea9068f5168212.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/charactersprite-blue_running2.png"
-dest_files=["res://.godot/imported/charactersprite-blue_running2.png-d10212aad6e72449af658f1f3d77b8f6.ctex"]
+source_file="res://sprites/Background layers cloud/Layer 4 anim2.png"
+dest_files=["res://.godot/imported/Layer 4 anim2.png-0c570d31eab4f1659cea9068f5168212.ctex"]
 
 [params]
 

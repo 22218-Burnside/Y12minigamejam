@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqy8gn6ayyt6q"
-path="res://.godot/imported/charactersprite-blue_standing.png-6455925ac10fa7d6d4c8b61b6cd1b630.ctex"
+uid="uid://b0wdwrdeutosa"
+path="res://.godot/imported/example 2.png-86fe6561eb1766d444df6e1cadaa10c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/charactersprite-blue_standing.png"
-dest_files=["res://.godot/imported/charactersprite-blue_standing.png-6455925ac10fa7d6d4c8b61b6cd1b630.ctex"]
+source_file="res://sprites/Background layers cloud/example 2.png"
+dest_files=["res://.godot/imported/example 2.png-86fe6561eb1766d444df6e1cadaa10c8.ctex"]
 
 [params]
 

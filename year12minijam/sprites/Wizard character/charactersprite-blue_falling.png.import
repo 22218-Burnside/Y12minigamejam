@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwdtekohb22t3"
-path="res://.godot/imported/charactersprite-blue_falling.png-322c2db069ba43f67e0ee3e7536c0cc3.ctex"
+path="res://.godot/imported/charactersprite-blue_falling.png-0a1067b7a743684175887fe1668f8e67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/charactersprite-blue_falling.png"
-dest_files=["res://.godot/imported/charactersprite-blue_falling.png-322c2db069ba43f67e0ee3e7536c0cc3.ctex"]
+source_file="res://sprites/Wizard character/charactersprite-blue_falling.png"
+dest_files=["res://.godot/imported/charactersprite-blue_falling.png-0a1067b7a743684175887fe1668f8e67.ctex"]
 
 [params]
 

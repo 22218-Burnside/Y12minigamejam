@@ -1,6 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://12p41m50rd35"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_mm2ev"]
+ clouds-parallax
 [ext_resource type="Texture2D" uid="uid://bqy8gn6ayyt6q" path="res://sprites/charactersprite-blue_standing.png" id="2_6d5mf"]
 [ext_resource type="Texture2D" uid="uid://dwdtekohb22t3" path="res://sprites/charactersprite-blue_falling.png" id="2_k6tld"]
 [ext_resource type="Texture2D" uid="uid://fo3pmk2swrvb" path="res://sprites/charactersprite-red_falling.png" id="3_x3lku"]
@@ -9,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dfpwbh16dd30x" path="res://sprites/charactersprite-blue_running2.png" id="5_7qobh"]
 [ext_resource type="Texture2D" uid="uid://b4b701urrxfh4" path="res://sprites/charactersprite-red_running1.png" id="6_1olg4"]
 [ext_resource type="Texture2D" uid="uid://8xfcgixyjdgj" path="res://sprites/charactersprite-blue_jumping.png" id="6_hi3o4"]
+ main
 [ext_resource type="AudioStream" uid="uid://c180d8flfhalx" path="res://Sound/gravity_inverted.mp3" id="6_hq5da"]
 [ext_resource type="AudioStream" uid="uid://bmdqlximm3n2l" path="res://Sound/walking_forest_SFX.mp3" id="7_755m0"]
 [ext_resource type="Texture2D" uid="uid://cp4a1w2gebppl" path="res://sprites/charactersprite-red_running2.png" id="7_teoxb"]
