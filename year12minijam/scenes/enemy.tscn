@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://g032v4hvlojq"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_wfpy3"]
+[ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="2_l4ave"]
+
+[sub_resource type="Curve2D" id="Curve2D_frtmy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1664, 4, 0, 0, 0, 0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mhw4w"]
+size = Vector2(122.997, 122.007)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utjh0"]
+size = Vector2(120.012, 127.997)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pe3ti"]
+size = Vector2(128.293, 119.656)
+
+[node name="enemy" type="Node2D"]
+position = Vector2(114, 954)
+script = ExtResource("1_wfpy3")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_frtmy")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(1169.46, 2.8112)
+rotation = 0.00240384
+progress = 1169.46
+rotates = false
+
+[node name="collision_hitbox" type="CharacterBody2D" parent="Path2D/PathFollow2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/collision_hitbox"]
+texture = ExtResource("2_l4ave")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/collision_hitbox"]
+position = Vector2(0.0426025, 1.18848)
+shape = SubResource("RectangleShape2D_mhw4w")
+
+[node name="squish_hitbox" type="Area2D" parent="Path2D/PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/squish_hitbox"]
+shape = SubResource("RectangleShape2D_utjh0")
+
+[node name="kill_hitbox" type="Area2D" parent="Path2D/PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/kill_hitbox"]
+position = Vector2(0, 1.01801)
+shape = SubResource("RectangleShape2D_pe3ti")
+
+[node name="kill_timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Path2D/PathFollow2D/squish_hitbox" to="." method="_on_squish_hitbox_area_entered"]
+[connection signal="body_entered" from="Path2D/PathFollow2D/kill_hitbox" to="." method="_on_kill_hitbox_body_entered"]
+[connection signal="timeout" from="kill_timer" to="." method="_on_kill_timer_timeout"]

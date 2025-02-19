@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+var health = 3
 var canflip = true
 var flip = 1
 const gravity = 700
@@ -8,6 +8,10 @@ var sprint_bar = 100
 var can_sprint = true
 var running = false
 var release_sprint = true
+var jump_reset = true
+var squish_power = 1
+var slime_velocity = false
+var direction = 1
 const JUMP_VELOCITY = -500.0
 
 
@@ -17,6 +21,8 @@ const JUMP_VELOCITY = -500.0
 
 
 func _physics_process(delta: float) -> void:
+	if health <1:
+		print("DIE")
 	_movement(delta)
 
 
@@ -41,6 +47,7 @@ func _movement(delta:float):
 		release_sprint =true	
 		$sprint_timer.start(1)
 	if Input.is_action_just_pressed("player_flip") and canflip:
+		squish_power = 3
 		canflip = false
 		$flip_timer.start()
 		if flip == 1:
@@ -52,27 +59,55 @@ func _movement(delta:float):
 	# Add the gravity.
 	if not is_on_floor() and flip == 1:
 		velocity.y += gravity * delta * flip
+		$AnimatedSprite2D.play("Fall")
 	if not is_on_ceiling() and flip == -1:
 		velocity.y += gravity * delta * flip
+		$AnimatedSprite2D.play("Fall_red")
 	if Input.is_action_pressed("player_left"):
+		direction = -1
 		position.x -= SPEED
 		walking_forest.play()
 		$AnimatedSprite2D.flip_h = true
+		if flip == 1:
+			$AnimatedSprite2D.play("Run")
+		if flip == -1:
+			$AnimatedSprite2D.play("Run_red")
 	if Input.is_action_pressed("player_right"):
+		direction = 1
 		position.x += SPEED
 		walking_forest.play() 
 		$AnimatedSprite2D.flip_h = false
-	# Handle jump.
-	if Input.is_action_pressed("player_jump") and is_on_floor() and flip == 1:
+		if flip == 1:
+			$AnimatedSprite2D.play("Run")
+		if flip == -1:
+			$AnimatedSprite2D.play("Run_red")
+	if not Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right") and is_on_floor():
+		if flip == 1:
+			$AnimatedSprite2D.play("Idle")
+		if flip == -1:
+			$AnimatedSprite2D.play("Idle_red")
+	if is_on_floor() or is_on_ceiling() and squish_power == 3:
+		squish_power = 1
+	if Input.is_action_pressed("player_jump") and is_on_floor() and flip == 1 and not slime_velocity:
 		velocity.y = JUMP_VELOCITY
-	if Input.is_action_pressed("player_jump") and is_on_ceiling() and flip == -1:
+	if Input.is_action_pressed("player_jump") and is_on_ceiling() and flip == -1 and not slime_velocity:
 		velocity.y = JUMP_VELOCITY * flip
+	if is_on_floor() or is_on_ceiling() and not Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right"):
+		slime_velocity = false
+		velocity.x = 0
 	move_and_slide()
-
 
 func _on_flip_timer_timeout() -> void:
 	canflip = true
 
-
 func _on_sprint_timer_timeout() -> void:
 	can_sprint = true
+
+
+func _on_enemy_hit_player() -> void:
+	health -= 1
+
+
+func _on_enemy_squished() -> void:
+	slime_velocity = true
+	velocity = Vector2(randi_range(250,400)* direction, randi_range(-400,-650)* flip)

@@ -1,15 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://12p41m50rd35"]
+[gd_scene load_steps=18 format=3 uid="uid://12p41m50rd35"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_mm2ev"]
-[ext_resource type="Texture2D" uid="uid://bqy8gn6ayyt6q" path="res://sprites/Wizard character/charactersprite-blue_standing.png" id="2_6d5mf"]
-[ext_resource type="Texture2D" uid="uid://dwdtekohb22t3" path="res://sprites/Wizard character/charactersprite-blue_falling.png" id="2_k6tld"]
-[ext_resource type="Texture2D" uid="uid://cxs6udyj5ulfq" path="res://sprites/Wizard character/charactersprite-blue_running1.png" id="4_2ekdf"]
-[ext_resource type="Texture2D" uid="uid://dfpwbh16dd30x" path="res://sprites/Wizard character/charactersprite-blue_running2.png" id="5_7qobh"]
+ clouds-parallax
+[ext_resource type="Texture2D" uid="uid://bqy8gn6ayyt6q" path="res://sprites/charactersprite-blue_standing.png" id="2_6d5mf"]
+[ext_resource type="Texture2D" uid="uid://dwdtekohb22t3" path="res://sprites/charactersprite-blue_falling.png" id="2_k6tld"]
+[ext_resource type="Texture2D" uid="uid://fo3pmk2swrvb" path="res://sprites/charactersprite-red_falling.png" id="3_x3lku"]
+[ext_resource type="Texture2D" uid="uid://cxs6udyj5ulfq" path="res://sprites/charactersprite-blue_running1.png" id="4_2ekdf"]
+[ext_resource type="Texture2D" uid="uid://d2qqlcjk03raq" path="res://sprites/charactersprite-red_standing.png" id="5_6d0pl"]
+[ext_resource type="Texture2D" uid="uid://dfpwbh16dd30x" path="res://sprites/charactersprite-blue_running2.png" id="5_7qobh"]
+[ext_resource type="Texture2D" uid="uid://b4b701urrxfh4" path="res://sprites/charactersprite-red_running1.png" id="6_1olg4"]
+[ext_resource type="Texture2D" uid="uid://8xfcgixyjdgj" path="res://sprites/charactersprite-blue_jumping.png" id="6_hi3o4"]
+ main
 [ext_resource type="AudioStream" uid="uid://c180d8flfhalx" path="res://Sound/gravity_inverted.mp3" id="6_hq5da"]
 [ext_resource type="AudioStream" uid="uid://bmdqlximm3n2l" path="res://Sound/walking_forest_SFX.mp3" id="7_755m0"]
+[ext_resource type="Texture2D" uid="uid://cp4a1w2gebppl" path="res://sprites/charactersprite-red_running2.png" id="7_teoxb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87y2d"]
-size = Vector2(86, 225)
+size = Vector2(227, 472)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_122ca"]
 atlas = ExtResource("2_k6tld")
@@ -31,13 +38,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_x3lku")
+}],
+"loop": true,
+"name": &"Fall_red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gakq2")
 }],
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6d0pl")
+}],
+"loop": true,
+"name": &"Idle_red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_hi3o4")
+}],
 "loop": true,
 "name": &"Jump",
 "speed": 5.0
@@ -57,14 +83,27 @@ animations = [{
 "loop": true,
 "name": &"Run",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("6_1olg4")
+}, {
+"duration": 1.5,
+"texture": ExtResource("7_teoxb")
+}],
+"loop": true,
+"name": &"Run_red",
+"speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gelmr"]
+size = Vector2(216, 247)
 
 [node name="character" type="CharacterBody2D"]
 script = ExtResource("1_mm2ev")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 3.5)
 shape = SubResource("RectangleShape2D_87y2d")
 
 [node name="flip_timer" type="Timer" parent="."]
@@ -85,13 +124,19 @@ offset_bottom = -31.13
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xib5q")
-animation = &"Run"
+animation = &"Jump"
 
 [node name="gravity_inverted" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_hq5da")
 
 [node name="walking_forest" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_755m0")
+
+[node name="player_squish" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_squish"]
+position = Vector2(-1, 116.5)
+shape = SubResource("RectangleShape2D_gelmr")
 
 [connection signal="timeout" from="flip_timer" to="." method="_on_flip_timer_timeout"]
 [connection signal="timeout" from="sprint_timer" to="." method="_on_sprint_timer_timeout"]
