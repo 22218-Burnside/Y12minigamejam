@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mu5n0i4ipida"
-path="res://.godot/imported/cave tilesheet.png-3cb43f34189de55a941117b0b51d1c76.ctex"
+uid="uid://fo3pmk2swrvb"
+path="res://.godot/imported/charactersprite-red_falling.png-784a164aba984e4a5bfe974103126495.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Background layers cave/cave tilesheet.png"
-dest_files=["res://.godot/imported/cave tilesheet.png-3cb43f34189de55a941117b0b51d1c76.ctex"]
+source_file="res://sprites/Wizard character/charactersprite-red_falling.png"
+dest_files=["res://.godot/imported/charactersprite-red_falling.png-784a164aba984e4a5bfe974103126495.ctex"]
 
 [params]
 

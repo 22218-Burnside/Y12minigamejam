@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2qqlcjk03raq"
-path="res://.godot/imported/charactersprite-red_standing.png-8a646ac2a4d9c607009dd4934552e24c.ctex"
+uid="uid://smlamfrewepb"
+path="res://.godot/imported/Layer 6 anim2.png-94bdfd3d79bccb78478674e71506c1e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/charactersprite-red_standing.png"
-dest_files=["res://.godot/imported/charactersprite-red_standing.png-8a646ac2a4d9c607009dd4934552e24c.ctex"]
+source_file="res://sprites/Background layers cloud/Layer 6 anim2.png"
+dest_files=["res://.godot/imported/Layer 6 anim2.png-94bdfd3d79bccb78478674e71506c1e9.ctex"]
 
 [params]
 
