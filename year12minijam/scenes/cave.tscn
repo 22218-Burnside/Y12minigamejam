@@ -468,6 +468,7 @@ metadata/_edit_lock_ = true
 
 [node name="Parallax2D" type="Parallax2D" parent="parallax_back"]
 texture_filter = 1
+scroll_scale = Vector2(0.2, 1)
 repeat_size = Vector2(1920, 0)
 repeat_times = 10
 metadata/_edit_lock_ = true
@@ -477,6 +478,7 @@ texture = ExtResource("1_ato8y")
 
 [node name="Parallax2D2" type="Parallax2D" parent="parallax_back"]
 texture_filter = 1
+scroll_scale = Vector2(0.25, 1)
 repeat_size = Vector2(1920, 0)
 repeat_times = 10
 metadata/_edit_lock_ = true
@@ -485,6 +487,7 @@ metadata/_edit_lock_ = true
 texture = ExtResource("2_2e004")
 
 [node name="Parallax2D3" type="Parallax2D" parent="parallax_back"]
+scroll_scale = Vector2(0.3, 1)
 repeat_size = Vector2(1920, 0)
 repeat_times = 10
 metadata/_edit_lock_ = true
@@ -494,6 +497,7 @@ texture_filter = 1
 texture = ExtResource("3_rsx8j")
 
 [node name="Parallax2D4" type="Parallax2D" parent="parallax_back"]
+scroll_scale = Vector2(0.35, 1)
 repeat_size = Vector2(1920, 0)
 repeat_times = 10
 metadata/_edit_lock_ = true
@@ -503,6 +507,7 @@ texture_filter = 1
 texture = ExtResource("4_yt0yp")
 
 [node name="Parallax2D5" type="Parallax2D" parent="parallax_back"]
+scroll_scale = Vector2(0.4, 1)
 repeat_size = Vector2(1920, 0)
 repeat_times = 10
 metadata/_edit_lock_ = true
@@ -512,6 +517,7 @@ texture_filter = 1
 texture = ExtResource("5_akhmv")
 
 [node name="Parallax2D6" type="Parallax2D" parent="parallax_back"]
+scroll_scale = Vector2(0.45, 1)
 repeat_size = Vector2(1920, 0)
 repeat_times = 10
 metadata/_edit_lock_ = true
@@ -521,6 +527,7 @@ texture_filter = 1
 texture = ExtResource("6_rcf4b")
 
 [node name="Parallax2D7" type="Parallax2D" parent="parallax_back"]
+scroll_scale = Vector2(0.5, 1)
 repeat_size = Vector2(1920, 0)
 repeat_times = 10
 metadata/_edit_lock_ = true
@@ -530,6 +537,7 @@ texture_filter = 1
 texture = ExtResource("7_30awa")
 
 [node name="Parallax2D8" type="Parallax2D" parent="parallax_back"]
+scroll_scale = Vector2(0.55, 1)
 repeat_size = Vector2(1920, 0)
 repeat_times = 10
 metadata/_edit_lock_ = true
