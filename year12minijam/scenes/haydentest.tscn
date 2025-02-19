@@ -15,6 +15,9 @@ modulate = Color(1, 1, 1, 1)
 
 [node name="enemy" parent="." instance=ExtResource("2_8tgcv")]
 
+[node name="PathFollow2D" parent="enemy/Path2D" index="0"]
+position = Vector2(1169.46, 2.8112)
+
 [connection signal="hit_player" from="enemy" to="forest/character" method="_on_enemy_hit_player"]
 
 [editable path="forest"]
