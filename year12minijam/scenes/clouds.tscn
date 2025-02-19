@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dptq7muregf6v"]
+[gd_scene load_steps=25 format=3 uid="uid://dptq7muregf6v"]
 
+[ext_resource type="Script" path="res://scripts/clouds.gd" id="1_50vrx"]
 [ext_resource type="Texture2D" uid="uid://cxsqvltk35cco" path="res://sprites/Background layers cloud/Background.png" id="1_162ux"]
 [ext_resource type="Texture2D" uid="uid://c66s0r0va3plh" path="res://sprites/Background layers cloud/Layer 1 anim1.png" id="2_72q4x"]
 [ext_resource type="Texture2D" uid="uid://c11evs4g5mfug" path="res://sprites/Background layers cloud/Layer 1 anim2.png" id="3_4r6g5"]
@@ -7,92 +8,208 @@
 [ext_resource type="Texture2D" uid="uid://c61xh52gv7d3l" path="res://sprites/Background layers cloud/Layer 2 anim2.png" id="5_1s02v"]
 [ext_resource type="Texture2D" uid="uid://e0c6h5v8pk8t" path="res://sprites/Background layers cloud/Layer 3 anim1.png" id="6_8hcgu"]
 [ext_resource type="Texture2D" uid="uid://bcnj46ti864dn" path="res://sprites/Background layers cloud/Layer 3 anim2.png" id="7_rl3yv"]
+[ext_resource type="Texture2D" uid="uid://by0ajwuc766mm" path="res://sprites/Background layers cloud/Layer 3 clound anim1.png" id="9_ei7e3"]
+[ext_resource type="Texture2D" uid="uid://rap4ayk17c4l" path="res://sprites/Background layers cloud/Layer 3 clound anim2.png" id="10_fcjt2"]
+[ext_resource type="Texture2D" uid="uid://44stx2csxu0s" path="res://sprites/Background layers cloud/Layer 4 anim1.png" id="11_41uok"]
+[ext_resource type="Texture2D" uid="uid://4a83ss7ykcvt" path="res://sprites/Background layers cloud/Layer 4 anim2.png" id="12_u6nhc"]
+[ext_resource type="Texture2D" uid="uid://dhkfcl88uls0t" path="res://sprites/Background layers cloud/Layer 5 anim1.png" id="13_eqncq"]
+[ext_resource type="Texture2D" uid="uid://cpbtjmsmm5tfr" path="res://sprites/Background layers cloud/Layer 5 anim2.png" id="14_loyam"]
+[ext_resource type="Texture2D" uid="uid://dq5w20pfu5ij0" path="res://sprites/Background layers cloud/Layer 6 anim1.png" id="15_twu6r"]
+[ext_resource type="Texture2D" uid="uid://smlamfrewepb" path="res://sprites/Background layers cloud/Layer 6 anim2.png" id="16_g6txl"]
+[ext_resource type="Texture2D" uid="uid://csd8tij5cnena" path="res://sprites/Background layers cloud/Layer 7 anim1.png" id="17_8av07"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w1ofh"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("2_72q4x")
+}, {
+"duration": 3.0,
+"texture": ExtResource("3_4r6g5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xlphk"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("4_rabt4")
+}, {
+"duration": 3.0,
+"texture": ExtResource("5_1s02v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ddt3w"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("6_8hcgu")
+}, {
+"duration": 3.0,
+"texture": ExtResource("7_rl3yv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qnydc"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("9_ei7e3")
+}, {
+"duration": 3.0,
+"texture": ExtResource("10_fcjt2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_es7sg"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("11_41uok")
+}, {
+"duration": 3.0,
+"texture": ExtResource("12_u6nhc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_elisw"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("13_eqncq")
+}, {
+"duration": 3.0,
+"texture": ExtResource("14_loyam")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i1o3m"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("15_twu6r")
+}, {
+"duration": 3.0,
+"texture": ExtResource("16_g6txl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Clouds" type="Node2D"]
+script = ExtResource("1_50vrx")
 
-[node name="Parallax back" type="Node2D" parent="."]
+[node name="parallax_back" type="Node2D" parent="."]
 
-[node name="background" type="Parallax2D" parent="Parallax back"]
+[node name="background" type="Parallax2D" parent="parallax_back"]
 repeat_size = Vector2(950, 0)
 repeat_times = 10
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax back/background"]
+[node name="background" type="Sprite2D" parent="parallax_back/background"]
 texture_filter = 1
 texture = ExtResource("1_162ux")
 
-[node name="layer 1" type="Parallax2D" parent="Parallax back"]
+[node name="layer1" type="Parallax2D" parent="parallax_back"]
+scroll_scale = Vector2(0.25, 1)
 repeat_size = Vector2(2000, 0)
 repeat_times = 5
 
-[node name="layer1 anim1" type="Sprite2D" parent="Parallax back/layer 1"]
+[node name="layer1" type="AnimatedSprite2D" parent="parallax_back/layer1"]
 texture_filter = 1
-texture = ExtResource("2_72q4x")
+sprite_frames = SubResource("SpriteFrames_w1ofh")
+frame_progress = 0.454521
 
-[node name="layer1 anim2" type="Sprite2D" parent="Parallax back/layer 1"]
-texture_filter = 1
-texture = ExtResource("3_4r6g5")
-
-[node name="layer 2" type="Parallax2D" parent="Parallax back"]
+[node name="layer2" type="Parallax2D" parent="parallax_back"]
+scroll_scale = Vector2(0.5, 1)
 scroll_offset = Vector2(200, 0)
 repeat_size = Vector2(2000, 0)
 repeat_times = 5
 
-[node name="layer 2 anim1" type="Sprite2D" parent="Parallax back/layer 2"]
+[node name="layer2" type="AnimatedSprite2D" parent="parallax_back/layer2"]
 texture_filter = 1
-texture = ExtResource("4_rabt4")
+sprite_frames = SubResource("SpriteFrames_xlphk")
+frame_progress = 0.34404
 offset = Vector2(850, 0)
 
-[node name="layer 2 anim2" type="Sprite2D" parent="Parallax back/layer 2"]
-texture_filter = 1
-texture = ExtResource("5_1s02v")
-offset = Vector2(850, 0)
-
-[node name="layer 3" type="Parallax2D" parent="Parallax back"]
+[node name="layer3" type="Parallax2D" parent="parallax_back"]
+scroll_scale = Vector2(0.75, 1)
 repeat_size = Vector2(950, 0)
 repeat_times = 10
 
-[node name="layer3 anim1" type="Sprite2D" parent="Parallax back/layer 3"]
+[node name="layer3" type="AnimatedSprite2D" parent="parallax_back/layer3"]
 texture_filter = 1
-texture = ExtResource("6_8hcgu")
+sprite_frames = SubResource("SpriteFrames_ddt3w")
+frame = 1
+frame_progress = 0.66421
 offset = Vector2(100, 0)
 
-[node name="layer3 anim2" type="Sprite2D" parent="Parallax back/layer 3"]
-texture_filter = 1
-texture = ExtResource("7_rl3yv")
-offset = Vector2(100, 0)
+[node name="parallax_front" type="Node2D" parent="."]
 
-[node name="layer 4" type="Parallax2D" parent="Parallax back"]
-repeat_size = Vector2(950, 0)
+[node name="layer4" type="Parallax2D" parent="parallax_front"]
+scroll_scale = Vector2(1.2, 1)
+scroll_offset = Vector2(0, 79.5)
+repeat_size = Vector2(840, 0)
 repeat_times = 10
 
-[node name="layer4 anim1" type="Sprite2D" parent="Parallax back/layer 4"]
+[node name="layer4" type="AnimatedSprite2D" parent="parallax_front/layer4"]
 texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_qnydc")
+frame = 1
+frame_progress = 0.761639
 
-[node name="layer4 anim2" type="Sprite2D" parent="Parallax back/layer 4"]
+[node name="layer5" type="Parallax2D" parent="parallax_front"]
+scroll_scale = Vector2(1.4, 1)
+scroll_offset = Vector2(300, 0)
+repeat_size = Vector2(1000, 0)
+repeat_times = 10
+
+[node name="layer5" type="AnimatedSprite2D" parent="parallax_front/layer5"]
 texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_es7sg")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="layer6" type="Parallax2D" parent="parallax_front"]
+scroll_scale = Vector2(1.6, 1)
+repeat_size = Vector2(650, 0)
+repeat_times = 10
 
-[node name="Parallax2D" type="Parallax2D" parent="Node2D"]
+[node name="layer6" type="AnimatedSprite2D" parent="parallax_front/layer6"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_elisw")
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D"]
+[node name="layer7" type="Parallax2D" parent="parallax_front"]
+scroll_scale = Vector2(1.8, 1)
+repeat_size = Vector2(750, 0)
+repeat_times = 10
 
-[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Parallax2D"]
+[node name="layer7" type="AnimatedSprite2D" parent="parallax_front/layer7"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_i1o3m")
 
-[node name="Parallax2D2" type="Parallax2D" parent="Node2D"]
+[node name="layer8" type="Parallax2D" parent="parallax_front"]
+scroll_scale = Vector2(2, 1)
+repeat_size = Vector2(1000, 0)
+repeat_times = 10
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D2"]
-
-[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Parallax2D2"]
-
-[node name="Parallax2D3" type="Parallax2D" parent="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D3"]
-
-[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Parallax2D3"]
-
-[node name="Parallax2D4" type="Parallax2D" parent="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D4"]
-
-[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Parallax2D4"]
+[node name="layer8" type="Sprite2D" parent="parallax_front/layer8"]
+texture_filter = 1
+texture = ExtResource("17_8av07")
