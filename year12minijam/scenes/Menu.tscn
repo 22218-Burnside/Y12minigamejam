@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://b5je30ka8yfe4"]
+[gd_scene load_steps=2 format=3 uid="uid://b5je30ka8yfe4"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_ickvs"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ickvs")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -31,7 +34,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="."]
+[node name="Play-Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -47,7 +50,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 120
 text = "Play Game!"
 
-[node name="Button2" type="Button" parent="."]
+[node name="Quit-Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -62,3 +65,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 120
 text = "Quit Game"
+
+[connection signal="pressed" from="Play-Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Quit-Button" to="." method="_on_quit_button_pressed"]
