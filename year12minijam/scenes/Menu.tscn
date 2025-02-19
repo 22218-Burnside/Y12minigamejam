@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5je30ka8yfe4"]
+[gd_scene load_steps=6 format=3 uid="uid://b5je30ka8yfe4"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_ickvs"]
+[ext_resource type="Texture2D" uid="uid://vuscjb4u2v6o" path="res://sprites/Layers/Day/Back.png" id="2_80d7x"]
+[ext_resource type="Texture2D" uid="uid://c8h6disk7jqtu" path="res://sprites/Layers/Day/Clouds.png" id="3_0q2tf"]
+[ext_resource type="Texture2D" uid="uid://4nlis8a6bn5l" path="res://sprites/Layers/Day/Middle.png" id="4_3fnpq"]
+[ext_resource type="Texture2D" uid="uid://c54m1x3ulnykl" path="res://sprites/Layers/Noon/Back.png" id="5_u5o5l"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -10,6 +14,48 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ickvs")
+
+[node name="day" type="Node2D" parent="."]
+position = Vector2(0, 595)
+
+[node name="Parallax2D" type="Parallax2D" parent="day"]
+repeat_size = Vector2(1680, 0)
+repeat_times = 5
+
+[node name="Back" type="Sprite2D" parent="day/Parallax2D"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("2_80d7x")
+
+[node name="Parallax2D2" type="Parallax2D" parent="day"]
+repeat_size = Vector2(1680, 0)
+autoscroll = Vector2(30, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="day/Parallax2D2"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("3_0q2tf")
+
+[node name="Parallax2D3" type="Parallax2D" parent="day"]
+repeat_size = Vector2(720, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="day/Parallax2D3"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("4_3fnpq")
+offset = Vector2(70, 0)
+
+[node name="noon" type="Node2D" parent="."]
+position = Vector2(0, 595)
+
+[node name="Parallax2D" type="Parallax2D" parent="noon"]
+
+[node name="Sprite2D" type="Sprite2D" parent="noon/Parallax2D"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("5_u5o5l")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -41,14 +87,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -327.0
-offset_top = -86.5
-offset_right = 327.0
-offset_bottom = 86.5
+offset_left = -760.0
+offset_top = 130.0
+offset_right = -110.0
+offset_bottom = 303.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 120
-text = "Play Game!"
+text = "Play Game"
 
 [node name="Quit-Button" type="Button" parent="."]
 layout_mode = 1
@@ -57,9 +103,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -324.0
+offset_left = 110.0
 offset_top = 130.0
-offset_right = 330.0
+offset_right = 760.0
 offset_bottom = 303.0
 grow_horizontal = 2
 grow_vertical = 2
