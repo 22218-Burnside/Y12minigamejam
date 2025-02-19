@@ -147,8 +147,8 @@ scale = Vector2(4.5, 4.5)
 texture = ExtResource("1_162ux")
 
 [node name="layer1" type="Parallax2D" parent="parallax_back"]
-scroll_scale = Vector2(0.01, 1)
-repeat_size = Vector2(4000, 0)
+scroll_scale = Vector2(0.16, 1)
+repeat_size = Vector2(2300, 0)
 repeat_times = 5
 metadata/_edit_lock_ = true
 
@@ -187,8 +187,9 @@ frame = 1
 frame_progress = 0.66421
 
 [node name="layer5" type="Parallax2D" parent="parallax_back"]
-scroll_scale = Vector2(0.02, 1)
-repeat_size = Vector2(2400, 0)
+scroll_scale = Vector2(0.18, 1)
+scroll_offset = Vector2(300, 0)
+repeat_size = Vector2(2300, 0)
 repeat_times = 10
 metadata/_edit_lock_ = true
 
@@ -199,13 +200,13 @@ scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_es7sg")
 
 [node name="layer7" type="Parallax2D" parent="parallax_back"]
-scroll_scale = Vector2(0.4, 1)
+visible = false
+scroll_scale = Vector2(0.1, 1)
 repeat_size = Vector2(1800, 0)
 repeat_times = 10
 metadata/_edit_lock_ = true
 
 [node name="layer7" type="AnimatedSprite2D" parent="parallax_back/layer7"]
-visible = false
 texture_filter = 1
 position = Vector2(0, 466.125)
 scale = Vector2(4.5, 4.5)
@@ -213,8 +214,8 @@ sprite_frames = SubResource("SpriteFrames_i1o3m")
 offset = Vector2(-600, 0)
 
 [node name="layer8" type="Parallax2D" parent="parallax_back"]
-scroll_scale = Vector2(0.5, 1)
-repeat_size = Vector2(1600, 0)
+scroll_scale = Vector2(0.2, 1)
+repeat_size = Vector2(1225, 0)
 repeat_times = 10
 metadata/_edit_lock_ = true
 
@@ -223,9 +224,10 @@ texture_filter = 1
 position = Vector2(0, 460)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("17_8av07")
+offset = Vector2(-125, 0)
 
 [node name="character" parent="." instance=ExtResource("9_tmdce")]
-position = Vector2(1674, 540)
+position = Vector2(0, 540)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -235,7 +237,6 @@ tile_map_data = PackedByteArray("AAAAABAAAAABAAEAAAABABAAAAABAAEAAAABAA8AAAABAAE
 tile_set = SubResource("TileSet_bmpv3")
 
 [node name="parallax_front" type="Node2D" parent="."]
-visible = false
 position = Vector2(0, 540)
 
 [node name="layer4" type="Parallax2D" parent="parallax_front"]
