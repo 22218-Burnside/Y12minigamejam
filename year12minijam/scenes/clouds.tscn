@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dptq7muregf6v"]
+[gd_scene load_steps=29 format=4 uid="uid://dptq7muregf6v"]
 
 [ext_resource type="Script" path="res://scripts/clouds.gd" id="1_50vrx"]
 [ext_resource type="Texture2D" uid="uid://cxsqvltk35cco" path="res://sprites/Background layers cloud/Background.png" id="1_162ux"]
@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://e0c6h5v8pk8t" path="res://sprites/Background layers cloud/Layer 3 anim1.png" id="6_8hcgu"]
 [ext_resource type="Texture2D" uid="uid://bcnj46ti864dn" path="res://sprites/Background layers cloud/Layer 3 anim2.png" id="7_rl3yv"]
 [ext_resource type="Texture2D" uid="uid://by0ajwuc766mm" path="res://sprites/Background layers cloud/Layer 3 clound anim1.png" id="9_ei7e3"]
+[ext_resource type="PackedScene" uid="uid://12p41m50rd35" path="res://scenes/character.tscn" id="9_tmdce"]
 [ext_resource type="Texture2D" uid="uid://rap4ayk17c4l" path="res://sprites/Background layers cloud/Layer 3 clound anim2.png" id="10_fcjt2"]
+[ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="10_qlc6a"]
 [ext_resource type="Texture2D" uid="uid://44stx2csxu0s" path="res://sprites/Background layers cloud/Layer 4 anim1.png" id="11_41uok"]
 [ext_resource type="Texture2D" uid="uid://4a83ss7ykcvt" path="res://sprites/Background layers cloud/Layer 4 anim2.png" id="12_u6nhc"]
 [ext_resource type="Texture2D" uid="uid://dhkfcl88uls0t" path="res://sprites/Background layers cloud/Layer 5 anim1.png" id="13_eqncq"]
@@ -60,20 +62,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_qnydc"]
-animations = [{
-"frames": [{
-"duration": 3.0,
-"texture": ExtResource("9_ei7e3")
-}, {
-"duration": 3.0,
-"texture": ExtResource("10_fcjt2")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_es7sg"]
 animations = [{
 "frames": [{
@@ -82,20 +70,6 @@ animations = [{
 }, {
 "duration": 3.0,
 "texture": ExtResource("12_u6nhc")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_elisw"]
-animations = [{
-"frames": [{
-"duration": 3.0,
-"texture": ExtResource("13_eqncq")
-}, {
-"duration": 3.0,
-"texture": ExtResource("14_loyam")
 }],
 "loop": true,
 "name": &"default",
@@ -116,100 +90,174 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i2gxk"]
+texture = ExtResource("10_qlc6a")
+texture_region_size = Vector2i(32, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_bmpv3"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_i2gxk")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qnydc"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("9_ei7e3")
+}, {
+"duration": 3.0,
+"texture": ExtResource("10_fcjt2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_elisw"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("13_eqncq")
+}, {
+"duration": 3.0,
+"texture": ExtResource("14_loyam")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Clouds" type="Node2D"]
 script = ExtResource("1_50vrx")
 
 [node name="parallax_back" type="Node2D" parent="."]
+position = Vector2(0, 540)
 
 [node name="background" type="Parallax2D" parent="parallax_back"]
+scroll_scale = Vector2(0.05, 1)
 repeat_size = Vector2(950, 0)
 repeat_times = 10
+metadata/_edit_lock_ = true
 
 [node name="background" type="Sprite2D" parent="parallax_back/background"]
 texture_filter = 1
+scale = Vector2(4.5, 4.5)
 texture = ExtResource("1_162ux")
 
 [node name="layer1" type="Parallax2D" parent="parallax_back"]
-scroll_scale = Vector2(0.25, 1)
-repeat_size = Vector2(2000, 0)
+scroll_scale = Vector2(0.01, 1)
+repeat_size = Vector2(4000, 0)
 repeat_times = 5
+metadata/_edit_lock_ = true
 
 [node name="layer1" type="AnimatedSprite2D" parent="parallax_back/layer1"]
 texture_filter = 1
+scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_w1ofh")
-frame_progress = 0.454521
+frame = 1
+frame_progress = 0.304446
 
 [node name="layer2" type="Parallax2D" parent="parallax_back"]
-scroll_scale = Vector2(0.5, 1)
-scroll_offset = Vector2(200, 0)
-repeat_size = Vector2(2000, 0)
+visible = false
+scroll_scale = Vector2(0.25, 1)
+repeat_size = Vector2(2200, 0)
 repeat_times = 5
+metadata/_edit_lock_ = true
 
 [node name="layer2" type="AnimatedSprite2D" parent="parallax_back/layer2"]
 texture_filter = 1
+scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_xlphk")
 frame_progress = 0.34404
-offset = Vector2(850, 0)
 
 [node name="layer3" type="Parallax2D" parent="parallax_back"]
-scroll_scale = Vector2(0.75, 1)
-repeat_size = Vector2(950, 0)
+visible = false
+scroll_scale = Vector2(0.3, 1)
+repeat_size = Vector2(2700, 0)
 repeat_times = 10
+metadata/_edit_lock_ = true
 
 [node name="layer3" type="AnimatedSprite2D" parent="parallax_back/layer3"]
 texture_filter = 1
+scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_ddt3w")
 frame = 1
 frame_progress = 0.66421
-offset = Vector2(100, 0)
+
+[node name="layer5" type="Parallax2D" parent="parallax_back"]
+scroll_scale = Vector2(0.02, 1)
+repeat_size = Vector2(2400, 0)
+repeat_times = 10
+metadata/_edit_lock_ = true
+
+[node name="layer5" type="AnimatedSprite2D" parent="parallax_back/layer5"]
+texture_filter = 1
+position = Vector2(0, 220)
+scale = Vector2(4.5, 4.5)
+sprite_frames = SubResource("SpriteFrames_es7sg")
+
+[node name="layer7" type="Parallax2D" parent="parallax_back"]
+scroll_scale = Vector2(0.4, 1)
+repeat_size = Vector2(1800, 0)
+repeat_times = 10
+metadata/_edit_lock_ = true
+
+[node name="layer7" type="AnimatedSprite2D" parent="parallax_back/layer7"]
+visible = false
+texture_filter = 1
+position = Vector2(0, 466.125)
+scale = Vector2(4.5, 4.5)
+sprite_frames = SubResource("SpriteFrames_i1o3m")
+offset = Vector2(-600, 0)
+
+[node name="layer8" type="Parallax2D" parent="parallax_back"]
+scroll_scale = Vector2(0.5, 1)
+repeat_size = Vector2(1600, 0)
+repeat_times = 10
+metadata/_edit_lock_ = true
+
+[node name="layer8" type="Sprite2D" parent="parallax_back/layer8"]
+texture_filter = 1
+position = Vector2(0, 460)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("17_8av07")
+
+[node name="character" parent="." instance=ExtResource("9_tmdce")]
+position = Vector2(1674, 540)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAAABAAAAABAAEAAAABABAAAAABAAEAAAABAA8AAAABAAEAAAACAA8AAAABAAEAAAACABAAAAABAAEAAAADABAAAAABAAEAAAAEABAAAAABAAEAAAAFABAAAAABAAEAAAAGABAAAAABAAEAAAAHABAAAAABAAEAAAAIABAAAAABAAEAAAAJABAAAAABAAEAAAAKABAAAAABAAEAAAALABAAAAABAAEAAAAMABAAAAABAAEAAAANABAAAAABAAEAAAAOABAAAAABAAEAAAAPABAAAAABAAEAAAAQABAAAAABAAEAAAARABAAAAABAAEAAAASABAAAAABAAEAAAATABAAAAABAAEAAAAUABAAAAABAAEAAAAVABAAAAABAAEAAAAWABAAAAABAAEAAAAXABAAAAABAAEAAAAcABAAAAABAAEAAAAdABAAAAABAAEAAAAbABAAAAABAAEAAAAaABAAAAABAAEAAAAZABAAAAABAAEAAAAYABAAAAABAAEAAAAAAAAAAAABAAEAAAABAAAAAAABAAEAAAACAAAAAAABAAEAAAADAAAAAAABAAEAAAAEAAAAAAABAAEAAAAFAAAAAAABAAEAAAAGAAAAAAABAAEAAAAHAAAAAAABAAEAAAAIAAAAAAABAAEAAAAJAAAAAAABAAEAAAAKAAAAAAABAAEAAAALAAAAAAABAAEAAAAMAAAAAAABAAEAAAANAAAAAAABAAEAAAAOAAAAAAABAAEAAAAPAAAAAAABAAEAAAAQAAAAAAABAAEAAAARAAAAAAABAAEAAAASAAAAAAABAAEAAAATAAAAAAABAAEAAAAUAAAAAAABAAEAAAAVAAAAAAABAAEAAAAWAAAAAAABAAEAAAAXAAAAAAABAAEAAAAYAAAAAAABAAEAAAAZAAAAAAABAAEAAAAaAAAAAAABAAEAAAAbAAAAAAABAAEAAAAcAAAAAAABAAEAAAAdAAAAAAABAAEAAAAeAAAAAAABAAEAAAAfAAAAAAABAAEAAAAgAAAAAAABAAEAAAAhAAAAAAABAAEAAAAiAAAAAAABAAEAAAAjAAAAAAABAAEAAAAkAAAAAAABAAEAAAAlAAAAAAABAAEAAAAmAAAAAAABAAEAAAAnAAAAAAABAAEAAAAoAAAAAAABAAEAAAApAAAAAAABAAEAAAAqAAAAAAABAAEAAAArAAAAAAABAAEAAAAsAAAAAAABAAEAAAAtAAAAAAABAAEAAAAuAAAAAAABAAEAAAAvAAAAAAABAAEAAAAwAAAAAAABAAEAAAAxAAAAAAABAAEAAAAyAAAAAAABAAEAAAAzAAAAAAABAAEAAAA0AAAAAAABAAEAAAA1AAAAAAABAAEAAAA2AAAAAAABAAEAAAA3AAAAAAABAAEAAAA4AAAAAAABAAEAAAA5AAAAAAABAAEAAAA6AAAAAAABAAEAAAA7AAAAAAABAAEAAAA8AAAAAAABAAEAAAA9AAAAAAABAAEAAAA+AAAAAAABAAEAAAA/AAAAAAABAAEAAABAAAAAAAABAAEAAABBAAAAAAABAAEAAABCAAAAAAABAAEAAABDAAAAAAABAAEAAABEAAAAAAABAAEAAABFAAAAAAABAAEAAABGAAAAAAABAAEAAABHAAAAAAABAAEAAABIAAAAAAABAAEAAABJAAAAAAABAAEAAABKAAAAAAABAAEAAABLAAAAAAABAAEAAABMAAAAAAABAAEAAABNAAAAAAABAAEAAABOAAAAAAABAAEAAABPAAAAAAABAAEAAABQAAAAAAABAAEAAABRAAAAAAABAAEAAABSAAAAAAABAAEAAABTAAAAAAABAAEAAABUAAAAAAABAAEAAABVAAAAAAABAAEAAABWAAAAAAABAAEAAABXAAAAAAABAAEAAABYAAAAAAABAAEAAABZAAAAAAABAAEAAABaAAAAAAABAAEAAABbAAAAAAABAAEAAABcAAAAAAABAAEAAABdAAAAAAABAAEAAABeAAAAAAABAAEAAABfAAAAAAABAAEAAABgAAAAAAABAAEAAABhAAAAAAABAAEAAABiAAAAAAABAAEAAABjAAAAAAABAAEAAABkAAAAAAABAAEAAABlAAAAAAABAAEAAABmAAAAAAABAAEAAABnAAAAAAABAAEAAABoAAAAAAABAAEAAABpAAAAAAABAAEAAABqAAAAAAABAAEAAABrAAAAAAABAAEAAABsAAAAAAABAAEAAABtAAAAAAABAAEAAABuAAAAAAABAAEAAABvAAAAAAABAAEAAAAeABAAAAABAAEAAAAfABAAAAABAAEAAAAgABAAAAABAAEAAAAhABAAAAABAAEAAAAiABAAAAABAAEAAAAjABAAAAABAAEAAAAkABAAAAABAAEAAAAlABAAAAABAAEAAAAmABAAAAABAAEAAAAnABAAAAABAAEAAAAoABAAAAABAAEAAAApABAAAAABAAEAAAAqABAAAAABAAEAAAArABAAAAABAAEAAAAsABAAAAABAAEAAAAtABAAAAABAAEAAAAuABAAAAABAAEAAAAvABAAAAABAAEAAAAwABAAAAABAAEAAAAxABAAAAABAAEAAAAyABAAAAABAAEAAAAzABAAAAABAAEAAAA0ABAAAAABAAEAAAA1ABAAAAABAAEAAAA2ABAAAAABAAEAAAA3ABAAAAABAAEAAAA4ABAAAAABAAEAAAA5ABAAAAABAAEAAAA6ABAAAAABAAEAAAA7ABAAAAABAAEAAAA8ABAAAAABAAEAAAA9ABAAAAABAAEAAAA+ABAAAAABAAEAAAA/ABAAAAABAAEAAABAABAAAAABAAEAAABBABAAAAABAAEAAABCABAAAAABAAEAAABDABAAAAABAAEAAABEABAAAAABAAEAAABFABAAAAABAAEAAABGABAAAAABAAEAAABHABAAAAABAAEAAABIABAAAAABAAEAAABJABAAAAABAAEAAABKABAAAAABAAEAAABLABAAAAABAAEAAABMABAAAAABAAEAAABNABAAAAABAAEAAABOABAAAAABAAEAAABPABAAAAABAAEAAABQABAAAAABAAEAAABRABAAAAABAAEAAABSABAAAAABAAEAAABTABAAAAABAAEAAABUABAAAAABAAEAAABVABAAAAABAAEAAABWABAAAAABAAEAAABXABAAAAABAAEAAABYABAAAAABAAEAAABZABAAAAABAAEAAABaABAAAAABAAEAAABbABAAAAABAAEAAABcABAAAAABAAEAAABdABAAAAABAAEAAABeABAAAAABAAEAAABfABAAAAABAAEAAABgABAAAAABAAEAAABhABAAAAABAAEAAABiABAAAAABAAEAAABjABAAAAABAAEAAABkABAAAAABAAEAAABlABAAAAABAAEAAABmABAAAAABAAEAAABnABAAAAABAAEAAABoABAAAAABAAEAAABpABAAAAABAAEAAABqABAAAAABAAEAAABrABAAAAABAAEAAABsABAAAAABAAEAAABtABAAAAABAAEAAABuABAAAAABAAEAAABvABAAAAABAAEAAAA=")
+tile_set = SubResource("TileSet_bmpv3")
 
 [node name="parallax_front" type="Node2D" parent="."]
+visible = false
+position = Vector2(0, 540)
 
 [node name="layer4" type="Parallax2D" parent="parallax_front"]
-scroll_scale = Vector2(1.2, 1)
-scroll_offset = Vector2(0, 79.5)
-repeat_size = Vector2(840, 0)
+repeat_size = Vector2(2016, 0)
 repeat_times = 10
+metadata/_edit_lock_ = true
 
 [node name="layer4" type="AnimatedSprite2D" parent="parallax_front/layer4"]
 texture_filter = 1
+position = Vector2(0, 460)
+scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_qnydc")
 frame = 1
 frame_progress = 0.761639
 
-[node name="layer5" type="Parallax2D" parent="parallax_front"]
-scroll_scale = Vector2(1.4, 1)
-scroll_offset = Vector2(300, 0)
-repeat_size = Vector2(1000, 0)
-repeat_times = 10
-
-[node name="layer5" type="AnimatedSprite2D" parent="parallax_front/layer5"]
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_es7sg")
-
 [node name="layer6" type="Parallax2D" parent="parallax_front"]
-scroll_scale = Vector2(1.6, 1)
-repeat_size = Vector2(650, 0)
+scroll_scale = Vector2(1.1, 1)
+repeat_size = Vector2(2146.5, 0)
 repeat_times = 10
+metadata/_edit_lock_ = true
 
 [node name="layer6" type="AnimatedSprite2D" parent="parallax_front/layer6"]
 texture_filter = 1
+scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_elisw")
-
-[node name="layer7" type="Parallax2D" parent="parallax_front"]
-scroll_scale = Vector2(1.8, 1)
-repeat_size = Vector2(750, 0)
-repeat_times = 10
-
-[node name="layer7" type="AnimatedSprite2D" parent="parallax_front/layer7"]
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_i1o3m")
-
-[node name="layer8" type="Parallax2D" parent="parallax_front"]
-scroll_scale = Vector2(2, 1)
-repeat_size = Vector2(1000, 0)
-repeat_times = 10
-
-[node name="layer8" type="Sprite2D" parent="parallax_front/layer8"]
-texture_filter = 1
-texture = ExtResource("17_8av07")

@@ -52,6 +52,7 @@ position = Vector2(0, 1.01801)
 shape = SubResource("RectangleShape2D_pe3ti")
 
 [node name="kill_timer" type="Timer" parent="."]
+wait_time = 0.5
 
 [connection signal="area_entered" from="Path2D/PathFollow2D/squish_hitbox" to="." method="_on_squish_hitbox_area_entered"]
 [connection signal="body_entered" from="Path2D/PathFollow2D/kill_hitbox" to="." method="_on_kill_hitbox_body_entered"]

@@ -1,17 +1,19 @@
-[gd_scene load_steps=18 format=3 uid="uid://12p41m50rd35"]
+[gd_scene load_steps=20 format=3 uid="uid://12p41m50rd35"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_mm2ev"]
-[ext_resource type="Texture2D" uid="uid://bqy8gn6ayyt6q" path="res://sprites/charactersprite-blue_standing.png" id="2_6d5mf"]
-[ext_resource type="Texture2D" uid="uid://dwdtekohb22t3" path="res://sprites/charactersprite-blue_falling.png" id="2_k6tld"]
-[ext_resource type="Texture2D" uid="uid://fo3pmk2swrvb" path="res://sprites/charactersprite-red_falling.png" id="3_x3lku"]
-[ext_resource type="Texture2D" uid="uid://cxs6udyj5ulfq" path="res://sprites/charactersprite-blue_running1.png" id="4_2ekdf"]
-[ext_resource type="Texture2D" uid="uid://d2qqlcjk03raq" path="res://sprites/charactersprite-red_standing.png" id="5_6d0pl"]
-[ext_resource type="Texture2D" uid="uid://dfpwbh16dd30x" path="res://sprites/charactersprite-blue_running2.png" id="5_7qobh"]
-[ext_resource type="Texture2D" uid="uid://b4b701urrxfh4" path="res://sprites/charactersprite-red_running1.png" id="6_1olg4"]
+[ext_resource type="Texture2D" uid="uid://bqy8gn6ayyt6q" path="res://sprites/Wizard character/charactersprite-blue_standing.png" id="2_6d5mf"]
+[ext_resource type="Texture2D" uid="uid://dwdtekohb22t3" path="res://sprites/Wizard character/charactersprite-blue_falling.png" id="2_k6tld"]
+[ext_resource type="Texture2D" uid="uid://fo3pmk2swrvb" path="res://sprites/Wizard character/charactersprite-red_falling.png" id="3_x3lku"]
+[ext_resource type="Texture2D" uid="uid://cxs6udyj5ulfq" path="res://sprites/Wizard character/charactersprite-blue_running1.png" id="4_2ekdf"]
+[ext_resource type="Texture2D" uid="uid://d2qqlcjk03raq" path="res://sprites/Wizard character/charactersprite-red_standing.png" id="5_6d0pl"]
+[ext_resource type="Texture2D" uid="uid://dfpwbh16dd30x" path="res://sprites/Wizard character/charactersprite-blue_running2.png" id="5_7qobh"]
+[ext_resource type="Texture2D" uid="uid://b4b701urrxfh4" path="res://sprites/Wizard character/charactersprite-red_running1.png" id="6_1olg4"]
 [ext_resource type="Texture2D" uid="uid://8xfcgixyjdgj" path="res://sprites/charactersprite-blue_jumping.png" id="6_hi3o4"]
 [ext_resource type="AudioStream" uid="uid://c180d8flfhalx" path="res://Sound/gravity_inverted.mp3" id="6_hq5da"]
-[ext_resource type="AudioStream" uid="uid://bmdqlximm3n2l" path="res://Sound/walking_forest_SFX.mp3" id="7_755m0"]
-[ext_resource type="Texture2D" uid="uid://cp4a1w2gebppl" path="res://sprites/charactersprite-red_running2.png" id="7_teoxb"]
+[ext_resource type="Texture2D" uid="uid://cp4a1w2gebppl" path="res://sprites/Wizard character/charactersprite-red_running2.png" id="7_teoxb"]
+[ext_resource type="AudioStream" uid="uid://36l028xcl11" path="res://Sound/sfx_step_grass_l.mp3" id="12_id2vd"]
+[ext_resource type="AudioStream" uid="uid://4qvp46m6mtkr" path="res://Sound/gravity_inverted-[AudioTrimmer.com].mp3" id="12_wtun7"]
+[ext_resource type="AudioStream" uid="uid://cfon8m5jwmkjm" path="res://Sound/bubble-pop-293342.mp3" id="14_v27ti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87y2d"]
 size = Vector2(227, 472)
@@ -98,6 +100,7 @@ animations = [{
 size = Vector2(216, 247)
 
 [node name="character" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_mm2ev")
 metadata/_edit_group_ = true
 
@@ -122,13 +125,19 @@ offset_bottom = -31.13
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xib5q")
-animation = &"Jump"
+animation = &"Idle"
 
 [node name="gravity_inverted" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_hq5da")
 
+[node name="gravity_normal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_wtun7")
+
 [node name="walking_forest" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_755m0")
+stream = ExtResource("12_id2vd")
+
+[node name="pop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_v27ti")
 
 [node name="player_squish" type="Area2D" parent="."]
 

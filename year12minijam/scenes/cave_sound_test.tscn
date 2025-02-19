@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://dxum0isg5u3dc"]
+[gd_scene load_steps=6 format=4 uid="uid://bj7610ebp0lkj"]
 
 [ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="1_3w117"]
 [ext_resource type="Script" path="res://scripts/cave_sound_test.gd" id="1_k7wnr"]

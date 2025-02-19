@@ -2,6 +2,7 @@ extends Node2D
 
 signal squished
 signal hit_player
+signal pop
 var speed = 0.001
 var damage = 0
 var health = 3
@@ -15,6 +16,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	#If health is below 1 enemy is removed
 	if health < 1:
+		pop.emit()
 		can_kill = false
 		queue_free()
 	$Path2D/PathFollow2D.progress_ratio += speed
@@ -23,7 +25,7 @@ func _process(_delta: float) -> void:
 func _on_squish_hitbox_area_entered(area: Area2D) -> void:
 	#Checks if it's player, takes squish power and applies damage
 	if area.name == "player_squish":
-		damage = get_parent().get_node("forest/character").squish_power
+		damage = get_parent().get_node("character").squish_power
 		health -= damage
 		damage = 0
 		squished.emit()

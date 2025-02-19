@@ -3,7 +3,7 @@ var health = 3
 var canflip = true
 var flip = 1
 const gravity = 700
-var SPEED = 12
+var SPEED = 8
 var sprint_bar = 100
 var can_sprint = true
 var running = false
@@ -18,18 +18,18 @@ const JUMP_VELOCITY = -500.0
 #Sound effect variables
 @onready var gravity_inverted = $gravity_inverted
 @onready var walking_forest = $walking_forest
-
+@onready var gravity_normal = $gravity_normal
 
 func _physics_process(delta: float) -> void:
 	if health <1:
-		print("DIE")
+		get_tree().change_scene_to_file("res://scenes/deathscreen.tscn")
 	_movement(delta)
 
 
 func _movement(delta:float):
 	$sprint_amount.text = str(sprint_bar)
 	if running:
-		SPEED = 20
+		SPEED = 12
 		sprint_bar -= 1
 	if not running:
 		SPEED = 8
@@ -55,31 +55,43 @@ func _movement(delta:float):
 			gravity_inverted.play()
 		else:
 			$AnimatedSprite2D.flip_v = false
+			gravity_normal.play()
 		flip *= -1
 	# Add the gravity.
 	if Input.is_action_pressed("player_left"):
+		if not walking_forest.is_playing() and is_on_floor():
+			walking_forest.play()
+		if not walking_forest.is_playing() and is_on_ceiling():
+			walking_forest.play()
+		elif not is_on_floor() and not is_on_ceiling():
+			walking_forest.stop()
 		direction = -1
 		position.x -= SPEED
-		walking_forest.play()
 		$AnimatedSprite2D.flip_h = true
 		if flip == 1:
 			$AnimatedSprite2D.play("Run")
 		if flip == -1:
 			$AnimatedSprite2D.play("Run_red")
 	if Input.is_action_pressed("player_right"):
+		if not walking_forest.is_playing() and is_on_floor():
+			walking_forest.play()
+		if not walking_forest.is_playing() and is_on_ceiling():
+			walking_forest.play()
+		elif not is_on_floor() and not is_on_ceiling():
+			walking_forest.stop()
 		direction = 1
 		position.x += SPEED
-		walking_forest.play() 
 		$AnimatedSprite2D.flip_h = false
 		if flip == 1:
 			$AnimatedSprite2D.play("Run")
 		if flip == -1:
 			$AnimatedSprite2D.play("Run_red")
 	if not Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right") and is_on_floor():
-		if flip == 1:
-			$AnimatedSprite2D.play("Idle")
-		if flip == -1:
-			$AnimatedSprite2D.play("Idle_red")
+		$AnimatedSprite2D.play("Idle")
+		walking_forest.stop()
+	if not Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right") and is_on_ceiling():
+		walking_forest.stop()
+		$AnimatedSprite2D.play("Idle_red")
 	if not is_on_floor() and flip == 1:
 		velocity.y += gravity * delta * flip
 		$AnimatedSprite2D.play("Fall")
@@ -111,3 +123,7 @@ func _on_enemy_hit_player() -> void:
 func _on_enemy_squished() -> void:
 	slime_velocity = true
 	velocity = Vector2(randi_range(250,400)* direction, randi_range(-400,-650)* flip)
+
+
+func _on_enemy_pop() -> void:
+	$pop.play()
