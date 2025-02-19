@@ -10,6 +10,8 @@ var running = false
 var release_sprint = true
 var jump_reset = true
 var squish_power = 1
+var slime_velocity = false
+var direction = 1
 const JUMP_VELOCITY = -500.0
 
 
@@ -60,11 +62,13 @@ func _movement(delta:float):
 	if not is_on_ceiling() and flip == -1:
 		velocity.y += gravity * delta * flip
 	if Input.is_action_pressed("player_left"):
+		direction = -1
 		$AnimatedSprite2D.play("Run")
 		position.x -= SPEED
 		walking_forest.play()
 		$AnimatedSprite2D.flip_h = true
 	if Input.is_action_pressed("player_right"):
+		direction = 1
 		$AnimatedSprite2D.play("Run")
 		position.x += SPEED
 		walking_forest.play() 
@@ -73,11 +77,12 @@ func _movement(delta:float):
 		$AnimatedSprite2D.play("Idle")
 	if is_on_floor() or is_on_ceiling() and squish_power == 3:
 		squish_power = 1
-	if Input.is_action_pressed("player_jump") and is_on_floor() and flip == 1:
+	if Input.is_action_pressed("player_jump") and is_on_floor() and flip == 1 and not slime_velocity:
 		velocity.y = JUMP_VELOCITY
-	if Input.is_action_pressed("player_jump") and is_on_ceiling() and flip == -1:
+	if Input.is_action_pressed("player_jump") and is_on_ceiling() and flip == -1 and not slime_velocity:
 		velocity.y = JUMP_VELOCITY * flip
 	if is_on_floor() or is_on_ceiling() and not Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right"):
+		slime_velocity = false
 		velocity.x = 0
 	move_and_slide()
 
@@ -90,3 +95,9 @@ func _on_sprint_timer_timeout() -> void:
 
 func _on_enemy_hit_player() -> void:
 	health -= 1
+
+
+func _on_enemy_squished() -> void:
+	print("worked")
+	slime_velocity = true
+	velocity = Vector2(randi_range(250,400)* direction, randi_range(-400,-650)* flip)

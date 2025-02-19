@@ -1,5 +1,6 @@
 extends Node2D
 
+signal squished
 signal hit_player
 var speed = 0.001
 var damage = 0
@@ -25,6 +26,8 @@ func _on_squish_hitbox_area_entered(area: Area2D) -> void:
 		damage = get_parent().get_node("forest/character").squish_power
 		health -= damage
 		damage = 0
+		squished.emit()
+		
 
 func _on_kill_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "character" and can_kill:
