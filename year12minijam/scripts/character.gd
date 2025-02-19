@@ -57,12 +57,6 @@ func _movement(delta:float):
 			$AnimatedSprite2D.flip_v = false
 		flip *= -1
 	# Add the gravity.
-	if not is_on_floor() and flip == 1:
-		velocity.y += gravity * delta * flip
-		$AnimatedSprite2D.play("Fall")
-	if not is_on_ceiling() and flip == -1:
-		velocity.y += gravity * delta * flip
-		$AnimatedSprite2D.play("Fall_red")
 	if Input.is_action_pressed("player_left"):
 		direction = -1
 		position.x -= SPEED
@@ -86,6 +80,12 @@ func _movement(delta:float):
 			$AnimatedSprite2D.play("Idle")
 		if flip == -1:
 			$AnimatedSprite2D.play("Idle_red")
+	if not is_on_floor() and flip == 1:
+		velocity.y += gravity * delta * flip
+		$AnimatedSprite2D.play("Fall")
+	if not is_on_ceiling() and flip == -1:
+		velocity.y += gravity * delta * flip
+		$AnimatedSprite2D.play("Fall_red")
 	if is_on_floor() or is_on_ceiling() and squish_power == 3:
 		squish_power = 1
 	if Input.is_action_pressed("player_jump") and is_on_floor() and flip == 1 and not slime_velocity:
