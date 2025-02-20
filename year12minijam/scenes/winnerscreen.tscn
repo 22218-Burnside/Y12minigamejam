@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkxv7wuvbmtbs"]
+[gd_scene load_steps=3 format=3 uid="uid://bkxv7wuvbmtbs"]
 
 [ext_resource type="Script" path="res://scripts/winnerscreen.gd" id="1_u5l5o"]
+[ext_resource type="Texture2D" uid="uid://cxsqvltk35cco" path="res://sprites/Background layers cloud/Background.png" id="2_nncqs"]
 
 [node name="Winnerscreen" type="Control"]
 layout_mode = 3
@@ -10,6 +11,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u5l5o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(940, 549)
+scale = Vector2(3, 4.5)
+texture = ExtResource("2_nncqs")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -55,4 +62,15 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 120
 text = "Play Again?"
 
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 756.0
+offset_right = 1276.0
+offset_bottom = 929.0
+theme_override_font_sizes/font_size = 120
+text = "Quit Game
+"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
