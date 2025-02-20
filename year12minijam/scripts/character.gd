@@ -2,7 +2,7 @@ extends CharacterBody2D
 var health = 3
 var canflip = true
 var flip = 1
-const gravity = 700
+const gravity = 1000
 var SPEED = 8
 var sprint_bar = 100
 var can_sprint = true

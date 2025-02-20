@@ -51,6 +51,9 @@ offset = Vector2(70, 0)
 position = Vector2(0, 595)
 
 [node name="Parallax2D" type="Parallax2D" parent="noon"]
+modulate = Color(1, 1, 1, 0)
+repeat_size = Vector2(1680, 0)
+repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="noon/Parallax2D"]
 texture_filter = 1
