@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbu7qmmd588yx"]
+[gd_scene load_steps=3 format=3 uid="uid://cbu7qmmd588yx"]
 
 [ext_resource type="Script" path="res://scripts/deathscreen.gd" id="1_cku0b"]
+[ext_resource type="FontFile" uid="uid://dhpgesgoqumer" path="res://Numans-Regular.ttf" id="2_oonh4"]
 
 [node name="Deathscreen" type="Control"]
 layout_mode = 3
@@ -20,6 +21,7 @@ offset_left = -259.5
 offset_right = 259.5
 offset_bottom = 314.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_oonh4")
 theme_override_font_sizes/font_size = 150
 text = "Oh no! "
 horizontal_alignment = 1
@@ -34,6 +36,7 @@ offset_left = -529.5
 offset_right = 529.5
 offset_bottom = 641.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_oonh4")
 theme_override_font_sizes/font_size = 150
 text = "You have died!"
 horizontal_alignment = 1
@@ -52,7 +55,26 @@ offset_right = 330.0
 offset_bottom = 175.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_oonh4")
 theme_override_font_sizes/font_size = 120
 text = "Play Again?"
 
+[node name="Quit-Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -329.0
+offset_top = 216.0
+offset_right = 331.0
+offset_bottom = 389.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_oonh4")
+theme_override_font_sizes/font_size = 120
+text = "Quit"
+
 [connection signal="pressed" from="Play-Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Quit-Button" to="." method="_on_quit_button_pressed"]

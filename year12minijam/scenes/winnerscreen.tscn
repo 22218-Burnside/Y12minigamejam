@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkxv7wuvbmtbs"]
+[gd_scene load_steps=4 format=3 uid="uid://bkxv7wuvbmtbs"]
 
 [ext_resource type="Script" path="res://scripts/winnerscreen.gd" id="1_u5l5o"]
 [ext_resource type="Texture2D" uid="uid://cxsqvltk35cco" path="res://sprites/Background layers cloud/Background.png" id="2_nncqs"]
+[ext_resource type="FontFile" uid="uid://dhpgesgoqumer" path="res://Numans-Regular.ttf" id="3_vmr3e"]
 
 [node name="Winnerscreen" type="Control"]
 layout_mode = 3
@@ -27,6 +28,7 @@ offset_left = -601.0
 offset_right = 601.0
 offset_bottom = 300.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_vmr3e")
 theme_override_font_sizes/font_size = 150
 text = "Congratulations!"
 horizontal_alignment = 1
@@ -41,6 +43,7 @@ offset_left = -421.0
 offset_right = 422.0
 offset_bottom = 637.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_vmr3e")
 theme_override_font_sizes/font_size = 120
 text = "You have won!"
 horizontal_alignment = 1
@@ -59,6 +62,7 @@ offset_right = 330.0
 offset_bottom = 175.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_vmr3e")
 theme_override_font_sizes/font_size = 120
 text = "Play Again?"
 
@@ -68,6 +72,7 @@ offset_left = 645.0
 offset_top = 756.0
 offset_right = 1276.0
 offset_bottom = 929.0
+theme_override_fonts/font = ExtResource("3_vmr3e")
 theme_override_font_sizes/font_size = 120
 text = "Quit Game
 "
