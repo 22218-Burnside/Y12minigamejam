@@ -69,7 +69,7 @@ offset_bottom = 91.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("6_51gxe")
 theme_override_font_sizes/font_size = 150
-text = "Mini Game Jam/game name"
+text = "Inversion"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]

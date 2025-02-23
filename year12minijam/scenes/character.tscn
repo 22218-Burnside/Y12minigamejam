@@ -1,14 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://12p41m50rd35"]
+[gd_scene load_steps=21 format=3 uid="uid://12p41m50rd35"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_mm2ev"]
 [ext_resource type="Texture2D" uid="uid://bqy8gn6ayyt6q" path="res://sprites/Wizard character/charactersprite-blue_standing.png" id="2_6d5mf"]
 [ext_resource type="Texture2D" uid="uid://dwdtekohb22t3" path="res://sprites/Wizard character/charactersprite-blue_falling.png" id="2_k6tld"]
+[ext_resource type="Texture2D" uid="uid://bk1rtuyjhp51o" path="res://sprites/Wizard character/charactersprite-blue_falling2.png" id="3_52wp1"]
 [ext_resource type="Texture2D" uid="uid://fo3pmk2swrvb" path="res://sprites/Wizard character/charactersprite-red_falling.png" id="3_x3lku"]
 [ext_resource type="Texture2D" uid="uid://cxs6udyj5ulfq" path="res://sprites/Wizard character/charactersprite-blue_running1.png" id="4_2ekdf"]
 [ext_resource type="Texture2D" uid="uid://d2qqlcjk03raq" path="res://sprites/Wizard character/charactersprite-red_standing.png" id="5_6d0pl"]
 [ext_resource type="Texture2D" uid="uid://dfpwbh16dd30x" path="res://sprites/Wizard character/charactersprite-blue_running2.png" id="5_7qobh"]
+[ext_resource type="Texture2D" uid="uid://7fpju6bsytkv" path="res://sprites/Wizard character/charactersprite-red_falling2.png" id="5_g6dm2"]
 [ext_resource type="Texture2D" uid="uid://b4b701urrxfh4" path="res://sprites/Wizard character/charactersprite-red_running1.png" id="6_1olg4"]
-[ext_resource type="Texture2D" uid="uid://8xfcgixyjdgj" path="res://sprites/charactersprite-blue_jumping.png" id="6_hi3o4"]
 [ext_resource type="AudioStream" uid="uid://c180d8flfhalx" path="res://Sound/gravity_inverted.mp3" id="6_hq5da"]
 [ext_resource type="Texture2D" uid="uid://cp4a1w2gebppl" path="res://sprites/Wizard character/charactersprite-red_running2.png" id="7_teoxb"]
 [ext_resource type="AudioStream" uid="uid://36l028xcl11" path="res://Sound/sfx_step_grass_l.mp3" id="12_id2vd"]
@@ -29,16 +30,22 @@ region = Rect2(0, 0, 480, 480)
 [sub_resource type="SpriteFrames" id="SpriteFrames_xib5q"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_122ca")
+}, {
+"duration": 0.9,
+"texture": ExtResource("3_52wp1")
 }],
 "loop": true,
 "name": &"Fall",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 1.5,
 "texture": ExtResource("3_x3lku")
+}, {
+"duration": 1.5,
+"texture": ExtResource("5_g6dm2")
 }],
 "loop": true,
 "name": &"Fall_red",
@@ -62,7 +69,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_hi3o4")
+"texture": null
 }],
 "loop": true,
 "name": &"Jump",
@@ -125,7 +132,9 @@ offset_bottom = -31.13
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xib5q")
-animation = &"Idle"
+animation = &"Fall_red"
+frame = 1
+frame_progress = 0.546807
 
 [node name="gravity_inverted" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_hq5da")

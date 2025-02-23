@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://g032v4hvlojq"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_wfpy3"]
-[ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="2_l4ave"]
+[ext_resource type="Texture2D" uid="uid://v2ewpevqk0l2" path="res://sprites/slimesprite1.png" id="2_cdsdb"]
 
 [sub_resource type="Curve2D" id="Curve2D_frtmy"]
 _data = {
@@ -34,7 +34,8 @@ rotates = false
 [node name="collision_hitbox" type="CharacterBody2D" parent="Path2D/PathFollow2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/collision_hitbox"]
-texture = ExtResource("2_l4ave")
+scale = Vector2(0.260932, 0.260932)
+texture = ExtResource("2_cdsdb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/collision_hitbox"]
 position = Vector2(0.0426025, 1.18848)
