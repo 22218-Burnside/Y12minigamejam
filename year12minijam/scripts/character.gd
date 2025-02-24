@@ -6,12 +6,15 @@ const gravity = 1000
 var SPEED = 8
 var sprint_bar = 100
 var can_sprint = true
-var running = false
 var release_sprint = true
 var jump_reset = true
 var squish_power = 1
 var slime_velocity = false
 var direction = 1
+var falling = false
+var idle = false
+var walking = false
+var running = false
 const JUMP_VELOCITY = -500.0
 
 
@@ -24,6 +27,8 @@ func _physics_process(delta: float) -> void:
 	if health <1:
 		get_tree().change_scene_to_file("res://scenes/deathscreen.tscn")
 	_movement(delta)
+	_animations()
+	_sounds()
 
 
 func _movement(delta:float):
@@ -48,56 +53,19 @@ func _movement(delta:float):
 		$sprint_timer.start(1)
 	if Input.is_action_just_pressed("player_flip") and canflip:
 		squish_power = 3
-		canflip = false
 		$flip_timer.start()
-		if flip == 1:
-			$AnimatedSprite2D.flip_v = true
-			gravity_inverted.play()
-		else:
-			$AnimatedSprite2D.flip_v = false
-			gravity_normal.play()
 		flip *= -1
 	# Add the gravity.
 	if Input.is_action_pressed("player_left"):
-		if not walking_forest.is_playing() and is_on_floor():
-			walking_forest.play()
-		if not walking_forest.is_playing() and is_on_ceiling():
-			walking_forest.play()
-		elif not is_on_floor() and not is_on_ceiling():
-			walking_forest.stop()
 		direction = -1
 		position.x -= SPEED
-		$AnimatedSprite2D.flip_h = true
-		if flip == 1:
-			$AnimatedSprite2D.play("Run")
-		if flip == -1:
-			$AnimatedSprite2D.play("Run_red")
 	if Input.is_action_pressed("player_right"):
-		if not walking_forest.is_playing() and is_on_floor():
-			walking_forest.play()
-		if not walking_forest.is_playing() and is_on_ceiling():
-			walking_forest.play()
-		elif not is_on_floor() and not is_on_ceiling():
-			walking_forest.stop()
 		direction = 1
 		position.x += SPEED
-		$AnimatedSprite2D.flip_h = false
-		if flip == 1:
-			$AnimatedSprite2D.play("Run")
-		if flip == -1:
-			$AnimatedSprite2D.play("Run_red")
-	if not Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right") and is_on_floor():
-		$AnimatedSprite2D.play("Idle")
-		walking_forest.stop()
-	if not Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right") and is_on_ceiling():
-		walking_forest.stop()
-		$AnimatedSprite2D.play("Idle_red")
 	if not is_on_floor() and flip == 1:
 		velocity.y += gravity * delta * flip
-		$AnimatedSprite2D.play("Fall")
 	if not is_on_ceiling() and flip == -1:
 		velocity.y += gravity * delta * flip
-		$AnimatedSprite2D.play("Fall_red")
 	if is_on_floor() or is_on_ceiling() and squish_power == 3:
 		squish_power = 1
 	if Input.is_action_pressed("player_jump") and is_on_floor() and flip == 1 and not slime_velocity:
@@ -108,6 +76,80 @@ func _movement(delta:float):
 		slime_velocity = false
 		velocity.x = 0
 	move_and_slide()
+	
+
+
+func _animations():
+	if Input.is_action_pressed("player_left"):
+		walking = true
+		$AnimatedSprite2D.flip_h = true
+		if walking and not falling:
+			if flip == 1:
+				$AnimatedSprite2D.play("Run")
+			if flip == -1:
+				$AnimatedSprite2D.play("Run_red")
+	if Input.is_action_pressed("player_right"):
+		walking = true
+		$AnimatedSprite2D.flip_h = false
+		if walking and not falling:
+			if flip == 1:
+				$AnimatedSprite2D.play("Run")
+			if flip == -1:
+				$AnimatedSprite2D.play("Run_red")
+	if not Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right") and is_on_floor():
+		walking = false
+		falling = false
+		$AnimatedSprite2D.play("Idle")
+	if not Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right") and is_on_ceiling():
+		walking = false
+		falling = false
+		$AnimatedSprite2D.play("Idle_red")
+	if is_on_ceiling() or is_on_floor():
+		falling = false
+	if not is_on_floor() and flip == 1:
+		falling = true
+		$AnimatedSprite2D.play("Fall")
+	if not is_on_ceiling() and flip == -1:
+		falling = true
+		$AnimatedSprite2D.play("Fall_red")
+	if Input.is_action_pressed("player_jump") and is_on_floor() and flip == 1 and not slime_velocity:
+		$AnimatedSprite2D.play("Jump")
+	if Input.is_action_pressed("player_jump") and is_on_ceiling() and flip == -1 and not slime_velocity:
+		$AnimatedSprite2D.play("Jump")
+
+
+
+func _sounds():
+	if Input.is_action_just_pressed("player_flip")and canflip:
+		canflip = false
+		if flip == -1:
+			$AnimatedSprite2D.flip_v = true
+			gravity_inverted.play()
+		if flip == 1:
+			$AnimatedSprite2D.flip_v = false
+			gravity_normal.play()
+	if Input.is_action_pressed("player_left"):
+		if not walking_forest.is_playing() and is_on_floor():
+			walking_forest.play()
+		if not walking_forest.is_playing() and is_on_ceiling():
+			walking_forest.play()
+		elif not is_on_floor() and not is_on_ceiling():
+			walking_forest.stop()
+	if Input.is_action_pressed("player_right"):
+		if not walking_forest.is_playing() and is_on_floor():
+			walking_forest.play()
+		if not walking_forest.is_playing() and is_on_ceiling():
+			walking_forest.play()
+		elif not is_on_floor() and not is_on_ceiling():
+			walking_forest.stop()
+	if not Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right") and is_on_floor():
+		walking_forest.stop()
+	if not Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right") and is_on_ceiling():
+		walking_forest.stop()
+
+
+
+#Connected Node Functions
 
 func _on_flip_timer_timeout() -> void:
 	canflip = true
