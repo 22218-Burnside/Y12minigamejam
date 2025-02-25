@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5je30ka8yfe4"]
+[gd_scene load_steps=13 format=3 uid="uid://b5je30ka8yfe4"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_ickvs"]
 [ext_resource type="Texture2D" uid="uid://vuscjb4u2v6o" path="res://sprites/Layers/Day/Back.png" id="2_80d7x"]
@@ -8,6 +8,58 @@
 [ext_resource type="FontFile" uid="uid://dhpgesgoqumer" path="res://Numans-Regular.ttf" id="6_51gxe"]
 [ext_resource type="Texture2D" uid="uid://bl1nlli7cthpb" path="res://sprites/Layers/Noon/Clouds.png" id="6_irj6j"]
 [ext_resource type="Texture2D" uid="uid://dnhxhtssvrt75" path="res://sprites/Layers/Noon/Middle.png" id="7_u4xxi"]
+
+[sub_resource type="Animation" id="Animation_85wib"]
+resource_name = "black_to_clear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5dxk5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rlpln"]
+resource_name = "clear_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r2baa"]
+_data = {
+"RESET": SubResource("Animation_5dxk5"),
+"black_to_clear": SubResource("Animation_85wib"),
+"clear_to_black": SubResource("Animation_rlpln")
+}
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -106,6 +158,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1929.0
+offset_bottom = 1083.0
+color = Color(0, 0, 0, 1)
+
 [node name="Play-Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -139,6 +196,11 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_51gxe")
 theme_override_font_sizes/font_size = 120
 text = "Quit Game"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r2baa")
+}
 
 [connection signal="pressed" from="Play-Button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Quit-Button" to="." method="_on_quit_button_pressed"]

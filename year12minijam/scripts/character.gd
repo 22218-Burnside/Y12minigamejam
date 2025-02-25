@@ -112,10 +112,6 @@ func _animations():
 	if not is_on_ceiling() and flip == -1:
 		falling = true
 		$AnimatedSprite2D.play("Fall_red")
-	if Input.is_action_pressed("player_jump") and is_on_floor() and flip == 1 and not slime_velocity:
-		$AnimatedSprite2D.play("Jump")
-	if Input.is_action_pressed("player_jump") and is_on_ceiling() and flip == -1 and not slime_velocity:
-		$AnimatedSprite2D.play("Jump")
 
 
 
