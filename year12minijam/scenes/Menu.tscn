@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5je30ka8yfe4"]
+[gd_scene load_steps=9 format=3 uid="uid://b5je30ka8yfe4"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_ickvs"]
 [ext_resource type="Texture2D" uid="uid://vuscjb4u2v6o" path="res://sprites/Layers/Day/Back.png" id="2_80d7x"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://4nlis8a6bn5l" path="res://sprites/Layers/Day/Middle.png" id="4_3fnpq"]
 [ext_resource type="Texture2D" uid="uid://c54m1x3ulnykl" path="res://sprites/Layers/Noon/Back.png" id="5_u5o5l"]
 [ext_resource type="FontFile" uid="uid://dhpgesgoqumer" path="res://Numans-Regular.ttf" id="6_51gxe"]
+[ext_resource type="Texture2D" uid="uid://bl1nlli7cthpb" path="res://sprites/Layers/Noon/Clouds.png" id="6_irj6j"]
+[ext_resource type="Texture2D" uid="uid://dnhxhtssvrt75" path="res://sprites/Layers/Noon/Middle.png" id="7_u4xxi"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -49,17 +51,35 @@ texture = ExtResource("4_3fnpq")
 offset = Vector2(70, 0)
 
 [node name="noon" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(0, 595)
 
 [node name="Parallax2D" type="Parallax2D" parent="noon"]
-modulate = Color(1, 1, 1, 0)
 repeat_size = Vector2(1680, 0)
-repeat_times = 5
+repeat_times = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="noon/Parallax2D"]
 texture_filter = 1
 scale = Vector2(5, 5)
 texture = ExtResource("5_u5o5l")
+
+[node name="Parallax2D2" type="Parallax2D" parent="noon"]
+repeat_size = Vector2(1680, 0)
+autoscroll = Vector2(30, 0)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="noon/Parallax2D2"]
+scale = Vector2(5, 5)
+texture = ExtResource("6_irj6j")
+
+[node name="Parallax2D3" type="Parallax2D" parent="noon"]
+scroll_offset = Vector2(-130, 0)
+repeat_size = Vector2(720, 0)
+repeat_times = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="noon/Parallax2D3"]
+scale = Vector2(5, 5)
+texture = ExtResource("7_u4xxi")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

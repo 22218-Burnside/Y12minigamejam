@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c63xsrf7jaec7"]
+[gd_scene load_steps=18 format=4 uid="uid://c63xsrf7jaec7"]
 
 [ext_resource type="Texture2D" uid="uid://cso4dl1m2yuys" path="res://sprites/Background layers cave/1.png" id="1_ato8y"]
 [ext_resource type="Script" path="res://scripts/cave.gd" id="1_d6hj5"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://12p41m50rd35" path="res://scenes/character.tscn" id="9_xh8qh"]
 [ext_resource type="Texture2D" uid="uid://mu5n0i4ipida" path="res://sprites/Background layers cave/cave tileset.png" id="10_kvxni"]
 [ext_resource type="AudioStream" uid="uid://b0b3ox35uejjl" path="res://Sound/cave_ambience.mp3" id="13_40li0"]
+[ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="14_afy3h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_77adx"]
 texture = ExtResource("10_kvxni")
@@ -459,6 +460,8 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_77adx")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkeqt"]
+
 [node name="cave" type="Node2D"]
 script = ExtResource("1_d6hj5")
 
@@ -578,4 +581,16 @@ text = "Press to teleport"
 [node name="cave_ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_40li0")
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1732, 725)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_vkeqt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("14_afy3h")
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
