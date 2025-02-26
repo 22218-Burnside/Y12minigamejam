@@ -24,6 +24,8 @@ const JUMP_VELOCITY = -500.0
 @onready var gravity_normal = $gravity_normal
 
 func _physics_process(delta: float) -> void:
+	if position.y > 1500 or position.y <-1000:
+		get_tree().change_scene_to_file("res://scenes/deathscreen.tscn")
 	if health <1:
 		get_tree().change_scene_to_file("res://scenes/deathscreen.tscn")
 	_movement(delta)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://12p41m50rd35"]
+[gd_scene load_steps=21 format=3 uid="uid://12p41m50rd35"]
 
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_mm2ev"]
 [ext_resource type="Texture2D" uid="uid://bqy8gn6ayyt6q" path="res://sprites/Wizard character/charactersprite-blue_standing.png" id="2_6d5mf"]
@@ -15,6 +15,9 @@
 [ext_resource type="AudioStream" uid="uid://36l028xcl11" path="res://Sound/sfx_step_grass_l.mp3" id="12_id2vd"]
 [ext_resource type="AudioStream" uid="uid://4qvp46m6mtkr" path="res://Sound/gravity_inverted-[AudioTrimmer.com].mp3" id="12_wtun7"]
 [ext_resource type="AudioStream" uid="uid://cfon8m5jwmkjm" path="res://Sound/bubble-pop-293342.mp3" id="14_v27ti"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87y2d"]
+size = Vector2(225.5, 472)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_122ca"]
 atlas = ExtResource("2_k6tld")
@@ -108,8 +111,9 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_mm2ev")
 metadata/_edit_group_ = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-110, -178, 96, -178, 96, 124, 36, 240, -44, 240, -110, 124)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.75, 0)
+shape = SubResource("RectangleShape2D_87y2d")
 
 [node name="flip_timer" type="Timer" parent="."]
 
@@ -150,6 +154,8 @@ stream = ExtResource("14_v27ti")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_squish"]
 position = Vector2(-1, 116.5)
 shape = SubResource("RectangleShape2D_gelmr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
 [connection signal="timeout" from="flip_timer" to="." method="_on_flip_timer_timeout"]
 [connection signal="timeout" from="sprint_timer" to="." method="_on_sprint_timer_timeout"]
