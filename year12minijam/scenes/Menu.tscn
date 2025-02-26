@@ -9,21 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://bl1nlli7cthpb" path="res://sprites/Layers/Noon/Clouds.png" id="6_irj6j"]
 [ext_resource type="Texture2D" uid="uid://dnhxhtssvrt75" path="res://sprites/Layers/Noon/Middle.png" id="7_u4xxi"]
 
-[sub_resource type="Animation" id="Animation_85wib"]
-resource_name = "black_to_clear"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0666667, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_5dxk5"]
 length = 0.001
 tracks/0/type = "value"
@@ -37,6 +22,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_85wib"]
+resource_name = "black_to_clear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_rlpln"]
@@ -159,6 +159,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1929.0
 offset_bottom = 1083.0
 color = Color(0, 0, 0, 1)
