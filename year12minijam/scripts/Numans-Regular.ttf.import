@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cxlt1868mws6c"
-path="res://.godot/imported/Numans-Regular.ttf-abc156cfc9294bab20de173b77925388.fontdata"
+path="res://.godot/imported/Numans-Regular.ttf-3a0373d0e1680a6b87545472b5800168.fontdata"
 
 [deps]
 
-source_file="res://scenes/Numans-Regular.ttf"
-dest_files=["res://.godot/imported/Numans-Regular.ttf-abc156cfc9294bab20de173b77925388.fontdata"]
+source_file="res://scripts/Numans-Regular.ttf"
+dest_files=["res://.godot/imported/Numans-Regular.ttf-3a0373d0e1680a6b87545472b5800168.fontdata"]
 
 [params]
 
