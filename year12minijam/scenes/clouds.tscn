@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://dptq7muregf6v"]
+[gd_scene load_steps=32 format=4 uid="uid://dptq7muregf6v"]
 
 [ext_resource type="Script" path="res://scripts/clouds.gd" id="1_50vrx"]
 [ext_resource type="Texture2D" uid="uid://cxsqvltk35cco" path="res://sprites/Background layers cloud/Background.png" id="1_162ux"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dq5w20pfu5ij0" path="res://sprites/Background layers cloud/Layer 6 anim1.png" id="15_twu6r"]
 [ext_resource type="Texture2D" uid="uid://smlamfrewepb" path="res://sprites/Background layers cloud/Layer 6 anim2.png" id="16_g6txl"]
 [ext_resource type="Texture2D" uid="uid://csd8tij5cnena" path="res://sprites/Background layers cloud/Layer 7 anim1.png" id="17_8av07"]
+[ext_resource type="PackedScene" uid="uid://g032v4hvlojq" path="res://scenes/enemy.tscn" id="20_2t2o1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w1ofh"]
 animations = [{
@@ -256,12 +257,12 @@ texture = ExtResource("17_8av07")
 offset = Vector2(-125, 0)
 
 [node name="character" parent="." instance=ExtResource("9_tmdce")]
-position = Vector2(286, 836)
+position = Vector2(205, 703)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAD8/xIAAgACAAEAAHAAABEAAgAAAAAAAAAAABIAAgAAAAIAAAABABEAAgABAAAAAAABABIAAgABAAIAAAACABEAAgABAAAAAAACABIAAgABAAIAAAADABEAAgABAAAAAAADABIAAgABAAIAAAAEABEAAgABAAAAAAAEABIAAgABAAIAAAAFABEAAgABAAAAAAAFABIAAgABAAIAAAAGABEAAgABAAAAAAAGABIAAgABAAIAAAAHABEAAgABAAAAAAAHABIAAgABAAIAAAAIABEAAgABAAAAAAAIABIAAgABAAIAAAAJABEAAgACAAAAAAAJABIAAgACAAIAAAAAAP//AgAAAAAAAAAAAAAAAgAAAAIAAAABAP//AgABAAAAAAABAAAAAgABAAIAAAACAP//AgABAAAAAAACAAAAAgABAAIAAAADAP//AgABAAAAAAADAAAAAgABAAIAAAAEAP//AgABAAAAAAAEAAAAAgABAAIAAAAFAP//AgABAAAAAAAFAAAAAgABAAIAAAAGAP//AgABAAAAAAAGAAAAAgABAAIAAAAHAP//AgABAAAAAAAHAAAAAgABAAIAAAAIAP//AgABAAAAAAAIAAAAAgABAAIAAAAJAP//AgACAAAAAAAJAAAAAgACAAIAAAARAAAAAgAAAAAAAAARAAEAAgAAAAIAAAASAAAAAgABAAAAAAASAAEAAgABAAIAAAATAAAAAgABAAAAAAATAAEAAgABAAAAACAUAAAAAgABAAAAAAAUAAEAAgABAAIAAAAVAAAAAgACAAAAAAAVAAEAAgACAAIAAAA=")
+tile_map_data = PackedByteArray("AAD8/xIAAgACAAEAAHARAAAAAgAAAAAAAAARAAEAAgAAAAIAAAASAAAAAgABAAAAAAASAAEAAgABAAIAAAATAAAAAgABAAAAAAATAAEAAgABAAAAACAUAAAAAgABAAAAAAAUAAEAAgABAAIAAAAVAAAAAgACAAAAAAAVAAEAAgACAAIAAAAAAA8AAgAAAAAAAAAAABAAAgAAAAIAAAABAA8AAgABAAAAAAABABAAAgABAAIAAAACAA8AAgABAAAAAAACABAAAgABAAIAAAADAA8AAgABAAAAAAADABAAAgABAAIAAAAEAA8AAgABAAAAAAAEABAAAgABAAIAAAAFAA8AAgABAAAAAAAFABAAAgABAAIAAAAGAA8AAgABAAAAAAAGABAAAgABAAIAAAAHAA8AAgABAAAAAAAHABAAAgABAAIAAAAIAA8AAgABAAAAAAAIABAAAgABAAIAAAAJAA8AAgACAAAAAAAJABAAAgACAAIAAAAAAAAAAgAAAAAAAAAAAAEAAgAAAAIAAAABAAAAAgABAAAAAAABAAEAAgABAAIAAAACAAAAAgABAAAAAAACAAEAAgABAAIAAAADAAAAAgABAAAAAAADAAEAAgABAAIAAAAEAAAAAgABAAAAAAAEAAEAAgABAAIAAAAFAAAAAgABAAAAAAAFAAEAAgABAAIAAAAGAAAAAgABAAAAAAAGAAEAAgABAAIAAAAHAAAAAgABAAAAAAAHAAEAAgABAAIAAAAIAAAAAgABAAAAAAAIAAEAAgABAAIAAAAJAAAAAgACAAAAAAAJAAEAAgACAAIAAAASAA8AAgAAAAAAAAASABAAAgAAAAIAAAATAA8AAgABAAAAAAATABAAAgABAAIAAAAUAA8AAgABAAAAAAAUABAAAgABAAAAACAVAA8AAgABAAAAAAAVABAAAgABAAIAAAAWAA8AAgACAAAAAAAWABAAAgACAAIAAAA=")
 tile_set = SubResource("TileSet_bmpv3")
 
 [node name="parallax_front" type="Node2D" parent="."]
@@ -291,3 +292,15 @@ metadata/_edit_lock_ = true
 texture_filter = 1
 scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_elisw")
+
+[node name="enemy" parent="." instance=ExtResource("20_2t2o1")]
+position = Vector2(138, 923)
+
+[node name="PathFollow2D" parent="enemy/Path2D" index="0"]
+position = Vector2(1020, 2)
+
+[connection signal="hit_player" from="enemy" to="character" method="_on_enemy_hit_player"]
+[connection signal="pop" from="enemy" to="character" method="_on_enemy_pop"]
+[connection signal="squished" from="enemy" to="character" method="_on_enemy_squished"]
+
+[editable path="enemy"]

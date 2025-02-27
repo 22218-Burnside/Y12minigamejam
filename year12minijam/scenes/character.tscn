@@ -155,7 +155,5 @@ stream = ExtResource("14_v27ti")
 position = Vector2(-1, 116.5)
 shape = SubResource("RectangleShape2D_gelmr")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-
 [connection signal="timeout" from="flip_timer" to="." method="_on_flip_timer_timeout"]
 [connection signal="timeout" from="sprint_timer" to="." method="_on_sprint_timer_timeout"]
