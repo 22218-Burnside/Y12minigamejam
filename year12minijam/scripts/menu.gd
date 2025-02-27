@@ -4,6 +4,7 @@ var transparency_flip = 1
 
 func _ready() -> void:
 	$AnimationPlayer.play("black_to_clear")
+	$ColorRect.show()
 func _process(_delta: float) -> void:
 	$noon.modulate.a = noon_transparency * 0.01
 	if noon_transparency <= 80 and transparency_flip == 1:
@@ -24,3 +25,6 @@ func _on_play_button_pressed() -> void:
 #when the button is pressed the player is kicked out
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+func _on_credits_button_pressed():
+	# get_tree().
