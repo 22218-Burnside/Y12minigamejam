@@ -24,6 +24,8 @@ const JUMP_VELOCITY = -500.0
 @onready var gravity_normal = $gravity_normal
 
 func _physics_process(delta: float) -> void:
+	if position.y > 1500 or position.y <-1000:
+		get_tree().change_scene_to_file("res://scenes/deathscreen.tscn")
 	if health <1:
 		get_tree().change_scene_to_file("res://scenes/deathscreen.tscn")
 	_movement(delta)
@@ -160,7 +162,7 @@ func _on_enemy_hit_player() -> void:
 
 func _on_enemy_squished() -> void:
 	slime_velocity = true
-	velocity = Vector2(randi_range(250,400)* direction, randi_range(-400,-650)* flip)
+	velocity = Vector2(randi_range(500,750)* direction, randi_range(-400,-650)* flip)
 
 
 func _on_enemy_pop() -> void:

@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cfon8m5jwmkjm" path="res://Sound/bubble-pop-293342.mp3" id="14_v27ti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87y2d"]
-size = Vector2(227, 472)
+size = Vector2(225.5, 472)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_122ca"]
 atlas = ExtResource("2_k6tld")
@@ -112,6 +112,7 @@ script = ExtResource("1_mm2ev")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.75, 0)
 shape = SubResource("RectangleShape2D_87y2d")
 
 [node name="flip_timer" type="Timer" parent="."]

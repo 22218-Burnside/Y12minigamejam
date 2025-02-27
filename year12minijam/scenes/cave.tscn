@@ -577,18 +577,11 @@ metadata/_edit_lock_ = true
 texture_filter = 1
 texture = ExtResource("9_wskwv")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 1158.0
-offset_top = 666.0
-offset_right = 1295.0
-offset_bottom = 697.0
-text = "Press to teleport"
-
 [node name="cave_ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_40li0")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(1732, 725)
+position = Vector2(1967, 722)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -598,5 +591,4 @@ shape = SubResource("RectangleShape2D_vkeqt")
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("14_afy3h")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_frtmy"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1664, 4, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 1020, 2, 0, 0, 0, 0, 1342, 3, 0, 0, 0, 0, 1020, 2)
 }
 point_count = 3
 
@@ -26,7 +26,7 @@ script = ExtResource("1_wfpy3")
 curve = SubResource("Curve2D_frtmy")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(1169.46, 2.8112)
+position = Vector2(1020, 2)
 rotation = 0.00240384
 progress = 1169.46
 rotates = false
