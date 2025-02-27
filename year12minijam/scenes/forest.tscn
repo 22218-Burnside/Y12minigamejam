@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://b3pblqy7opixp"]
+[gd_scene load_steps=21 format=4 uid="uid://b3pblqy7opixp"]
 
 [ext_resource type="Texture2D" uid="uid://cudfvifdo7yb4" path="res://sprites/Background layers forest/Layer_0009_2.png" id="1_2d0lf"]
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_hhh1q"]
@@ -45,6 +45,8 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_52cft")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2r3gi"]
 
 [node name="forest" type="Node2D"]
 script = ExtResource("1_hhh1q")
@@ -194,25 +196,29 @@ texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("14_6jo7x")
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(4286, 770)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_2r3gi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("11_yjhgv")
+
 [node name="enemy" parent="." instance=ExtResource("15_34nvq")]
 position = Vector2(9, 937)
 
 [node name="enemy2" parent="." instance=ExtResource("15_34nvq")]
 position = Vector2(2178, 935)
 
-[node name="Button" type="Button" parent="."]
-offset_left = 893.0
-offset_top = 516.0
-offset_right = 1030.0
-offset_bottom = 547.0
-text = "Press to teleport"
-
 [node name="forest_ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_qnn0s")
 volume_db = -10.0
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="pop" from="enemy" to="character" method="_on_enemy_pop"]
 [connection signal="squished" from="enemy" to="character" method="_on_enemy_squished"]
 [connection signal="pop" from="enemy2" to="character" method="_on_enemy_pop"]
 [connection signal="squished" from="enemy2" to="character" method="_on_enemy_squished"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
