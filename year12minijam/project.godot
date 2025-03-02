@@ -22,6 +22,10 @@ window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="viewport"
 
+[gui]
+
+theme/custom="res://Assets/inversion_theme.tres"
+
 [input]
 
 player_left={

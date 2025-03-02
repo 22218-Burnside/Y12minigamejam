@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5je30ka8yfe4"]
+[gd_scene load_steps=14 format=3 uid="uid://b5je30ka8yfe4"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_ickvs"]
 [ext_resource type="Texture2D" uid="uid://vuscjb4u2v6o" path="res://sprites/Layers/Day/Back.png" id="2_80d7x"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://dhpgesgoqumer" path="res://Numans-Regular.ttf" id="6_51gxe"]
 [ext_resource type="Texture2D" uid="uid://bl1nlli7cthpb" path="res://sprites/Layers/Noon/Clouds.png" id="6_irj6j"]
 [ext_resource type="Texture2D" uid="uid://dnhxhtssvrt75" path="res://sprites/Layers/Noon/Middle.png" id="7_u4xxi"]
+[ext_resource type="Theme" uid="uid://dqxtt388wd6s2" path="res://Assets/inversion_theme.tres" id="9_ef14h"]
 
 [sub_resource type="Animation" id="Animation_5dxk5"]
 length = 0.001
@@ -183,6 +184,7 @@ offset_right = -110.0
 offset_bottom = 304.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("9_ef14h")
 theme_override_fonts/font = ExtResource("6_51gxe")
 theme_override_font_sizes/font_size = 120
 text = "Play Game"
@@ -201,6 +203,7 @@ offset_right = 760.0
 offset_bottom = 304.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("9_ef14h")
 theme_override_fonts/font = ExtResource("6_51gxe")
 theme_override_font_sizes/font_size = 120
 text = "Quit Game"

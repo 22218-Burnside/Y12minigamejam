@@ -1,7 +1,27 @@
-[gd_scene format=3 uid="uid://dhlfrmsudf5rw"]
+[gd_scene load_steps=2 format=3 uid="uid://dhlfrmsudf5rw"]
+
+[ext_resource type="FontFile" uid="uid://cxlt1868mws6c" path="res://scenes/Numans-Regular.ttf" id="1_hkxti"]
 
 [node name="credits" type="Node2D"]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 628.0
+offset_top = 36.0
+offset_right = 1128.0
+offset_bottom = 536.0
+theme_override_fonts/normal_font = ExtResource("1_hkxti")
+theme_override_fonts/mono_font = ExtResource("1_hkxti")
+theme_override_fonts/italics_font = ExtResource("1_hkxti")
+theme_override_fonts/bold_italics_font = ExtResource("1_hkxti")
+theme_override_fonts/bold_font = ExtResource("1_hkxti")
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "[b][u]CREDITS[/u][/b]
+[u]underlined text![/u]
+[s]strikethrough text![/s]
+[color=green]green[/color]
+[color=red]red[/color]
+[color=blue]blue[/color]
+
+
+[tornado radius=15.0 freq=2.0 connected=1] [color=green] text [/color] [/tornado]"
