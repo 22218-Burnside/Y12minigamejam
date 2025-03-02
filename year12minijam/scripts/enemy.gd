@@ -9,7 +9,9 @@ var health = 3
 var can_kill = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	hit_player.connect(get_parent().get_node("character")._on_enemy_hit_player)
+	squished.connect(get_parent().get_node("character")._on_enemy_squished)
+	pop.connect(get_parent().get_node("character")._on_enemy_pop)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

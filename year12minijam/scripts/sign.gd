@@ -16,7 +16,6 @@ func _process(_delta: float) -> void:
 		$Sprite2D2.show()
 	else:
 		$Sprite2D2.hide()
-		characters_visible = 0
 	if reading and Input.is_action_pressed("cancel_read"):
 		$Sprite2D2.hide()
 		reading = false

@@ -149,9 +149,6 @@ metadata/_edit_lock_ = true
 scale = Vector2(4, 4)
 texture = ExtResource("10_xhsae")
 
-[node name="character" parent="forest" instance=ExtResource("11_e1x8x")]
-position = Vector2(354, 546)
-
 [node name="parallax_front" type="Node2D" parent="forest"]
 position = Vector2(0, -320)
 metadata/_edit_lock_ = true
@@ -199,13 +196,15 @@ tile_set = SubResource("TileSet_6s52x")
 [node name="forest_ambience" type="AudioStreamPlayer" parent="forest"]
 stream = ExtResource("17_nacp4")
 
+[node name="character" parent="." instance=ExtResource("11_e1x8x")]
+position = Vector2(611, 867)
+
 [node name="enemy" parent="." instance=ExtResource("2_8tgcv")]
+position = Vector2(891, 943)
 
-[node name="PathFollow2D" parent="enemy/Path2D" index="0"]
-position = Vector2(1020, 2)
+[node name="CollisionShape2D" parent="enemy/Path2D/PathFollow2D/squish_hitbox" index="0"]
+position = Vector2(0.500061, 0.000244141)
 
-[connection signal="hit_player" from="enemy" to="forest/character" method="_on_enemy_hit_player"]
-[connection signal="pop" from="enemy" to="forest/character" method="_on_enemy_pop"]
-[connection signal="squished" from="enemy" to="forest/character" method="_on_enemy_squished"]
+[connection signal="pop" from="enemy" to="character" method="_on_enemy_pop"]
 
 [editable path="enemy"]

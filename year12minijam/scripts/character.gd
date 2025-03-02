@@ -15,6 +15,7 @@ var falling = false
 var idle = false
 var walking = false
 var running = false
+var touched_ground = true
 const JUMP_VELOCITY = -500.0
 
 
@@ -69,9 +70,11 @@ func _movement(delta:float):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if not Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right") and not slime_velocity:
 		velocity.x *= 0.5
-	if not is_on_floor() and flip == 1:
+	if not is_on_floor() and flip == 1 and touched_ground:
+		touched_ground = false
 		velocity.y += gravity * delta * flip
-	if not is_on_ceiling() and flip == -1:
+	if not is_on_ceiling() and flip == -1 and touched_ground:
+		touched_ground = false
 		velocity.y += gravity * delta * flip
 	if is_on_floor() or is_on_ceiling() and squish_power == 3:
 		squish_power = 1
@@ -80,8 +83,16 @@ func _movement(delta:float):
 	if Input.is_action_pressed("player_jump") and is_on_ceiling() and flip == -1 and not slime_velocity:
 		velocity.y = JUMP_VELOCITY * flip
 	if is_on_floor() and slime_velocity:
+		touched_ground = true
+		if slime_velocity:
+			velocity.x = 0
 		slime_velocity = false
-		velocity.x = 0
+
+	if is_on_ceiling():
+		touched_ground = true
+		if slime_velocity:
+			velocity.x = 0
+		slime_velocity = false
 	move_and_slide()
 	
 
