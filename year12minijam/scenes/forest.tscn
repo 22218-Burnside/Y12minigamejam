@@ -150,7 +150,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("9_js00b")
 
 [node name="character" parent="." instance=ExtResource("10_214d7")]
-position = Vector2(110.295, 232.785)
+position = Vector2(133, 863)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -208,10 +208,10 @@ shape = SubResource("RectangleShape2D_2r3gi")
 texture = ExtResource("11_yjhgv")
 
 [node name="enemy" parent="." instance=ExtResource("15_34nvq")]
-position = Vector2(9, 937)
+position = Vector2(516, 950)
 
 [node name="enemy2" parent="." instance=ExtResource("15_34nvq")]
-position = Vector2(2178, 935)
+position = Vector2(2202, 953)
 
 [node name="forest_ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_qnn0s")

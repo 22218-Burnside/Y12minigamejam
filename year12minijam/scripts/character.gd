@@ -3,7 +3,7 @@ var health = 3
 var canflip = true
 var flip = 1
 const gravity = 1000
-var SPEED = 8
+var SPEED = 300
 var sprint_bar = 100
 var can_sprint = true
 var release_sprint = true
@@ -36,10 +36,10 @@ func _physics_process(delta: float) -> void:
 func _movement(delta:float):
 	$sprint_amount.text = str(sprint_bar)
 	if running:
-		SPEED = 12
+		SPEED = 750
 		sprint_bar -= 1
 	if not running:
-		SPEED = 8
+		SPEED = 500
 		if sprint_bar <100:
 			sprint_bar += 0.5
 	if Input.is_action_pressed("player_sprint") and sprint_bar >5 and can_sprint and release_sprint:
@@ -57,13 +57,18 @@ func _movement(delta:float):
 		squish_power = 3
 		$flip_timer.start()
 		flip *= -1
-	# Add the gravity.
 	if Input.is_action_pressed("player_left"):
 		direction = -1
-		position.x -= SPEED
+		walking = true
 	if Input.is_action_pressed("player_right"):
 		direction = 1
-		position.x += SPEED
+		walking = true
+	if walking or running:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if not Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right") and not slime_velocity:
+		velocity.x *= 0.5
 	if not is_on_floor() and flip == 1:
 		velocity.y += gravity * delta * flip
 	if not is_on_ceiling() and flip == -1:
@@ -74,7 +79,7 @@ func _movement(delta:float):
 		velocity.y = JUMP_VELOCITY
 	if Input.is_action_pressed("player_jump") and is_on_ceiling() and flip == -1 and not slime_velocity:
 		velocity.y = JUMP_VELOCITY * flip
-	if is_on_floor() or is_on_ceiling() and not Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right"):
+	if is_on_floor() and slime_velocity:
 		slime_velocity = false
 		velocity.x = 0
 	move_and_slide()
