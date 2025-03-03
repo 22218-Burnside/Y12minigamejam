@@ -13,7 +13,7 @@ point_count = 3
 size = Vector2(122.997, 122.007)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utjh0"]
-size = Vector2(111, 127.997)
+size = Vector2(111, 131.998)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pe3ti"]
 size = Vector2(128.293, 119.656)

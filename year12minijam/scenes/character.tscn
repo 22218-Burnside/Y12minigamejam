@@ -104,7 +104,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gelmr"]
-size = Vector2(216, 247)
+size = Vector2(216, 480)
 
 [node name="character" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -116,26 +116,25 @@ position = Vector2(-0.75, 0)
 shape = SubResource("RectangleShape2D_87y2d")
 
 [node name="flip_timer" type="Timer" parent="."]
+wait_time = 0.2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0
 limit_top = -70
 limit_bottom = 1150
 
-[node name="sprint_amount" type="Label" parent="."]
-offset_left = -31.795
-offset_top = -54.13
-offset_right = 8.205
-offset_bottom = -31.13
-
 [node name="sprint_timer" type="Timer" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xib5q")
-animation = &"Fall_red"
-frame = 1
-frame_progress = 0.546807
+animation = &"Idle"
+
+[node name="sprint_amount" type="Label" parent="."]
+offset_left = -105.1
+offset_top = -210.835
+offset_right = -65.1
+offset_bottom = -187.835
 
 [node name="gravity_inverted" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_hq5da")
@@ -152,7 +151,7 @@ stream = ExtResource("14_v27ti")
 [node name="player_squish" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_squish"]
-position = Vector2(-1, 116.5)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_gelmr")
 
 [connection signal="timeout" from="flip_timer" to="." method="_on_flip_timer_timeout"]

@@ -15,7 +15,7 @@ var falling = false
 var idle = false
 var walking = false
 var running = false
-var touched_ground = true
+var flip_reset = true
 const JUMP_VELOCITY = -500.0
 
 
@@ -54,7 +54,7 @@ func _movement(delta:float):
 		running = false
 		release_sprint =true	
 		$sprint_timer.start(1)
-	if Input.is_action_just_pressed("player_flip") and canflip:
+	if Input.is_action_just_pressed("player_flip") and canflip and flip_reset:
 		squish_power = 3
 		$flip_timer.start()
 		flip *= -1
@@ -70,11 +70,9 @@ func _movement(delta:float):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if not Input.is_action_pressed("player_left") and not Input.is_action_pressed("player_right") and not slime_velocity:
 		velocity.x *= 0.5
-	if not is_on_floor() and flip == 1 and touched_ground:
-		touched_ground = false
+	if not is_on_floor() and flip == 1:
 		velocity.y += gravity * delta * flip
-	if not is_on_ceiling() and flip == -1 and touched_ground:
-		touched_ground = false
+	if not is_on_ceiling() and flip == -1:
 		velocity.y += gravity * delta * flip
 	if is_on_floor() or is_on_ceiling() and squish_power == 3:
 		squish_power = 1
@@ -82,14 +80,15 @@ func _movement(delta:float):
 		velocity.y = JUMP_VELOCITY
 	if Input.is_action_pressed("player_jump") and is_on_ceiling() and flip == -1 and not slime_velocity:
 		velocity.y = JUMP_VELOCITY * flip
-	if is_on_floor() and slime_velocity:
-		touched_ground = true
+	if is_on_floor():
+		if canflip:
+			flip_reset = true
 		if slime_velocity:
 			velocity.x = 0
 		slime_velocity = false
-
 	if is_on_ceiling():
-		touched_ground = true
+		if canflip:
+			flip_reset = true
 		if slime_velocity:
 			velocity.x = 0
 		slime_velocity = false
@@ -98,6 +97,11 @@ func _movement(delta:float):
 
 
 func _animations():
+	if Input.is_action_just_pressed("player_flip")and canflip and flip_reset:
+		if flip == -1:
+			$AnimatedSprite2D.flip_v = true
+		if flip == 1:
+			$AnimatedSprite2D.flip_v = false
 	if Input.is_action_pressed("player_left"):
 		walking = true
 		$AnimatedSprite2D.flip_h = true
@@ -134,14 +138,13 @@ func _animations():
 
 
 func _sounds():
-	if Input.is_action_just_pressed("player_flip")and canflip:
-		canflip = false
+	if Input.is_action_just_pressed("player_flip")and canflip and flip_reset:
 		if flip == -1:
-			$AnimatedSprite2D.flip_v = true
 			gravity_inverted.play()
 		if flip == 1:
-			$AnimatedSprite2D.flip_v = false
 			gravity_normal.play()
+		canflip = false
+		flip_reset = false
 	if Input.is_action_pressed("player_left"):
 		if not walking_forest.is_playing() and is_on_floor():
 			walking_forest.play()
@@ -178,7 +181,7 @@ func _on_enemy_hit_player() -> void:
 
 func _on_enemy_squished() -> void:
 	slime_velocity = true
-	velocity = Vector2(randi_range(500,750)* direction, randi_range(-400,-650)* flip)
+	velocity = Vector2(randi_range(500,750)* direction, randi_range(-400,-650)*flip)
 
 
 func _on_enemy_pop() -> void:
