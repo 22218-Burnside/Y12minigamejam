@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://c63xsrf7jaec7"]
+[gd_scene load_steps=26 format=4 uid="uid://c63xsrf7jaec7"]
 
 [ext_resource type="Texture2D" uid="uid://cso4dl1m2yuys" path="res://sprites/Background layers cave/1.png" id="1_ato8y"]
 [ext_resource type="Script" path="res://scripts/cave.gd" id="1_d6hj5"]
@@ -19,6 +19,7 @@
 [ext_resource type="FontFile" uid="uid://bfdf7xjkieg6m" path="res://scripts/MedodicaRegular.otf" id="17_2mmdh"]
 [ext_resource type="PackedScene" uid="uid://cv7oqomt02ypa" path="res://scenes/sign_skull.tscn" id="18_hp8d6"]
 [ext_resource type="PackedScene" uid="uid://g032v4hvlojq" path="res://scenes/enemy.tscn" id="19_jltc5"]
+[ext_resource type="PackedScene" uid="uid://cbacxdmrgo6q5" path="res://scenes/healthbar.tscn" id="20_0lgl2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkeqt"]
 
@@ -565,7 +566,7 @@ texture_filter = 1
 texture = ExtResource("8_3exhk")
 
 [node name="character" parent="." instance=ExtResource("9_xh8qh")]
-position = Vector2(823, 875)
+position = Vector2(550, 604)
 
 [node name="cave_ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_40li0")
@@ -728,6 +729,8 @@ flip_v = true
 
 [node name="CollisionShape2D" parent="enemy2/Path2D/PathFollow2D/squish_hitbox" index="0"]
 position = Vector2(0, 2.00058)
+
+[node name="healthbar" parent="." instance=ExtResource("20_0lgl2")]
 
 [connection signal="body_entered" from="portal" to="." method="_on_area_2d_body_entered"]
 

@@ -16,14 +16,17 @@ var idle = false
 var walking = false
 var running = false
 var level = 1
+var flip_reset = 2
 const JUMP_VELOCITY = -500.0
 
-
+signal healthbar
 #Sound effect variables
 @onready var gravity_inverted = $gravity_inverted
 @onready var walking_forest = $walking_forest
 @onready var gravity_normal = $gravity_normal
 
+func _ready() -> void:
+	healthbar.connect(get_parent().get_node("healthbar")._on_character_healthbar)
 func _physics_process(delta: float) -> void:
 	if position.y > 1500 or position.y <-1000 or health < 1:
 		if level == 1:
@@ -57,7 +60,7 @@ func _movement(delta:float):
 		running = false
 		release_sprint =true	
 		$sprint_timer.start(1)
-	if Input.is_action_just_pressed("player_flip") and canflip:
+	if Input.is_action_just_pressed("player_flip") and canflip and flip_reset > 0:
 		squish_power = 3
 		$flip_timer.start()
 		flip *= -1
@@ -84,10 +87,14 @@ func _movement(delta:float):
 	if Input.is_action_pressed("player_jump") and is_on_ceiling() and flip == -1 and not slime_velocity:
 		velocity.y = JUMP_VELOCITY * flip
 	if is_on_floor():
+		if flip_reset < 2:
+			flip_reset = 2
 		if slime_velocity:
 			velocity.x = 0
 		slime_velocity = false
 	if is_on_ceiling():
+		if flip_reset < 2:
+			flip_reset = 2
 		if slime_velocity:
 			velocity.x = 0
 		slime_velocity = false
@@ -96,7 +103,7 @@ func _movement(delta:float):
 
 
 func _animations():
-	if Input.is_action_just_pressed("player_flip")and canflip:
+	if Input.is_action_just_pressed("player_flip")and canflip and flip_reset > 0:
 		if flip == -1:
 			$AnimatedSprite2D.flip_v = true
 		if flip == 1:
@@ -137,7 +144,8 @@ func _animations():
 
 
 func _sounds():
-	if Input.is_action_just_pressed("player_flip")and canflip:
+	if Input.is_action_just_pressed("player_flip")and canflip and flip_reset >0:
+		flip_reset -=1
 		if flip == -1:
 			gravity_inverted.play()
 		if flip == 1:
@@ -175,6 +183,7 @@ func _on_sprint_timer_timeout() -> void:
 
 func _on_enemy_hit_player() -> void:
 	health -= 1
+	healthbar.emit(health)
 
 
 func _on_enemy_squished() -> void:

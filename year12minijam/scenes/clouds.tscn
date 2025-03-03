@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dptq7muregf6v"]
+[gd_scene load_steps=34 format=4 uid="uid://dptq7muregf6v"]
 
 [ext_resource type="Script" path="res://scripts/clouds.gd" id="1_50vrx"]
 [ext_resource type="Texture2D" uid="uid://cxsqvltk35cco" path="res://sprites/Background layers cloud/Background.png" id="1_162ux"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://smlamfrewepb" path="res://sprites/Background layers cloud/Layer 6 anim2.png" id="16_g6txl"]
 [ext_resource type="Texture2D" uid="uid://csd8tij5cnena" path="res://sprites/Background layers cloud/Layer 7 anim1.png" id="17_8av07"]
 [ext_resource type="PackedScene" uid="uid://g032v4hvlojq" path="res://scenes/enemy.tscn" id="20_2t2o1"]
+[ext_resource type="PackedScene" uid="uid://cbacxdmrgo6q5" path="res://scenes/healthbar.tscn" id="21_imnog"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w1ofh"]
 animations = [{
@@ -314,5 +315,7 @@ position = Vector2(1129, 929)
 
 [node name="Path2D" parent="enemy" index="0"]
 curve = SubResource("Curve2D_5uoqd")
+
+[node name="healthbar" parent="." instance=ExtResource("21_imnog")]
 
 [editable path="enemy"]

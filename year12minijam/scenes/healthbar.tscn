@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbacxdmrgo6q5"]
+
+[ext_resource type="Script" path="res://scripts/healthbar.gd" id="1_fvbl4"]
+[ext_resource type="Texture2D" uid="uid://c818ayu1fjktg" path="res://sprites/Signs & Skulls/pixilart-drawing.png" id="2_5305o"]
+
+[node name="healthbar" type="CanvasLayer"]
+script = ExtResource("1_fvbl4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(50, 50)
+scale = Vector2(2, 2)
+texture = ExtResource("2_5305o")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(150, 50)
+scale = Vector2(2, 2)
+texture = ExtResource("2_5305o")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(250, 50)
+scale = Vector2(2, 2)
+texture = ExtResource("2_5305o")
