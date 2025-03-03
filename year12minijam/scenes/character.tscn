@@ -116,7 +116,7 @@ position = Vector2(-0.75, 0)
 shape = SubResource("RectangleShape2D_87y2d")
 
 [node name="flip_timer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.8
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0

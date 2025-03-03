@@ -4,7 +4,7 @@ var canflip = true
 var flip = 1
 const gravity = 1000
 var SPEED = 300
-var sprint_bar = 100
+var sprint_bar = 200
 var can_sprint = true
 var release_sprint = true
 var jump_reset = true
@@ -15,7 +15,6 @@ var falling = false
 var idle = false
 var walking = false
 var running = false
-var flip_reset = true
 var level = 1
 const JUMP_VELOCITY = -500.0
 
@@ -45,8 +44,8 @@ func _movement(delta:float):
 		sprint_bar -= 1
 	if not running:
 		SPEED = 500
-		if sprint_bar <100:
-			sprint_bar += 0.5
+		if sprint_bar <200:
+			sprint_bar += 1
 	if Input.is_action_pressed("player_sprint") and sprint_bar >5 and can_sprint and release_sprint:
 		running = true
 		release_sprint = false
@@ -58,7 +57,7 @@ func _movement(delta:float):
 		running = false
 		release_sprint =true	
 		$sprint_timer.start(1)
-	if Input.is_action_just_pressed("player_flip") and canflip and flip_reset:
+	if Input.is_action_just_pressed("player_flip") and canflip:
 		squish_power = 3
 		$flip_timer.start()
 		flip *= -1
@@ -68,7 +67,7 @@ func _movement(delta:float):
 	if Input.is_action_pressed("player_right"):
 		direction = 1
 		walking = true
-	if walking or running:
+	if walking:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -85,14 +84,10 @@ func _movement(delta:float):
 	if Input.is_action_pressed("player_jump") and is_on_ceiling() and flip == -1 and not slime_velocity:
 		velocity.y = JUMP_VELOCITY * flip
 	if is_on_floor():
-		if canflip:
-			flip_reset = true
 		if slime_velocity:
 			velocity.x = 0
 		slime_velocity = false
 	if is_on_ceiling():
-		if canflip:
-			flip_reset = true
 		if slime_velocity:
 			velocity.x = 0
 		slime_velocity = false
@@ -101,7 +96,7 @@ func _movement(delta:float):
 
 
 func _animations():
-	if Input.is_action_just_pressed("player_flip")and canflip and flip_reset:
+	if Input.is_action_just_pressed("player_flip")and canflip:
 		if flip == -1:
 			$AnimatedSprite2D.flip_v = true
 		if flip == 1:
@@ -142,13 +137,12 @@ func _animations():
 
 
 func _sounds():
-	if Input.is_action_just_pressed("player_flip")and canflip and flip_reset:
+	if Input.is_action_just_pressed("player_flip")and canflip:
 		if flip == -1:
 			gravity_inverted.play()
 		if flip == 1:
 			gravity_normal.play()
 		canflip = false
-		flip_reset = false
 	if Input.is_action_pressed("player_left"):
 		if not walking_forest.is_playing() and is_on_floor():
 			walking_forest.play()
