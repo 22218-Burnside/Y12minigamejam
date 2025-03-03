@@ -16,6 +16,7 @@ var idle = false
 var walking = false
 var running = false
 var flip_reset = true
+var level = 1
 const JUMP_VELOCITY = -500.0
 
 
@@ -25,10 +26,13 @@ const JUMP_VELOCITY = -500.0
 @onready var gravity_normal = $gravity_normal
 
 func _physics_process(delta: float) -> void:
-	if position.y > 1500 or position.y <-1000:
-		get_tree().change_scene_to_file("res://scenes/deathscreen.tscn")
-	if health <1:
-		get_tree().change_scene_to_file("res://scenes/deathscreen.tscn")
+	if position.y > 1500 or position.y <-1000 or health < 1:
+		if level == 1:
+			get_tree().change_scene_to_file("res://scenes/cavedeath.tscn")
+		if level == 2:
+			get_tree().change_scene_to_file("res://scenes/forestdeath.tscn")
+		if level == 3:
+			get_tree().change_scene_to_file("res://scenes/clouddeath.tscn")
 	_movement(delta)
 	_animations()
 	_sounds()

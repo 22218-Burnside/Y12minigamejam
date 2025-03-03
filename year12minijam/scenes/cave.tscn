@@ -571,7 +571,7 @@ texture_filter = 1
 texture = ExtResource("8_3exhk")
 
 [node name="character" parent="." instance=ExtResource("9_xh8qh")]
-position = Vector2(828, 841)
+position = Vector2(823, 875)
 
 [node name="cave_ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_40li0")
@@ -611,7 +611,6 @@ flip_v = true
 [node name="sign_skull5" parent="." instance=ExtResource("18_hp8d6")]
 position = Vector2(9023, 257)
 rotation = -0.47822
-scale = Vector2(2, 2)
 flip_v = true
 
 [node name="skull" parent="sign_skull5" index="0"]
@@ -737,10 +736,6 @@ position = Vector2(6496, 281)
 
 [node name="Path2D" parent="enemy2" index="0"]
 curve = SubResource("Curve2D_cwh36")
-
-[node name="PathFollow2D" parent="enemy2/Path2D" index="0"]
-rotation = 0.0
-rotates = true
 
 [node name="Sprite2D" parent="enemy2/Path2D/PathFollow2D/collision_hitbox" index="0"]
 flip_h = true

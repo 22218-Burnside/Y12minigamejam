@@ -2,6 +2,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$character.level = 1
 	$cave_ambience.play()
 	$character/Camera2D.limit_top =0
 	$character/Camera2D.limit_bottom = 1080

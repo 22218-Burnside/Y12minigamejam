@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
+	$character.level = 3
 	$character/Camera2D.limit_top = -30
 	$character/Camera2D.limit_bottom = 1100
 	# This gives the animation to the clouds behind the player
