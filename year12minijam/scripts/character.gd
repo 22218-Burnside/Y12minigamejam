@@ -36,10 +36,7 @@ func _physics_process(delta: float) -> void:
 		if level == 2:
 			get_tree().change_scene_to_file("res://scenes/forestdeath.tscn")
 		if level == 3:
-			if position.y < -100 :
-				position.y = 1250
-			if position.y > 1300:
-				position.y = -50
+			get_tree().change_scene_to_file("res://scenes/clouddeath.tscn")
 	_movement(delta)
 	_animations()
 	_sounds()
