@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://c2vlt5lm7sqnd"]
+[gd_scene load_steps=21 format=4 uid="uid://c2vlt5lm7sqnd"]
 
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_d0ho1"]
 [ext_resource type="PackedScene" uid="uid://g032v4hvlojq" path="res://scenes/enemy.tscn" id="2_8tgcv"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c6ko4mbjh5j81" path="res://sprites/Background layers forest/Layer_0001_8.png" id="13_wbfd7"]
 [ext_resource type="Texture2D" uid="uid://cgmqtpa0hi88w" path="res://sprites/Background layers forest/Layer_0000_9.png" id="14_ckox8"]
 [ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="15_hgsrq"]
+[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="17_l8ads"]
 [ext_resource type="AudioStream" uid="uid://d3w4sarc1e61w" path="res://Sound/forest_ambience.mp3" id="17_nacp4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52cft"]
@@ -199,6 +200,9 @@ stream = ExtResource("17_nacp4")
 [node name="character" parent="." instance=ExtResource("11_e1x8x")]
 position = Vector2(611, 867)
 
+[node name="Camera2D" parent="character" index="2"]
+script = ExtResource("17_l8ads")
+
 [node name="enemy" parent="." instance=ExtResource("2_8tgcv")]
 position = Vector2(891, 943)
 
@@ -207,4 +211,5 @@ position = Vector2(0.500061, 0.000244141)
 
 [connection signal="pop" from="enemy" to="character" method="_on_enemy_pop"]
 
+[editable path="character"]
 [editable path="enemy"]

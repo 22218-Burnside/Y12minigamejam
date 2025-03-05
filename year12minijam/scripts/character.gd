@@ -15,11 +15,13 @@ var falling = false
 var idle = false
 var walking = false
 var running = false
+var jumping = false
 var level = 1
 var flip_reset = 2
 const JUMP_VELOCITY = -500.0
 
 signal healthbar
+signal shake
 #Sound effect variables
 @onready var gravity_inverted = $gravity_inverted
 @onready var walking_forest = $walking_forest
@@ -81,13 +83,23 @@ func _movement(delta:float):
 	if not is_on_ceiling() and flip == -1:
 		velocity.y += gravity * delta * flip
 	if is_on_floor() and flip == 1 and squish_power == 3:
+		shake.emit(100)
 		squish_power = 1
 	if is_on_ceiling() and flip == -1 and squish_power == 3:
+		shake.emit()
 		squish_power = 1
 	if Input.is_action_pressed("player_jump") and is_on_floor() and flip == 1 and not slime_velocity:
 		velocity.y = JUMP_VELOCITY
+		jumping = true
 	if Input.is_action_pressed("player_jump") and is_on_ceiling() and flip == -1 and not slime_velocity:
 		velocity.y = JUMP_VELOCITY * flip
+		jumping = true
+	if is_on_floor() and flip == 1 and squish_power == 3:
+		shake.emit()
+		squish_power = 1
+	if is_on_ceiling() and flip == -1 and squish_power == 3:
+		shake.emit()
+		squish_power = 1
 	if is_on_floor():
 		if flip_reset < 2:
 			flip_reset = 2
