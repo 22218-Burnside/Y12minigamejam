@@ -1,8 +1,60 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbacxdmrgo6q5"]
+[gd_scene load_steps=8 format=3 uid="uid://cbacxdmrgo6q5"]
 
 [ext_resource type="Script" path="res://scripts/healthbar.gd" id="1_fvbl4"]
 [ext_resource type="Texture2D" uid="uid://c818ayu1fjktg" path="res://sprites/Signs & Skulls/pixilart-drawing.png" id="2_5305o"]
 [ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="3_cg1o6"]
+
+[sub_resource type="Animation" id="Animation_5dxk5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_85wib"]
+resource_name = "black_to_clear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rlpln"]
+resource_name = "clear_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r2baa"]
+_data = {
+"RESET": SubResource("Animation_5dxk5"),
+"black_to_clear": SubResource("Animation_85wib"),
+"clear_to_black": SubResource("Animation_rlpln")
+}
 
 [node name="ui" type="CanvasLayer"]
 script = ExtResource("1_fvbl4")
@@ -31,3 +83,14 @@ max_value = 200.0
 value = 200.0
 fill_mode = 1
 texture_progress = ExtResource("3_cg1o6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1929.0
+offset_bottom = 1083.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r2baa")
+}

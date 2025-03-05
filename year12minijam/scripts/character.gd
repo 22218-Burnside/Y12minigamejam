@@ -30,13 +30,16 @@ signal shake
 func _ready() -> void:
 	healthbar.connect(get_parent().get_node("healthbar")._on_character_healthbar)
 func _physics_process(delta: float) -> void:
-	if position.y > 1500 or position.y <-1000 or health < 1:
+	if position.y > 1100 or position.y <0 or health < 1:
 		if level == 1:
 			get_tree().change_scene_to_file("res://scenes/cavedeath.tscn")
 		if level == 2:
 			get_tree().change_scene_to_file("res://scenes/forestdeath.tscn")
 		if level == 3:
-			get_tree().change_scene_to_file("res://scenes/clouddeath.tscn")
+			if position.y < -100 :
+				position.y = 1250
+			if position.y > 1300:
+				position.y = -50
 	_movement(delta)
 	_animations()
 	_sounds()
@@ -63,6 +66,7 @@ func _movement(delta:float):
 		release_sprint =true	
 		$sprint_timer.start(1)
 	if Input.is_action_just_pressed("player_flip") and canflip and flip_reset > 0:
+		velocity.y *= 0.5
 		squish_power = 3
 		$flip_timer.start()
 		flip *= -1
@@ -83,7 +87,7 @@ func _movement(delta:float):
 	if not is_on_ceiling() and flip == -1:
 		velocity.y += gravity * delta * flip
 	if is_on_floor() and flip == 1 and squish_power == 3:
-		shake.emit(100)
+		shake.emit()
 		squish_power = 1
 	if is_on_ceiling() and flip == -1 and squish_power == 3:
 		shake.emit()
