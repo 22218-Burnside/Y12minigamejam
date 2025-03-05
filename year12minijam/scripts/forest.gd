@@ -8,4 +8,6 @@ func _ready() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "character":
+		$healthbar/AnimationPlayer.play("clear_to_black")
+		await get_tree().create_timer(1).timeout
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/clouds.tscn")

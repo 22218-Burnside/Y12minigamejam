@@ -14,8 +14,10 @@ func _process(_delta: float) -> void:
 	if reading:
 		characters_visible += 0.2
 		$Sprite2D2.show()
+		$Label.visible_characters = 0
 	else:
 		$Sprite2D2.hide()
+		$Label.visible_characters = 3
 	if reading and Input.is_action_pressed("cancel_read"):
 		$Sprite2D2.hide()
 		reading = false

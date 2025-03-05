@@ -153,7 +153,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("9_js00b")
 
 [node name="character" parent="." instance=ExtResource("10_214d7")]
-position = Vector2(281, 869)
+position = Vector2(284, 884)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 modulate = Color(1, 1, 1, 0)

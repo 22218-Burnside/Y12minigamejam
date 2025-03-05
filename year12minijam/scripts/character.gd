@@ -17,8 +17,8 @@ var walking = false
 var running = false
 var jumping = false
 var level = 1
-var flip_reset = 2
-const JUMP_VELOCITY = -500.0
+var flip_reset = 3
+const JUMP_VELOCITY = -550.0
 
 signal healthbar
 signal shake

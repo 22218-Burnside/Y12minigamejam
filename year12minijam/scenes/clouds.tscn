@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://dptq7muregf6v"]
+[gd_scene load_steps=36 format=4 uid="uid://dptq7muregf6v"]
 
 [ext_resource type="Script" path="res://scripts/clouds.gd" id="1_50vrx"]
 [ext_resource type="Texture2D" uid="uid://cxsqvltk35cco" path="res://sprites/Background layers cloud/Background.png" id="1_162ux"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://csd8tij5cnena" path="res://sprites/Background layers cloud/Layer 7 anim1.png" id="17_8av07"]
 [ext_resource type="PackedScene" uid="uid://g032v4hvlojq" path="res://scenes/enemy.tscn" id="20_2t2o1"]
 [ext_resource type="PackedScene" uid="uid://cbacxdmrgo6q5" path="res://scenes/ui.tscn" id="21_imnog"]
+[ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="22_iviy5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w1ofh"]
 animations = [{
@@ -176,11 +177,14 @@ _data = {
 }
 point_count = 3
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pf8jc"]
+
 [node name="Clouds" type="Node2D"]
 script = ExtResource("1_50vrx")
 
 [node name="parallax_back" type="Node2D" parent="."]
-position = Vector2(0, 540)
+position = Vector2(0, 550)
+scale = Vector2(1.1, 1.1)
 
 [node name="background" type="Parallax2D" parent="parallax_back"]
 scroll_scale = Vector2(0.05, 1)
@@ -323,6 +327,19 @@ position = Vector2(3797, 931)
 curve = SubResource("Curve2D_5uoqd")
 
 [node name="healthbar" parent="." instance=ExtResource("21_imnog")]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(8116, 473)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_pf8jc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("22_iviy5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 
 [editable path="enemy"]
 [editable path="enemy2"]

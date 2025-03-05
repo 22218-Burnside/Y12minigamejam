@@ -105,7 +105,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gelmr"]
-size = Vector2(158, 480)
+size = Vector2(242, 480)
 
 [node name="character" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -154,6 +154,7 @@ stream = ExtResource("14_v27ti")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_squish"]
 shape = SubResource("RectangleShape2D_gelmr")
+debug_color = Color(0.585156, 0, 0.156591, 0.42)
 
 [connection signal="shake" from="." to="Camera2D" method="_on_character_shake"]
 [connection signal="timeout" from="flip_timer" to="." method="_on_flip_timer_timeout"]
