@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://smlamfrewepb" path="res://sprites/Background layers cloud/Layer 6 anim2.png" id="16_g6txl"]
 [ext_resource type="Texture2D" uid="uid://csd8tij5cnena" path="res://sprites/Background layers cloud/Layer 7 anim1.png" id="17_8av07"]
 [ext_resource type="PackedScene" uid="uid://g032v4hvlojq" path="res://scenes/enemy.tscn" id="20_2t2o1"]
-[ext_resource type="PackedScene" uid="uid://cbacxdmrgo6q5" path="res://scenes/healthbar.tscn" id="21_imnog"]
+[ext_resource type="PackedScene" uid="uid://cbacxdmrgo6q5" path="res://scenes/ui.tscn" id="21_imnog"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w1ofh"]
 animations = [{

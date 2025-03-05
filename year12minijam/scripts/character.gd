@@ -80,7 +80,9 @@ func _movement(delta:float):
 		velocity.y += gravity * delta * flip
 	if not is_on_ceiling() and flip == -1:
 		velocity.y += gravity * delta * flip
-	if is_on_floor() or is_on_ceiling() and squish_power == 3:
+	if is_on_floor() and flip == 1 and squish_power == 3:
+		squish_power = 1
+	if is_on_ceiling() and flip == -1 and squish_power == 3:
 		squish_power = 1
 	if Input.is_action_pressed("player_jump") and is_on_floor() and flip == 1 and not slime_velocity:
 		velocity.y = JUMP_VELOCITY

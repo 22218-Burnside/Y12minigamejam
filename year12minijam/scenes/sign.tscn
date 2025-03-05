@@ -7,7 +7,6 @@
 size = Vector2(50, 44)
 
 [node name="sign" type="Area2D"]
-position = Vector2(1733, 881)
 scale = Vector2(2, 2)
 script = ExtResource("1_1kubg")
 
