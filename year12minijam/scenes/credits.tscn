@@ -7,8 +7,8 @@
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 628.0
 offset_top = 36.0
-offset_right = 1128.0
-offset_bottom = 536.0
+offset_right = 1217.0
+offset_bottom = 857.0
 theme_override_fonts/normal_font = ExtResource("1_hkxti")
 theme_override_fonts/mono_font = ExtResource("1_hkxti")
 theme_override_fonts/italics_font = ExtResource("1_hkxti")
@@ -16,12 +16,26 @@ theme_override_fonts/bold_italics_font = ExtResource("1_hkxti")
 theme_override_fonts/bold_font = ExtResource("1_hkxti")
 theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
-text = "[b][u]CREDITS[/u][/b]
-[u]underlined text![/u]
-[s]strikethrough text![/s]
-[color=green]green[/color]
-[color=red]red[/color]
-[color=blue]blue[/color]
+text = "[font_size=40][center][u][b]CREDITS[/b][/u][/center][/font_size]
 
+[center]Programmer - Hayden[/center]
+[center]Artist - Aine[/center]
+[center]Project Manager - Bennie[/center]
 
-[tornado radius=15.0 freq=2.0 connected=1] [color=green] text [/color] [/tornado]"
+[font_size=25][b][center][u]Assets[/u][/center][/b][/font_size]
+[center]Ansimuz - Sea Background[/center]
+[center]Eder Muniz - Forest and Clouds Background[/center]
+[center]SladDashGamesStudio - Cave Background[/center]
+[center]WaifuForEver - Heart Sprite[/center]
+
+[font_size=25][center][b][u]Sound Effects and Music[/u][/b][/center][/font_size]
+[center]Cave Ambience - JoelFazhari[/center]
+[center]Forest Ambience - AudioPapkin[/center]
+[center]Clouds Ambience - haniebal (freesound)[/center]"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 795.0
+offset_top = 464.0
+offset_right = 981.0
+offset_bottom = 573.0
+text = "BACK"
