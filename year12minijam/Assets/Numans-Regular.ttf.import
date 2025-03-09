@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dhpgesgoqumer"
-path="res://.godot/imported/Numans-Regular.ttf-4c757279e27ed999c9651c2e046d93e9.fontdata"
+path="res://.godot/imported/Numans-Regular.ttf-9b1448181d2c1f91cd1c02a49738dafe.fontdata"
 
 [deps]
 
-source_file="res://Numans-Regular.ttf"
-dest_files=["res://.godot/imported/Numans-Regular.ttf-4c757279e27ed999c9651c2e046d93e9.fontdata"]
+source_file="res://Assets/Numans-Regular.ttf"
+dest_files=["res://.godot/imported/Numans-Regular.ttf-9b1448181d2c1f91cd1c02a49738dafe.fontdata"]
 
 [params]
 

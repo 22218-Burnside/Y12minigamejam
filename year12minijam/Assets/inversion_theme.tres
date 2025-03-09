@@ -1,3 +1,31 @@
-[gd_resource type="Theme" format=3 uid="uid://dqxtt388wd6s2"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://dqxtt388wd6s2"]
+
+[ext_resource type="FontFile" uid="uid://dhpgesgoqumer" path="res://Assets/Numans-Regular.ttf" id="1_b8m8w"]
+[ext_resource type="StyleBox" uid="uid://0ipebulkbt3d" path="res://Assets/normal button.tres" id="1_frxfx"]
+[ext_resource type="StyleBox" uid="uid://rewme8erpm55" path="res://Assets/hover and pressed button.tres" id="2_ybi33"]
 
 [resource]
+default_font = ExtResource("1_b8m8w")
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/styles/disabled = ExtResource("1_frxfx")
+Button/styles/focus = ExtResource("1_frxfx")
+Button/styles/hover = ExtResource("2_ybi33")
+Button/styles/normal = ExtResource("1_frxfx")
+Button/styles/pressed = ExtResource("2_ybi33")

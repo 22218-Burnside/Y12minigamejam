@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbu7qmmd588yx"]
 
 [ext_resource type="Script" path="res://scripts/deathscreen.gd" id="1_cku0b"]
-[ext_resource type="FontFile" uid="uid://dhpgesgoqumer" path="res://Numans-Regular.ttf" id="2_oonh4"]
+[ext_resource type="FontFile" uid="uid://dhpgesgoqumer" path="res://Assets/Numans-Regular.ttf" id="2_oonh4"]
 
 [node name="Deathscreen" type="Control"]
 layout_mode = 3
