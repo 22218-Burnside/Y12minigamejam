@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/healthbar.gd" id="1_fvbl4"]
 [ext_resource type="Texture2D" uid="uid://c818ayu1fjktg" path="res://sprites/Signs & Skulls/pixilart-drawing.png" id="2_5305o"]
-[ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="3_cg1o6"]
+[ext_resource type="Texture2D" uid="uid://d0sflbeik5y5i" path="res://sprites/Signs & Skulls/dark out line skull2.png" id="3_if4gm"]
 
 [sub_resource type="Animation" id="Animation_5dxk5"]
 length = 0.001
@@ -75,14 +75,15 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_5305o")
 
 [node name="sprint_bar" type="TextureProgressBar" parent="."]
-offset_left = 1792.0
-offset_right = 1920.0
-offset_bottom = 128.0
+offset_left = 1770.0
+offset_right = 1785.0
+offset_bottom = 16.0
+scale = Vector2(10, 10)
 min_value = 5.0
 max_value = 200.0
-value = 200.0
+value = 5.0
 fill_mode = 1
-texture_progress = ExtResource("3_cg1o6")
+texture_under = ExtResource("3_if4gm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false

@@ -132,12 +132,6 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xib5q")
 animation = &"Idle"
 
-[node name="sprint_amount" type="Label" parent="."]
-offset_left = -105.1
-offset_top = -210.835
-offset_right = -65.1
-offset_bottom = -187.835
-
 [node name="gravity_inverted" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_hq5da")
 

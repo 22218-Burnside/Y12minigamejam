@@ -43,21 +43,20 @@ func _physics_process(delta: float) -> void:
 
 
 func _movement(delta:float):
-	$sprint_amount.text = str(sprint_bar)
-	if running:
+	if running and walking:
 		SPEED = 750
 		sprint_bar -= 1
-	if not running:
+	if not running or not walking:
 		SPEED = 500
 		if sprint_bar <200:
 			sprint_bar += 1
-	if Input.is_action_pressed("player_sprint") and sprint_bar >5 and can_sprint and release_sprint:
+	if Input.is_action_pressed("player_sprint") and sprint_bar >5 and can_sprint and release_sprint and not falling:
 		running = true
 		release_sprint = false
 	if not Input.is_action_pressed("player_sprint") or sprint_bar <5:
 		running = false
 	if Input.is_action_just_released("player_sprint"):
-		SPEED = 8
+		SPEED = 500
 		can_sprint = false
 		running = false
 		release_sprint =true	
