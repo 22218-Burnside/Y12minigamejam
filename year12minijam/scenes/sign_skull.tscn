@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv7oqomt02ypa"]
+
+[ext_resource type="Texture2D" uid="uid://bakxc3ltyukyv" path="res://sprites/Signs & Skulls/03.png" id="1_8j0xq"]
+[ext_resource type="Texture2D" uid="uid://d0sflbeik5y5i" path="res://sprites/Signs & Skulls/dark out line skull2.png" id="2_lx3yx"]
+
+[node name="sign_skull" type="Sprite2D"]
+position = Vector2(3869, 945)
+scale = Vector2(2, 2)
+texture = ExtResource("1_8j0xq")
+
+[node name="skull" type="Sprite2D" parent="."]
+position = Vector2(0.125, -5)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_lx3yx")

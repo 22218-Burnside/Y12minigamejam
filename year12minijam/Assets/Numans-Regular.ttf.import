@@ -2,6 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
+<<<<<<<< HEAD:year12minijam/Assets/Numans-Regular.ttf.import
 uid="uid://dhpgesgoqumer"
 path="res://.godot/imported/Numans-Regular.ttf-9b1448181d2c1f91cd1c02a49738dafe.fontdata"
 
@@ -9,6 +10,15 @@ path="res://.godot/imported/Numans-Regular.ttf-9b1448181d2c1f91cd1c02a49738dafe.
 
 source_file="res://Assets/Numans-Regular.ttf"
 dest_files=["res://.godot/imported/Numans-Regular.ttf-9b1448181d2c1f91cd1c02a49738dafe.fontdata"]
+========
+uid="uid://bfdf7xjkieg6m"
+path="res://.godot/imported/MedodicaRegular.otf-66aa40a4f1b59f52eb8810ad773687fb.fontdata"
+
+[deps]
+
+source_file="res://scripts/MedodicaRegular.otf"
+dest_files=["res://.godot/imported/MedodicaRegular.otf-66aa40a4f1b59f52eb8810ad773687fb.fontdata"]
+>>>>>>>> main:year12minijam/scripts/MedodicaRegular.otf.import
 
 [params]
 

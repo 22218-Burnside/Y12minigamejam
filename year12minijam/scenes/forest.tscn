@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=4 uid="uid://b3pblqy7opixp"]
+[gd_scene load_steps=22 format=4 uid="uid://b3pblqy7opixp"]
 
 [ext_resource type="Texture2D" uid="uid://cudfvifdo7yb4" path="res://sprites/Background layers forest/Layer_0009_2.png" id="1_2d0lf"]
 [ext_resource type="Script" path="res://scripts/forest.gd" id="1_hhh1q"]
+[ext_resource type="PackedScene" uid="uid://cbacxdmrgo6q5" path="res://scenes/ui.tscn" id="2_c20g8"]
 [ext_resource type="Texture2D" uid="uid://cp5n5greosxhw" path="res://sprites/Background layers forest/Layer_0010_1.png" id="2_wa22q"]
 [ext_resource type="Texture2D" uid="uid://r06fpo6v1fdx" path="res://sprites/Background layers forest/Layer_0011_0.png" id="3_hwxc3"]
 [ext_resource type="Texture2D" uid="uid://cp2t3slld6xys" path="res://sprites/Background layers forest/Layer_0008_3.png" id="4_cxuku"]
@@ -50,6 +51,8 @@ sources/0 = SubResource("TileSetAtlasSource_52cft")
 
 [node name="forest" type="Node2D"]
 script = ExtResource("1_hhh1q")
+
+[node name="healthbar" parent="." instance=ExtResource("2_c20g8")]
 
 [node name="parallax_back" type="Node2D" parent="."]
 texture_filter = 1
@@ -150,7 +153,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("9_js00b")
 
 [node name="character" parent="." instance=ExtResource("10_214d7")]
-position = Vector2(110.295, 232.785)
+position = Vector2(284, 884)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -197,7 +200,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("14_6jo7x")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(4286, 770)
+position = Vector2(4160, 637)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -208,17 +211,13 @@ shape = SubResource("RectangleShape2D_2r3gi")
 texture = ExtResource("11_yjhgv")
 
 [node name="enemy" parent="." instance=ExtResource("15_34nvq")]
-position = Vector2(9, 937)
+position = Vector2(516, 950)
 
 [node name="enemy2" parent="." instance=ExtResource("15_34nvq")]
-position = Vector2(2178, 935)
+position = Vector2(2202, 953)
 
 [node name="forest_ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_qnn0s")
 volume_db = -10.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="pop" from="enemy" to="character" method="_on_enemy_pop"]
-[connection signal="squished" from="enemy" to="character" method="_on_enemy_squished"]
-[connection signal="pop" from="enemy2" to="character" method="_on_enemy_pop"]
-[connection signal="squished" from="enemy2" to="character" method="_on_enemy_squished"]
