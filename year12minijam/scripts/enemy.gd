@@ -7,18 +7,20 @@ var speed = 0.001
 var damage = 0
 var health = 3
 var can_kill = true
+@onready var coin = preload("res://scenes/coin.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hit_player.connect(get_parent().get_node("character")._on_enemy_hit_player)
 	squished.connect(get_parent().get_node("character")._on_enemy_squished)
 	pop.connect(get_parent().get_node("character")._on_enemy_pop)
+	pop.connect(get_parent()._on_enemy_pop)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	#If health is below 1 enemy is removed
 	if health < 1:
-		pop.emit()
+		pop.emit($Path2D/PathFollow2D.position + self.position)
 		can_kill = false
 		queue_free()
 	$Path2D/PathFollow2D.progress_ratio += speed

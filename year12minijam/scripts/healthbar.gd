@@ -6,6 +6,7 @@ var health = 3
 func _ready() -> void:
 	$ColorRect.show()
 	$AnimationPlayer.play("black_to_clear")
+	$AnimatedSprite2D.play("default")
 
 func _process(_delta: float) -> void:
 	var character = get_parent().get_node("character")
@@ -26,3 +27,7 @@ func _on_character_healthbar(healthbar) -> void:
 		$Sprite2D2.hide()
 	if health == 0:
 		$Sprite2D.hide()
+
+
+func _on_coin_picked_up() -> void:
+	$coin_amount.text = str(get_parent().coin_amount)

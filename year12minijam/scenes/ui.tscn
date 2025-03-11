@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbacxdmrgo6q5"]
+[gd_scene load_steps=16 format=3 uid="uid://cbacxdmrgo6q5"]
 
 [ext_resource type="Script" path="res://scripts/healthbar.gd" id="1_fvbl4"]
 [ext_resource type="Texture2D" uid="uid://c818ayu1fjktg" path="res://sprites/Signs & Skulls/pixilart-drawing.png" id="2_5305o"]
 [ext_resource type="Texture2D" uid="uid://d0sflbeik5y5i" path="res://sprites/Signs & Skulls/dark out line skull2.png" id="3_if4gm"]
+[ext_resource type="Texture2D" uid="uid://7norwo1seync" path="res://sprites/Signs & Skulls/MonedaD.png" id="4_784bd"]
+[ext_resource type="FontFile" uid="uid://bfdf7xjkieg6m" path="res://scripts/MedodicaRegular.otf" id="5_i8usc"]
 
 [sub_resource type="Animation" id="Animation_5dxk5"]
 length = 0.001
@@ -56,6 +58,49 @@ _data = {
 "clear_to_black": SubResource("Animation_rlpln")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_57lgm"]
+atlas = ExtResource("4_784bd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ut1vu"]
+atlas = ExtResource("4_784bd")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6750p"]
+atlas = ExtResource("4_784bd")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7q6g"]
+atlas = ExtResource("4_784bd")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dm1r"]
+atlas = ExtResource("4_784bd")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kttwa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57lgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ut1vu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6750p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7q6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dm1r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="ui" type="CanvasLayer"]
 script = ExtResource("1_fvbl4")
 
@@ -95,3 +140,17 @@ color = Color(0, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_r2baa")
 }
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, 120)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_kttwa")
+
+[node name="coin_amount" type="Label" parent="."]
+offset_left = 72.0
+offset_top = 80.0
+offset_right = 112.0
+offset_bottom = 96.0
+scale = Vector2(5, 5)
+theme_override_fonts/font = ExtResource("5_i8usc")
+text = "0"

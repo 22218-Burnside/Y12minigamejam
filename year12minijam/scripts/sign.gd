@@ -12,7 +12,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	$Sprite2D2/Label.visible_characters = round(characters_visible)
 	if reading:
-		characters_visible += 0.2
+		characters_visible += 0.5
 		$Sprite2D2.show()
 		$Label.visible_characters = 0
 	else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://c63xsrf7jaec7"]
+[gd_scene load_steps=28 format=4 uid="uid://c63xsrf7jaec7"]
 
 [ext_resource type="Texture2D" uid="uid://cso4dl1m2yuys" path="res://sprites/Background layers cave/1.png" id="1_ato8y"]
 [ext_resource type="Script" path="res://scripts/cave.gd" id="1_d6hj5"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cv7oqomt02ypa" path="res://scenes/sign_skull.tscn" id="18_hp8d6"]
 [ext_resource type="PackedScene" uid="uid://g032v4hvlojq" path="res://scenes/enemy.tscn" id="19_jltc5"]
 [ext_resource type="PackedScene" uid="uid://cbacxdmrgo6q5" path="res://scenes/ui.tscn" id="20_0lgl2"]
+[ext_resource type="PackedScene" uid="uid://ds8p685vgqame" path="res://scenes/coin.tscn" id="21_32eoa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkeqt"]
 
@@ -571,7 +572,7 @@ texture_filter = 1
 texture = ExtResource("8_3exhk")
 
 [node name="character" parent="." instance=ExtResource("9_xh8qh")]
-position = Vector2(239, 866)
+position = Vector2(6035, 788)
 
 [node name="cave_ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_40li0")
@@ -643,7 +644,7 @@ offset_right = 17.0
 offset_bottom = 10.0
 scale = Vector2(0.053, 0.053)
 theme_override_fonts/font = ExtResource("17_2mmdh")
-text = "HEY, I forgot to tell you how to move. (It's WASD and SPACE)         
+text = "HEY, I forgot to tell you how to move. (It's WASD or ARROW KEYS and SPACE)         
 What do you mean you already know?
 
 
@@ -748,6 +749,12 @@ flip_v = true
 position = Vector2(0, 2.00058)
 
 [node name="healthbar" parent="." instance=ExtResource("20_0lgl2")]
+
+[node name="coin" parent="." instance=ExtResource("21_32eoa")]
+position = Vector2(5802, 881)
+
+[node name="enemy" parent="." instance=ExtResource("19_jltc5")]
+position = Vector2(7768, 881)
 
 [connection signal="body_entered" from="portal" to="." method="_on_area_2d_body_entered"]
 

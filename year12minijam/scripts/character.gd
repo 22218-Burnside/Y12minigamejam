@@ -18,6 +18,7 @@ var running = false
 var jumping = false
 var level = 1
 var flip_reset = 3
+var coins = 0
 const JUMP_VELOCITY = -550.0
 
 signal healthbar
@@ -28,7 +29,7 @@ signal shake
 @onready var gravity_normal = $gravity_normal
 
 func _ready() -> void:
-	healthbar.connect(get_parent().get_node("healthbar")._on_character_healthbar)
+		healthbar.connect(get_parent().get_node("healthbar")._on_character_healthbar)
 func _physics_process(delta: float) -> void:
 	if position.y > 1100 or position.y <0 or health < 1:
 		if level == 1:
@@ -207,3 +208,7 @@ func _on_enemy_squished() -> void:
 
 func _on_enemy_pop() -> void:
 	$pop.play()
+
+
+func _on_coin_picked_up() -> void:
+	coins += 1
