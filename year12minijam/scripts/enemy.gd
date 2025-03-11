@@ -7,6 +7,7 @@ var speed = 0.001
 var damage = 0
 var health = 3
 var can_kill = true
+@onready var enemy_position = $Path2D/PathFollow2D
 @onready var coin = preload("res://scenes/coin.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,10 +21,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	#If health is below 1 enemy is removed
 	if health < 1:
-		pop.emit($Path2D/PathFollow2D.position + self.position)
+		pop.emit(enemy_position.position + self.position)
 		can_kill = false
 		queue_free()
-	$Path2D/PathFollow2D.progress_ratio += speed
+	enemy_position.progress_ratio += speed
 
 
 func _on_squish_hitbox_area_entered(area: Area2D) -> void:

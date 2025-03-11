@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=6 format=3 uid="uid://dqxtt388wd6s2"]
 
-[ext_resource type="FontFile" uid="uid://dhpgesgoqumer" path="res://Assets/Numans-Regular.ttf" id="1_b8m8w"]
+[ext_resource type="FontFile" uid="uid://c18oy2mh5nbov" path="res://Assets/Numans-Regular.ttf" id="1_b8m8w"]
 [ext_resource type="StyleBox" uid="uid://0ipebulkbt3d" path="res://Assets/normal button.tres" id="1_frxfx"]
 [ext_resource type="StyleBox" uid="uid://rewme8erpm55" path="res://Assets/hover and pressed button.tres" id="2_ybi33"]
 
