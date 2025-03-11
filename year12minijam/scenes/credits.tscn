@@ -1,32 +1,83 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhlfrmsudf5rw"]
+[gd_scene load_steps=7 format=3 uid="uid://dhlfrmsudf5rw"]
 
 [ext_resource type="FontFile" uid="uid://cxlt1868mws6c" path="res://scenes/Numans-Regular.ttf" id="1_hkxti"]
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_iwpyj"]
+[ext_resource type="Texture2D" uid="uid://vuscjb4u2v6o" path="res://sprites/Layers/Day/Back.png" id="2_p6d5s"]
+[ext_resource type="Texture2D" uid="uid://c8h6disk7jqtu" path="res://sprites/Layers/Day/Clouds.png" id="3_jntu5"]
+[ext_resource type="Texture2D" uid="uid://4nlis8a6bn5l" path="res://sprites/Layers/Day/Middle.png" id="4_hnsck"]
+[ext_resource type="Theme" uid="uid://dqxtt388wd6s2" path="res://Assets/inversion_theme.tres" id="5_g7pg8"]
 
-[node name="credits" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="credits" type="Node2D"]
 script = ExtResource("1_iwpyj")
 
-[node name="Button" type="Button" parent="."]
+[node name="day" type="Node2D" parent="."]
+position = Vector2(0, 595)
+metadata/_edit_lock_ = true
+
+[node name="Parallax2D" type="Parallax2D" parent="day"]
+repeat_size = Vector2(1680, 0)
+repeat_times = 5
+
+[node name="Back" type="Sprite2D" parent="day/Parallax2D"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("2_p6d5s")
+
+[node name="Parallax2D2" type="Parallax2D" parent="day"]
+repeat_size = Vector2(1680, 0)
+autoscroll = Vector2(30, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="day/Parallax2D2"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("3_jntu5")
+
+[node name="Parallax2D3" type="Parallax2D" parent="day"]
+repeat_size = Vector2(720, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="day/Parallax2D3"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("4_hnsck")
+offset = Vector2(70, 0)
+
+[node name="Node2D" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Button" type="Button" parent="Node2D"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -93.0
+offset_top = -210.0
+offset_right = 93.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "BACK"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Node2D"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -93.0
-offset_top = -54.5
-offset_right = 93.0
-offset_bottom = 54.5
+offset_left = -350.0
+offset_top = -350.0
+offset_right = 350.0
+offset_bottom = 286.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "BACK"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 1
-offset_right = 1920.0
-offset_bottom = 1079.0
+theme = ExtResource("5_g7pg8")
 theme_override_fonts/normal_font = ExtResource("1_hkxti")
 theme_override_fonts/mono_font = ExtResource("1_hkxti")
 theme_override_fonts/italics_font = ExtResource("1_hkxti")
@@ -34,21 +85,21 @@ theme_override_fonts/bold_italics_font = ExtResource("1_hkxti")
 theme_override_fonts/bold_font = ExtResource("1_hkxti")
 theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
-text = "[font_size=40][center][u][b]CREDITS[/b][/u][/center][/font_size]
+text = "[font_size=80][center][u][b]CREDITS[/b][/u][/center][/font_size]
 
-[center]Programmer - Hayden[/center]
+[font_size=20][center]Programmer - Hayden[/center]
 [center]Artist - Aine[/center]
-[center]Project Manager - Bennie[/center]
+[center]Project Manager - Bennie[/center][/font_size]
 
-[font_size=25][b][center][u]Assets[/u][/center][/b][/font_size]
-[center]Ansimuz - Sea Background[/center]
+[font_size=50][b][center][u]Assets[/u][/center][/b][/font_size]
+[font_size=20][center]Ansimuz - Sea Background[/center]
 [center]Eder Muniz - Forest and Clouds Background[/center]
 [center]SladDashGamesStudio - Cave Background[/center]
-[center]WaifuForEver - Heart Sprite[/center]
+[center]WaifuForEver - Heart Sprite[/center][/font_size]
 
-[font_size=25][center][b][u]Sound Effects and Music[/u][/b][/center][/font_size]
-[center]Cave Ambience - JoelFazhari[/center]
+[font_size=50][center][b][u]Sound Effects and Music[/u][/b][/center][/font_size]
+[font_size=20][center]Cave Ambience - JoelFazhari[/center]
 [center]Forest Ambience - AudioPapkin[/center]
-[center]Clouds Ambience - haniebal (freesound)[/center]"
+[center]Clouds Ambience - haniebal (freesound)[/center][/font_size]"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Node2D/Button" to="." method="_on_button_pressed"]
