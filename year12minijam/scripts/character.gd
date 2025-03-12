@@ -51,7 +51,7 @@ func _movement(delta:float):
 		SPEED = 500
 		if sprint_bar <200:
 			sprint_bar += 1
-	if Input.is_action_pressed("player_sprint") and sprint_bar >5 and can_sprint and release_sprint and not falling:
+	if Input.is_action_pressed("player_sprint") and sprint_bar >5 and can_sprint and release_sprint:
 		running = true
 		release_sprint = false
 	if not Input.is_action_pressed("player_sprint") or sprint_bar <5:
@@ -61,7 +61,7 @@ func _movement(delta:float):
 		can_sprint = false
 		running = false
 		release_sprint =true	
-		$sprint_timer.start(1)
+		$sprint_timer.start()
 	if Input.is_action_just_pressed("player_flip") and canflip and flip_reset > 0:
 		velocity.y *= 0.5
 		squish_power = 3
