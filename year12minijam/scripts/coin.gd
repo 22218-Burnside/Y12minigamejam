@@ -2,6 +2,7 @@ extends CharacterBody2D
 var can_pickup = false
 var flip = 1
 var bounce_up = true
+var in_range = false
 signal picked_up
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +19,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if in_range and can_pickup:
+		picked_up.emit()
+		queue_free()
 	velocity.x = 0
 	if not bounce_up:
 		if not is_on_ceiling() and not is_on_floor():
@@ -26,6 +30,10 @@ func _process(_delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "character" and can_pickup:
-		picked_up.emit()
-		queue_free()
+	if body.name == "character":
+		in_range = true
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.name == "character":
+		in_range = false
