@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxFlat" format=3 uid="uid://0ipebulkbt3d"]
+
+[resource]
+bg_color = Color(0.292189, 0.2922, 0.328953, 1)
+border_width_bottom = 7
+border_color = Color(0.235294, 0.235294, 0.266667, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 5
+shadow_size = 4
+shadow_offset = Vector2(8, 8)

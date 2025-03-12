@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c818ayu1fjktg" path="res://sprites/Signs & Skulls/pixilart-drawing.png" id="2_5305o"]
 [ext_resource type="Texture2D" uid="uid://d0sflbeik5y5i" path="res://sprites/Signs & Skulls/dark out line skull2.png" id="3_if4gm"]
 [ext_resource type="Texture2D" uid="uid://7norwo1seync" path="res://sprites/Signs & Skulls/MonedaD.png" id="4_784bd"]
-[ext_resource type="FontFile" uid="uid://bfdf7xjkieg6m" path="res://scripts/MedodicaRegular.otf" id="5_i8usc"]
+[ext_resource type="FontFile" uid="uid://bogrj7bfr17uv" path="res://scripts/MedodicaRegular.otf" id="5_i8usc"]
 
 [sub_resource type="Animation" id="Animation_5dxk5"]
 length = 0.001

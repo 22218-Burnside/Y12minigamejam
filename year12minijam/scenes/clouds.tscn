@@ -317,6 +317,11 @@ sprite_frames = SubResource("SpriteFrames_elisw")
 [node name="enemy" parent="." instance=ExtResource("20_2t2o1")]
 position = Vector2(1374, 929)
 
+<<<<<<< HEAD
+[connection signal="hit_player" from="enemy" to="character" method="_on_enemy_hit_player"]
+[connection signal="pop" from="enemy" to="character" method="_on_enemy_pop"]
+[connection signal="squished" from="enemy" to="character" method="_on_enemy_squished"]
+=======
 [node name="Path2D" parent="enemy" index="0"]
 curve = SubResource("Curve2D_5uoqd")
 
@@ -340,6 +345,7 @@ shape = SubResource("RectangleShape2D_pf8jc")
 texture = ExtResource("22_iviy5")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+>>>>>>> main
 
 [editable path="enemy"]
 [editable path="enemy2"]
