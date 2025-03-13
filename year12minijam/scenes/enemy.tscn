@@ -54,7 +54,7 @@ shape = SubResource("RectangleShape2D_mhw4w")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D/PathFollow2D/collision_hitbox"]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_pxe5y")
-frame_progress = 0.843264
+frame_progress = 0.672462
 
 [node name="squish_hitbox" type="Area2D" parent="Path2D/PathFollow2D"]
 
