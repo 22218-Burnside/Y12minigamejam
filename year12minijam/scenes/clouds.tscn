@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://dptq7muregf6v"]
+[gd_scene load_steps=39 format=4 uid="uid://dptq7muregf6v"]
 
 [ext_resource type="Script" path="res://scripts/clouds.gd" id="1_50vrx"]
 [ext_resource type="Texture2D" uid="uid://cxsqvltk35cco" path="res://sprites/Background layers cloud/Background.png" id="1_162ux"]
@@ -191,6 +191,12 @@ point_count = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pf8jc"]
 
+[sub_resource type="Curve2D" id="Curve2D_w6q8u"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 305, -520, 0, 0, 0, 0, 689, -520, 0, 0, 0, 0, 795, -654, 0, 0, 0, 0, 1387, -654, 0, 0, 0, 0, 1997, -152, 0, 0, 0, 0, 1653, -160, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
 [node name="Clouds" type="Node2D"]
 script = ExtResource("1_50vrx")
 
@@ -363,9 +369,17 @@ shape = SubResource("RectangleShape2D_pf8jc")
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("22_iviy5")
 
+[node name="enemy5" parent="." instance=ExtResource("20_2t2o1")]
+position = Vector2(5431, 913)
+
+[node name="Path2D" parent="enemy5" index="0"]
+position = Vector2(0, 1)
+curve = SubResource("Curve2D_w6q8u")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 
 [editable path="enemy"]
 [editable path="enemy2"]
 [editable path="enemy3"]
 [editable path="enemy4"]
+[editable path="enemy5"]
