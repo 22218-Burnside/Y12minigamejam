@@ -12,8 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://bbyoigg586cx1" path="res://sprites/Background layers cave/9.png" id="9_wskwv"]
 [ext_resource type="PackedScene" uid="uid://12p41m50rd35" path="res://scenes/character.tscn" id="9_xh8qh"]
 [ext_resource type="Texture2D" uid="uid://mu5n0i4ipida" path="res://sprites/Background layers cave/cave tileset.png" id="10_kvxni"]
+[ext_resource type="Texture2D" uid="uid://behe5ox5gi0co" path="res://sprites/Portal.png" id="12_hect5"]
 [ext_resource type="AudioStream" uid="uid://b0b3ox35uejjl" path="res://Sound/cave_ambience.mp3" id="13_40li0"]
-[ext_resource type="Texture2D" uid="uid://n8hmqd28ydyv" path="res://sprites/icon.svg" id="14_afy3h"]
 [ext_resource type="PackedScene" uid="uid://jlioj6bq7i33" path="res://scenes/sign.tscn" id="15_8ctpa"]
 [ext_resource type="Texture2D" uid="uid://dw7gea5q2yw5e" path="res://sprites/Signs & Skulls/04.png" id="16_0butb"]
 [ext_resource type="FontFile" uid="uid://bogrj7bfr17uv" path="res://scripts/MedodicaRegular.otf" id="17_2mmdh"]
@@ -21,7 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://g032v4hvlojq" path="res://scenes/enemy.tscn" id="19_jltc5"]
 [ext_resource type="PackedScene" uid="uid://b5lklymtruotn" path="res://scenes/ui.tscn" id="20_0lgl2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkeqt"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ck56i"]
+radius = 47.7783
 
 [sub_resource type="Curve2D" id="Curve2D_cwh36"]
 _data = {
@@ -576,9 +577,6 @@ metadata/_edit_lock_ = true
 texture_filter = 1
 texture = ExtResource("8_3exhk")
 
-[node name="character" parent="." instance=ExtResource("9_xh8qh")]
-position = Vector2(855, 868)
-
 [node name="cave_ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_40li0")
 
@@ -588,10 +586,13 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="portal"]
 scale = Vector2(5, 5)
-shape = SubResource("RectangleShape2D_vkeqt")
+shape = SubResource("CircleShape2D_ck56i")
 
 [node name="Sprite2D" type="Sprite2D" parent="portal"]
-texture = ExtResource("14_afy3h")
+texture = ExtResource("12_hect5")
+
+[node name="character" parent="." instance=ExtResource("9_xh8qh")]
+position = Vector2(9819, 790)
 
 [node name="enemy" parent="." instance=ExtResource("19_jltc5")]
 position = Vector2(7768, 881)

@@ -217,7 +217,7 @@ volume_db = -10.0
 position = Vector2(1557, 955)
 
 [node name="enemy2" parent="." instance=ExtResource("15_34nvq")]
-position = Vector2(3166, 955)
+position = Vector2(1950, 955)
 
 [node name="enemy3" parent="." instance=ExtResource("15_34nvq")]
 position = Vector2(2371, 955)

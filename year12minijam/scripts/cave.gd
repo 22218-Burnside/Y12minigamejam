@@ -12,7 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	$portal/Sprite2D.rotation_degrees += 0.5
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "character" and coin_amount >= 3:
