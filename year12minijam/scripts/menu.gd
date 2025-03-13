@@ -17,8 +17,9 @@ func _process(_delta: float) -> void:
 		transparency_flip = 1
 func _on_play_button_pressed() -> void:
 	$AnimationPlayer.play("clear_to_black")
-	$"Play-Button".hide()
-	$"Quit-Button".hide()
+	$"menu/Play-Button".hide()
+	$"menu/Quit-Button".hide()
+	$"menu/Credits-Button".hide()
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file("res://scenes/cave.tscn")
 
@@ -27,4 +28,10 @@ func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
 func _on_credits_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/credits.tscn")
+	$credits.show()
+	$menu.hide()
+
+
+func _on_button_pressed() -> void:
+	$credits.hide()
+	$menu.show()

@@ -11,6 +11,7 @@ var can_kill = true
 @onready var coin = preload("res://scenes/coin.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Path2D/PathFollow2D/collision_hitbox/AnimatedSprite2D.play("default")
 	hit_player.connect(get_parent().get_node("character")._on_enemy_hit_player)
 	squished.connect(get_parent().get_node("character")._on_enemy_squished)
 	pop.connect(get_parent().get_node("character")._on_enemy_pop)
