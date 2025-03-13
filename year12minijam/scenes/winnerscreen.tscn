@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/winnerscreen.gd" id="1_u5l5o"]
 [ext_resource type="Texture2D" uid="uid://cxsqvltk35cco" path="res://sprites/Background layers cloud/Background.png" id="2_nncqs"]
-[ext_resource type="FontFile" uid="uid://dhpgesgoqumer" path="res://Assets/Numans-Regular.ttf" id="3_vmr3e"]
+[ext_resource type="FontFile" uid="uid://c18oy2mh5nbov" path="res://Assets/Numans-Regular.ttf" id="3_vmr3e"]
 
 [node name="Winnerscreen" type="Control"]
 layout_mode = 3

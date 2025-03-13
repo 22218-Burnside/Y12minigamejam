@@ -17,10 +17,10 @@
 [ext_resource type="PackedScene" path="res://scenes/sign.tscn" id="15_8ctpa"]
 [ext_resource type="Texture2D" uid="uid://dw7gea5q2yw5e" path="res://sprites/Signs & Skulls/04.png" id="16_0butb"]
 [ext_resource type="FontFile" uid="uid://bogrj7bfr17uv" path="res://scripts/MedodicaRegular.otf" id="17_2mmdh"]
-[ext_resource type="PackedScene" path="res://scenes/sign_skull.tscn" id="18_hp8d6"]
+[ext_resource type="PackedScene" uid="uid://7mrrqbsdn4xe" path="res://scenes/sign_skull.tscn" id="18_hp8d6"]
 [ext_resource type="PackedScene" uid="uid://g032v4hvlojq" path="res://scenes/enemy.tscn" id="19_jltc5"]
-[ext_resource type="PackedScene" path="res://scenes/ui.tscn" id="20_0lgl2"]
-[ext_resource type="PackedScene" path="res://scenes/coin.tscn" id="21_32eoa"]
+[ext_resource type="PackedScene" uid="uid://b5lklymtruotn" path="res://scenes/ui.tscn" id="20_0lgl2"]
+[ext_resource type="PackedScene" uid="uid://deo1etmv8rk3l" path="res://scenes/coin.tscn" id="21_32eoa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkeqt"]
 
@@ -607,7 +607,6 @@ rotation = 0.335103
 [node name="sign_skull4" parent="skull signs" instance=ExtResource("18_hp8d6")]
 position = Vector2(7808, 260)
 rotation = -0.47822
-scale = Vector2(2, 2)
 flip_v = true
 
 [node name="skull" parent="skull signs/sign_skull4" index="0"]
@@ -617,7 +616,6 @@ flip_v = true
 [node name="sign_skull5" parent="skull signs" instance=ExtResource("18_hp8d6")]
 position = Vector2(9023, 257)
 rotation = -0.47822
-scale = Vector2(2, 2)
 flip_v = true
 
 [node name="skull" parent="skull signs/sign_skull5" index="0"]

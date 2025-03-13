@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ds8p685vgqame"]
+[gd_scene load_steps=11 format=3 uid="uid://deo1etmv8rk3l"]
 
 [ext_resource type="Script" path="res://scripts/coin.gd" id="1_rpaa3"]
 [ext_resource type="Texture2D" uid="uid://7norwo1seync" path="res://sprites/Signs & Skulls/MonedaD.png" id="2_gi0vp"]

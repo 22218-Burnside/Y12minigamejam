@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cbacxdmrgo6q5"]
+[gd_scene load_steps=16 format=3 uid="uid://b5lklymtruotn"]
 
 [ext_resource type="Script" path="res://scripts/healthbar.gd" id="1_fvbl4"]
 [ext_resource type="Texture2D" uid="uid://c818ayu1fjktg" path="res://sprites/Signs & Skulls/pixilart-drawing.png" id="2_5305o"]
