@@ -635,10 +635,10 @@ tile_set = SubResource("TileSet_tce0h")
 visible = false
 position = Vector2(1775, 881)
 
+[node name="Sprite2D2" type="Sprite2D" parent="sign"]
+visible = false
+=======
 [node name="Sprite2D2" type="Sprite2D" parent="tutorial signs/sign"]
-position = Vector2(0, -80.5)
-scale = Vector2(20, 20)
-texture = ExtResource("16_0butb")
 
 [node name="Label" type="Label" parent="tutorial signs/sign/Sprite2D2"]
 texture_filter = 1

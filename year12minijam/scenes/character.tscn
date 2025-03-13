@@ -126,6 +126,7 @@ limit_bottom = 1150
 script = ExtResource("2_3ygd5")
 
 [node name="sprint_timer" type="Timer" parent="."]
+wait_time = 0.3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
