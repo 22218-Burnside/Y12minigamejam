@@ -632,7 +632,6 @@ tile_set = SubResource("TileSet_tce0h")
 [node name="tutorial signs" type="Node2D" parent="."]
 
 [node name="sign" parent="tutorial signs" instance=ExtResource("15_8ctpa")]
-visible = false
 position = Vector2(1775, 881)
 
 [node name="Sprite2D2" type="Sprite2D" parent="tutorial signs/sign"]
