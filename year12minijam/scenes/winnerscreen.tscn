@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkxv7wuvbmtbs"]
+[gd_scene load_steps=9 format=3 uid="uid://bkxv7wuvbmtbs"]
 
 [ext_resource type="Script" path="res://scripts/winnerscreen.gd" id="1_u5l5o"]
-[ext_resource type="Texture2D" uid="uid://cxsqvltk35cco" path="res://sprites/Background layers cloud/Background.png" id="2_nncqs"]
+[ext_resource type="Texture2D" uid="uid://vuscjb4u2v6o" path="res://sprites/Layers/Day/Back.png" id="3_g6rfa"]
 [ext_resource type="FontFile" uid="uid://c18oy2mh5nbov" path="res://Assets/Numans-Regular.ttf" id="3_vmr3e"]
+[ext_resource type="Texture2D" uid="uid://c8h6disk7jqtu" path="res://sprites/Layers/Day/Clouds.png" id="4_81mbn"]
+[ext_resource type="Texture2D" uid="uid://4nlis8a6bn5l" path="res://sprites/Layers/Day/Middle.png" id="5_mgn8o"]
+[ext_resource type="Texture2D" uid="uid://c54m1x3ulnykl" path="res://sprites/Layers/Noon/Back.png" id="6_fuq60"]
+[ext_resource type="Texture2D" uid="uid://bl1nlli7cthpb" path="res://sprites/Layers/Noon/Clouds.png" id="7_lf1uo"]
+[ext_resource type="Texture2D" uid="uid://dnhxhtssvrt75" path="res://sprites/Layers/Noon/Middle.png" id="8_wtjqh"]
 
 [node name="Winnerscreen" type="Control"]
 layout_mode = 3
@@ -12,12 +17,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u5l5o")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(940, 549)
-scale = Vector2(3, 4.5)
-texture = ExtResource("2_nncqs")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -76,6 +75,83 @@ theme_override_fonts/font = ExtResource("3_vmr3e")
 theme_override_font_sizes/font_size = 120
 text = "Quit Game
 "
+
+[node name="day" type="Node2D" parent="."]
+position = Vector2(0, 595)
+metadata/_edit_lock_ = true
+
+[node name="Parallax2D" type="Parallax2D" parent="day"]
+repeat_size = Vector2(1680, 0)
+repeat_times = 5
+metadata/_edit_lock_ = true
+
+[node name="Back" type="Sprite2D" parent="day/Parallax2D"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("3_g6rfa")
+metadata/_edit_lock_ = true
+
+[node name="Parallax2D2" type="Parallax2D" parent="day"]
+repeat_size = Vector2(1680, 0)
+autoscroll = Vector2(30, 0)
+repeat_times = 5
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="day/Parallax2D2"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("4_81mbn")
+metadata/_edit_lock_ = true
+
+[node name="Parallax2D3" type="Parallax2D" parent="day"]
+repeat_size = Vector2(720, 0)
+repeat_times = 5
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="day/Parallax2D3"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("5_mgn8o")
+offset = Vector2(70, 0)
+metadata/_edit_lock_ = true
+
+[node name="noon" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 595)
+metadata/_edit_lock_ = true
+
+[node name="Parallax2D" type="Parallax2D" parent="noon"]
+repeat_size = Vector2(1680, 0)
+repeat_times = 10
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="noon/Parallax2D"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("6_fuq60")
+metadata/_edit_lock_ = true
+
+[node name="Parallax2D2" type="Parallax2D" parent="noon"]
+repeat_size = Vector2(1680, 0)
+autoscroll = Vector2(30, 0)
+repeat_times = 10
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="noon/Parallax2D2"]
+scale = Vector2(5, 5)
+texture = ExtResource("7_lf1uo")
+metadata/_edit_lock_ = true
+
+[node name="Parallax2D3" type="Parallax2D" parent="noon"]
+scroll_offset = Vector2(-130, 0)
+repeat_size = Vector2(720, 0)
+repeat_times = 10
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="noon/Parallax2D3"]
+scale = Vector2(5, 5)
+texture = ExtResource("8_wtjqh")
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

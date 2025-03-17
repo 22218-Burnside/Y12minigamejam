@@ -6,6 +6,8 @@ func _ready() -> void:
 	$character.level = 2
 	$forest_ambience.play()
 
+func _process(_delta: float) -> void:
+		$portal/Sprite2D.rotation_degrees += 0.5
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "character":
 		$healthbar/AnimationPlayer.play("clear_to_black")
