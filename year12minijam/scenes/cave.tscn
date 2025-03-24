@@ -633,7 +633,7 @@ metadata/_edit_group_ = true
 curve = SubResource("Curve2D_fasrm")
 
 [node name="PathFollow2D" parent="enemy4/Path2D" index="0"]
-position = Vector2(495.069, 0)
+position = Vector2(495.068, 0)
 progress = 515.0
 
 [node name="AnimatedSprite2D" parent="enemy4/Path2D/PathFollow2D/collision_hitbox" index="1"]
